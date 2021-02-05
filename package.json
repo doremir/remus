@@ -3,13 +3,8 @@
   "name": "remus",
   "version": "0.0.1",
   "description": "Generalized music representation",
-  "main": "dist/remus.js",
-  "scripts": {
-    "postinstall": "npx rollup -c rollup.config.js"
-  },
+  "main": "remus.js",
   "dependencies": {
-    "@rollup/plugin-commonjs": "^17.1.0",
-    "@rollup/plugin-node-resolve": "^11.1.1",
     "fraction.js": "^4.0.13",
     "helmholtz": "^2.0.2",
     "interval-coords": "^1.1.1",
