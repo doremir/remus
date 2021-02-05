@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "remus",
   "version": "0.0.1",
   "description": "Generalized music representation",
