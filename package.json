@@ -1,0 +1,20 @@
+{
+  "name": "remus",
+  "version": "0.0.1",
+  "description": "Generalized music representation",
+  "main": "remus.js",
+  "dependencies": {
+    "fraction.js": "^4.0.13",
+    "helmholtz": "^2.0.2",
+    "interval-coords": "^1.1.1",
+    "jquery": "^3.5.1",
+    "notecoord": "^1.1.0",
+    "scientific-notation": "^1.0.2",
+    "svg.js": "^2.7.1",
+    "underscore": "^1.12.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
