@@ -9,6 +9,7 @@
     "helmholtz": "^2.0.2",
     "interval-coords": "^1.1.1",
     "jquery": "^3.5.1",
+    "note-split": "git+https://github.com/doremir/note-split.git",
     "notecoord": "^1.1.0",
     "scientific-notation": "^1.0.2",
     "svg.js": "^2.7.1",
