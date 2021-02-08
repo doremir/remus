@@ -15,8 +15,5 @@
     "svg.js": "^2.7.1",
     "underscore": "^1.12.0",
     "xml2js": "^0.4.23"
-  },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.24.1"
   }
 }
