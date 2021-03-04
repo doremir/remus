@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">lib/classes/event/event.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/event/event.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import Item from &apos;../item.js&apos;;
+import Duration from &apos;../duration.js&apos;;
+import Syllable from &apos;../syllable.js&apos;;
+import _ from &apos;underscore&apos;;
+import { createState, stepState } from &apos;../../resolver.js&apos;;
+import Fraction from &apos;fraction.js&apos;;
+
+/**
+ * Base class for all Items that can be placed in a timeline.
+ *
+ * All events have a position (although it may be implicit). Some
+ * events also have a duration (Note, Rest, Voice, etc.), while other
+ * have no extent (Key, Time, etc.)
+ *
+ * Durations need not always be explicit: under certain circumstances,
+ * durations are inherited either &quot;upward&quot; or &quot;downward&quot; in the tree.
+ *
+ * For example, Notes in a NoteChord inherit their duration from the
+ * NoteChord, unless overridden in the individual Note objects. A
+ * VoiceContainer, on the other hand, automatically expands to the
+ * duration of its child Voice objects, unless the VoiceContainer have
+ * an explicit duration.
+ *
+ * To get the absolute position or duration of an event, the event
+ * need to be *resolved*. After resolving, the absolute time values
+ * can be read from `event.cache`:
+ *
+ * Key                              | Value
+ * -------------------------------- | -------------------------
+ * `event.cache.absTime`            | Start time in seconds
+ * `event.cache.absWn`              | Start time in wn (whole notes)
+ * `event.cache.endTime`            | End time in seconds (not relevant for events that lack extent)
+ * `event.cache.endWn`              | End time in wn
+ * `event.cache.trimmedStartTime`   | Start time in seconds, taking trim into account
+ * `event.cache.trimmedStartWn`     | Trimmed start time in wn
+ * `event.cache.trimmedEndTime`     | Trimmed end time in seconds
+ * `event.cache.trimmedEndWn`       | Trimmed end time in wn
+ * `event.cache.skip`               | Amount of time in seconds to skip from the beginning, e.g. for audio files
+ * `event.cache.playbackTimingTime` | Playback timing offset in seconds
+ *
+ *  ### Other cache values
+ *
+ * Key                            | Value
+ * ------------------------------ | ----------------------
+ * `event.cache.amp`              | Volume. 1.0 is the default
+ * `event.cache.enabled`          | Item and all of its anchestors is enabled
+
+ */
+export default class Event extends Item {
+  /**
+   * @ignore
+   */
+  static getSlots() {
+    return super.getSlots().concat(
+      [&apos;position&apos;, &apos;duration&apos;, &apos;anchor&apos;, &apos;offset&apos;, &apos;trimLeft&apos;, &apos;trimRight&apos;, &apos;amp&apos;, &apos;repeat&apos;, &apos;stepDuration&apos;,
+      &apos;playbackTiming&apos;, &apos;score&apos;, &apos;layer&apos;, &apos;syllables&apos;]);
+  }
+
+  /**
+   * @ignore
+   */
+  init() {
+    super.init();
+
+    if (this.offset) {
+      console.warn(&apos;offset is deprecated&apos;);
+    }
+
+    /** @type {Duration} */
+    this.position = this.initSubObject(this.position, Duration);
+    /** @type {Duration} */
+    this.duration = this.initSubObject(this.duration, Duration);
+    /** @type {Duration} */
+    this.anchor = this.initSubObject(this.anchor, Duration);
+    /** @type {Duration} */
+    this.offset = this.initSubObject(this.offset, Duration);
+    /** @type {Duration} */
+    this.trimLeft = this.initSubObject(this.trimLeft, Duration);
+    /** @type {Duration} */
+    this.trimRight = this.initSubObject(this.trimRight, Duration);
+    /** @type {Duration} */
+    this.playbackTiming = this.initSubObject(this.playbackTiming, Duration);
+    /** @type {Number} */
+    this.amp = this.amp === undefined ? 1 : this.amp;
+    /** @type {Number} */
+    this.repeat = this.repeat === undefined ? 1 : this.repeat;
+    /** @type {boolean} */
+    this.stepDuration = this.stepDuration === undefined ? this.defaultStepDuration : this.stepDuration;
+    /** @type {?Number} */
+    this.layer = this.layer === undefined ? null : this.layer;
+    /** @type {Syllable[]} */
+    this.syllables = this.initSubObjects(this.syllables, Syllable);
+    return this;
+  }
+
+  /**
+   * @ignore
+   */
+  doValidate() {
+    var validator = super.doValidate();
+    validator.hasTypeOrNull(this, &apos;position&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;duration&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;anchor&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;offset&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;trimLeft&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;trimRight&apos;, Duration);
+    validator.hasTypeOrNull(this, &apos;playbackTiming&apos;, Duration);
+    validator.isNumber(this, &apos;amp&apos;, 0, null);
+    validator.isIntegerOrNull(this, &apos;layer&apos;, 0);
+    validator.isInteger(this, &apos;repeat&apos;, 0, null);
+    validator.isBoolean(this, &apos;stepDuration&apos;);
+    return validator;
+  }
+
+  /**
+   * @param {boolean} [force=false] Force resolve, even if `shouldResolve` is `false`
+   */
+  resolve(force = false) {
+    // super.resolve(force);
+    // if (force || this.shouldResolve) {
+    if (true) { // TEMP: always resolve, because shouldResolve is not implemented correctly!
+      var changed = this.resolveEvents(force) || changed;
+      if (changed || force) {
+        this.resolveTrim();
+        this.resolveRepeats();
+      }
+    }
+    this.localResolve();
+  }
+
+  /**
+   * @protected
+   * Called internally by resolveEvents
+   */
+  resolveMetas(force) {
+    // See EventContainer for more interesting stuff
+    this.cache.globals = (this.parent &amp;&amp; this.parent.cache.globals) ? this.parent.cache.globals : [];
+    return false;
+  }
+
+  /**
+   * @protected
+   * Called internally by resolve
+   */
+  resolveEvents(force) {
+    // console.warn(&quot;resolving &quot;, this);
+
+    if (this.parent &amp;&amp; this.parent.shouldResolve) {
+      console.warn(&apos;Using outdated parent&apos;);
+    }
+
+    // Remember old values for comparision
+    var oldAbsTime = this.cache.absTime;
+    var oldEndTime = this.cache.endTime;
+    var oldAbsWn = this.cache.absWn;
+    var oldEndWn = this.cache.endWn;
+
+    // Simple inherited properties
+    this.cache.enabled = this.parent ? !!(this.parent.cache.enabled &amp;&amp; this.enabled) : !!this.enabled;
+    let parentAmp = this.parent ? this.parent.cache.amp : 1.0;
+    this.cache.amp = _.isNumber(this.amp) ? (this.amp * parentAmp) : parentAmp;
+    let parentScale = this.parent ? this.parent.cache.scale : new Fraction(1);
+    this.cache.scale = this.scale ? parentScale.mul(this.scale) : parentScale;
+
+    // Start time
+    var refTime = this.parent ? this.parent.cache.absTime : new Fraction(0);   // reference point
+    var refWn = this.parent ? this.parent.cache.absWn : new Fraction(0);
+    var defTime = refTime;                                                // default, if no position given
+    var defWn = refWn;
+    if (this.parent &amp;&amp; this.parent.eventTimeMode === &apos;relative&apos; &amp;&amp;
+        this.cache.prevSibling &amp;&amp; this.cache.prevSibling.stepDuration) {
+      defTime = this.cache.prevSibling.cache.endTime;
+      defWn = this.cache.prevSibling.cache.endWn;
+    }
+    this.cache.absTime = defTime;
+    this.cache.absWn = defWn;
+    if (this.parent) {
+      var state = createState(this, this.parent ? this.parent.cache.globals : []);
+      if (this.position &amp;&amp; !this.position.isZero()) {
+        stepState(state, this.position, this.parent.cache.globals);
+        this.cache.absTime = state.absTime;
+        this.cache.absWn = state.absWn;
+      }
+      this.cache.tempo = state.tempo;
+      this.cache.time = state.time;
+      this.cache.sPerWn = state.sPerWn;
+      this.cache.key = state.key;
+    } else {
+      if (this.position &amp;&amp; !this.position.isZero()) {
+        throw Error(&apos;Top object cannot have a non-zero position&apos;);
+      }
+    }
+
+    // Now that we know the start time of the event, we resolve the meta list
+    this.resolveMetas();
+
+    // console.log(&quot;After resolveMetas() for &quot;, this, this.cache.globals);
+
+    // Inherit explicit durations from parent
+    var duration = this.duration || ((this.inheritExplitDuration &amp;&amp; this.parent) ? this.parent.cache.duration : null);
+    this.cache.duration = duration;
+
+    // Mark as resolved before propagating to children
+    this.shouldResolve = false;
+
+    // Propagate
+    var children = this.events ? this.events.slice(0) : [];
+    var maxEndTime = this.cache.absTime;
+    var maxEndWn = this.cache.absWn;
+    this.cache.children = children;
+    for (var no = 0; no &lt; children.length; no++) {
+      var child = children[no];
+      child.cache.no = no;
+      child.cache.prevSibling = children[no - 1];
+      child.cache.nextSibling = children[no + 1];
+      child.resolveEvents(force);
+      child.localResolve();
+      if (child.cache.endTime &gt; maxEndTime) maxEndTime = child.cache.endTime;
+      if (child.cache.endWn &gt; maxEndWn) maxEndWn = child.cache.endWn;
+    }
+
+    if (duration &amp;&amp; !duration.isZero()) { // Explicit duration in this object, or inherited from parent
+      state = createState(this, this.cache.globals);
+      stepState(state, duration, this.cache.globals);
+      this.cache.endTime = state.absTime;
+      this.cache.endWn = state.absWn;
+    } else {
+      this.cache.endTime = maxEndTime;
+      this.cache.endWn = maxEndWn;
+    }
+
+    // Temp: cache.durations
+    // if (this.cache.endWn) {
+    //   this.cache.durations = [this.cache.endWn.sub(this.cache.absWn)];
+    // }
+
+    // Return true if timing changed
+    return (this.cache.absTime !== oldAbsTime ||
+      this.cache.endTime !== oldEndTime ||
+      !this.cache.absWn.equals(oldAbsWn) ||
+      !this.cache.endWn.equals(oldEndWn));
+  }
+
+  /**
+   * @protected
+   * Called internally by resolve
+   */
+  resolveTrim() {
+    // Start values are the boundaries of the event
+    this.cache.trimmedStartTime = this.cache.absTime;
+    this.cache.trimmedStartWn = this.cache.absWn;
+    this.cache.trimmedEndTime = this.cache.endTime;
+    this.cache.trimmedEndWn = this.cache.endWn;
+    this.cache.skip = 0;
+
+    // Left Trim
+    if (this.trimLeft &amp;&amp; this.trimLeft.value &gt; 0) {
+      let state = createState(this, this.cache.globals);
+      stepState(state, this.trimLeft, this.cache.globals);
+      this.cache.trimmedStartTime = state.absTime;
+      this.cache.trimmedStartWn = state.absWn;
+    }
+    // Right Trim
+    if (this.trimRight &amp;&amp; this.trimRight.value &gt; 0) {
+      // TODO!!!
+      // this.cache.tempo is not defined here! (Yes, it is??)
+
+      let state = createState(this, this.cache.globals);
+      let actualDuration = Duration.coerce([this.cache.endWn.sub(this.cache.absWn), &apos;wn&apos;]);
+      // console.log(&quot;&gt;&gt; actualDuration&quot;, actualDuration, this.cache.endTime.sub(this.cache.absTime));
+      // console.log(&quot;Before stepping: &quot;, state);
+      stepState(state, actualDuration, this.cache.globals);
+      // console.log(&quot;After stepping: &quot;, state);
+      // console.log(&quot;&gt;&gt; trimRight: &quot;, this.trimRight, state.absTime);
+      stepState(state, this.trimRight.inverse(), this.cache.globals);
+      // console.log(&quot;&gt;&gt; inverted trimRight&quot;, this.trimRight.inverse(), state.absTime);
+      this.cache.trimmedEndTime = state.absTime;
+      this.cache.trimmedEndWn = state.absWn;
+    }
+
+    // Store this object&apos;s &quot;own&quot; trim, unaffected by inherited values (needed for e.g. repeats)
+    this.cache.ownTrimmedStartTime = this.cache.trimmedStartTime;
+    this.cache.ownTrimmedStartWn = this.cache.trimmedStartWn;
+    this.cache.ownTrimmedEndTime = this.cache.trimmedEndTime;
+    this.cache.ownTrimmedEndWn = this.cache.trimmedEndWn;
+
+    // Adjust left trim so that it uses the maximum of the own and the inherited value
+    if (this.parent &amp;&amp; (this.parent.cache.trimmedStartTime !== undefined)) {
+      if (this.cache.trimmedStartTime &lt; this.parent.cache.trimmedStartTime) {
+        this.cache.trimmedStartTime = this.parent.cache.trimmedStartTime;
+        this.cache.trimmedStartWn = this.parent.cache.trimmedStartWn;
+      }
+    }
+
+    // Same for right trim
+    if (this.parent &amp;&amp; (this.parent.cache.trimmedEndTime !== undefined)) {
+      if (this.cache.trimmedEndTime &gt; this.parent.cache.trimmedEndTime) {
+        this.cache.trimmedEndTime = this.parent.cache.trimmedEndTime;
+        this.cache.trimmedEndWn = this.parent.cache.trimmedEndWn;
+      }
+    }
+
+    // Set trimmedStart
+    if (this.cache.absTime &lt; this.cache.trimmedStartTime) {
+      this.cache.trimmedStart = true;
+      this.cache.skip = this.cache.trimmedStartTime - this.cache.absTime;
+      // TEMPORARY:
+      // Set enabled to false for Notes or NoteChords that have a trimmed start
+      if (((this.type === &apos;Note&apos;) || (this.type === &apos;NoteChord&apos;)) &amp;&amp; (this.cache.skip &gt; 0)) this.cache.enabled = false;
+    }
+    if ((this.cache.trimmedEndTime !== undefined) &amp;&amp; this.cache.absTime &gt; this.cache.trimmedEndTime) {
+      this.cache.trimmedStart = true; // sic!
+      if ((this.type === &apos;Note&apos;) || (this.type === &apos;NoteChord&apos;)) this.cache.enabled = false;
+    }
+
+    // Propagate to children
+    if (this.cache.children) {
+      this.cache.children.forEach(function(child) {
+        child.resolveTrim();
+      });
+    }
+  }
+
+  /**
+   * @protected
+   * Called internally by resolve
+   */
+  resolveRepeats() {
+    this.cache.repeats = this.parent ? this.parent.cache.repeats : [];
+    if (this.repeat !== 1) {
+      this.cache.repeats = this.cache.repeats.slice(); // copy on write
+      this.cache.repeats.push({
+        count: this.repeat,
+        periodTime: this.cache.ownTrimmedEndTime.sub(this.cache.ownTrimmedStartTime),
+        periodWn: this.cache.ownTrimmedEndWn.sub(this.cache.ownTrimmedStartWn)
+      });
+    }
+    if (this.cache.children) {
+      this.cache.children.forEach((child) =&gt; {
+        child.resolveRepeats();
+      });
+    }
+  }
+
+  /** @ignore */
+  localResolve() {
+    super.localResolve();
+    if (this.playbackTiming) {
+      if (this.playbackTiming.isTime()) {
+        this.cache.playbackTimingTime = this.playbackTiming.toSeconds();
+      } else if (this.playbackTiming.unit === &apos;wn&apos;) {
+        this.cache.playbackTimingTime = this.playbackTiming.value.mul(this.cache.sPerWn);
+      } else {
+        console.error(&apos;Bad unit in playbackTiming&apos;);
+      }
+    }
+  }
+
+  /**
+   * @ignore
+   */
+  get defaultStepDuration() {
+    return true; // true means automatic
+  }
+
+  /**
+   * @ignore
+   */
+  toJSON() {
+    var obj = super.toJSON();
+    if (obj.stepDuration === this.defaultStepDuration) delete obj.stepDuration;
+    if (obj.amp === 1.0) delete obj.amp;
+    if (obj.repeat === 1) delete obj.repeat;
+    if (!(_.isArray(obj.syllables)) || obj.syllables.length === 0) delete obj.syllables;
+    return obj;
+  }
+
+}
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

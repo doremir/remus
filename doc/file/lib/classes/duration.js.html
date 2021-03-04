@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/classes/duration.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/duration.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Pants module.
+ * @module duration
+ * @see module:my/shirt
+ */
+import Item from &apos;./item.js&apos;;
+import misc from &apos;../misc.js&apos;;
+import Fraction from &apos;fraction.js&apos;;
+import _ from &apos;underscore&apos;;
+var isNumber = _.isNumber;
+var isObject = _.isObject;
+
+/* eslint-disable */
+var wnToVexFlow = {
+  &apos;7/4&apos;:   { duration: &apos;w&apos;,  dots: 2 },  // &quot;noteValue&quot; would be better than &quot;duration&quot;,
+  &apos;3/2&apos;:   { duration: &apos;w&apos;,  dots: 1 },  // but let&apos;s follow VexFlow&apos;s nomenclature
+  &apos;1/1&apos;:   { duration: &apos;w&apos;,  dots: 0 },
+  &apos;7/8&apos;:   { duration: &apos;h&apos;,  dots: 2 },
+  &apos;3/4&apos;:   { duration: &apos;h&apos;,  dots: 1 },
+  &apos;1/2&apos;:   { duration: &apos;h&apos;,  dots: 0 },
+  &apos;7/16&apos;:  { duration: &apos;q&apos;,  dots: 2 },
+  &apos;3/8&apos;:   { duration: &apos;q&apos;,  dots: 1 },
+  &apos;1/4&apos;:   { duration: &apos;q&apos;,  dots: 0 },
+  &apos;7/32&apos;:  { duration: &apos;8&apos;,  dots: 2 },
+  &apos;3/16&apos;:  { duration: &apos;8&apos;,  dots: 1 },
+  &apos;1/8&apos;:   { duration: &apos;8&apos;,  dots: 0 },
+  &apos;7/64&apos;:  { duration: &apos;16&apos;, dots: 2 },
+  &apos;3/32&apos;:  { duration: &apos;16&apos;, dots: 1 },
+  &apos;1/16&apos;:  { duration: &apos;16&apos;, dots: 0 },
+  &apos;7/128&apos;: { duration: &apos;32&apos;, dots: 2 },
+  &apos;3/64&apos;:  { duration: &apos;32&apos;, dots: 1 },
+  &apos;1/32&apos;:  { duration: &apos;32&apos;, dots: 0 },
+  // &apos;7/256&apos;: { duration: &apos;64&apos;, dots: 2 },
+  &apos;3/128&apos;: { duration: &apos;64&apos;, dots: 1 },
+  &apos;1/64&apos;:  { duration: &apos;64&apos;, dots: 0 },
+  // &apos;7/512&apos;: { duration: &apos;128&apos;, dots: 2 },
+  // &apos;3/256&apos;: { duration: &apos;128&apos;, dots: 1 },
+  &apos;1/128&apos;: { duration: &apos;128&apos;, dots: 0 },
+}
+/* eslint-enable */
+
+export default class Duration extends Item {
+  /**
+   * @ignore
+   */
+  static getSlots() {
+    return super.getSlots().concat([&apos;value&apos;, &apos;unit&apos;]);
+  }
+
+  /**
+   * @ignore
+   */
+  inspect() {
+    // return chalk.blue.bold(this.value.toFraction()) + &apos; &apos; + chalk.blue(this.unit);
+  }
+
+  /**
+   * @ignore
+   */
+  init() {
+    super.init();
+    /** @type {Fraction} */
+    this.value = new Fraction(this.value || 0);
+    /** @type {String} */
+    this.unit = this.unit || &apos;ms&apos;;
+    return this;
+  }
+
+  /**
+   * Is this a zero duration?
+   * @return {boolean}
+   */
+  isZero() {
+    // eslint-disable-next-line eqeqeq
+    return this.value == 0; // N.B: Don&apos;t use ===
+  }
+
+  /**
+   * Returns `true` if the duration is in time units (currently `s` or `ms`), `false` otherwise.
+   * @return {boolean}
+   */
+  isTime() {
+    return [&apos;s&apos;, &apos;ms&apos;].indexOf(this.unit) &gt;= 0;
+  }
+
+  /**
+   * Returns `true` if the duration is in atomic units, `false` otherwise.
+   * The inverse of {@link isTime()}
+   * @return {boolean}
+   */
+  isAtom() {
+    return !this.isTime();
+  }
+
+  /**
+   * Returns `true` if the duration has a fixed unit, i.e. unaffected by time signature.
+   * Currently, the fixed units are `s`, `ms` and `wn`.
+   * @return {boolean}
+   */
+  isFixed() {
+    return [&apos;s&apos;, &apos;ms&apos;, &apos;wn&apos;].indexOf(this.unit) &gt;= 0;
+  }
+
+  /**
+   * Returns a new duration with same unit and inverted value
+   * (positive durations become negative and v.v.)
+   * The current object is not changed.
+   * @return {Duration}
+   */
+  inverse() {
+    return new Duration({value: this.value.neg(), unit: this.unit});
+  }
+
+  /**
+   * Return the duration as a number of seconds.
+   * Valid only when the duration is expressed in time units (`s` or `ms`)
+   * @return {Fraction}
+   */
+  toSeconds() {
+    switch (this.unit) {
+      case &apos;s&apos;: return this.value;
+      case &apos;ms&apos;: return this.value.div(1000);
+    }
+  }
+
+  /**
+   * Return the value of the duration as a floating point number (ignoring the unit).
+   * @return {Number}
+   */
+  toFloat() {
+    return this.value.valueOf();
+  }
+
+  /** @ignore */
+  doValidate() {
+    var validator = super.doValidate();
+    validator.hasType(this, &apos;value&apos;, Fraction);
+    validator.isOneOf(this, &apos;unit&apos;, [&apos;s&apos;, &apos;ms&apos;, &apos;measures&apos;, &apos;beats&apos;, &apos;atoms&apos;, &apos;wn&apos;]);
+    return validator;
+  }
+
+  /** @ignore */
+  toString() {
+    return this.value.toFraction() + &apos; &apos; + this.unit;
+  }
+
+  /** @ignore */
+  toJSON() {
+    if (this.value.n === 0) return 0;
+    if (this.value.d === 1) return [this.value.n * this.value.s, this.unit];
+    return [this.value.n * this.value.s, this.value.d, this.unit];
+  }
+
+  /** @ignore */
+  toXML(rootName) {
+    return misc.buildXML(this.toXMLObject(), {rootName: rootName || &apos;duration&apos;});
+  }
+
+  /** @ignore */
+  toXMLObject() {
+    if (this.unit === &apos;&apos; || this.unit === &apos;divisions&apos;) return {_: this.num / this.denom};
+    return {_: this.num / this.denom, &apos;$&apos;: {unit: this.unit}};
+  }
+
+  /** @ignore */
+  toVexFlow() {
+    if (this.unit === &apos;wn&apos;) {
+      return Duration.wnToVexFlow(this.value);
+    }
+  }
+
+  /** @ignore */
+  static wnToVexFlow(fraction) {
+    return wnToVexFlow[fraction.n + &apos;/&apos; + fraction.d];
+  }
+}
+
+Duration.fromString = function(str, parent) {
+  var matches = str.match(/^([0-9\.]+(?:\/[1-9][0-9]*)?)\s*([A-Za-z]*)$/);
+  if (matches) {
+    return new Duration({value: matches[1], unit: matches[2]}, parent);
+  }
+};
+
+Duration.coerce = function(source, parent, copy) {
+  if (source instanceof Duration) {
+    if (copy) return new Duration(source, parent);
+    else return source;
+  }
+  if (typeof source === &apos;string&apos;) return Duration.fromString(source, parent);
+  if (isNumber(source)) return new Duration({value: source}, parent);
+  if (source instanceof Array &amp;&amp; source.length === 2) return new Duration({value: source[0], unit: source[1]}, parent);
+  if (source instanceof Array &amp;&amp; source.length === 3) return new Duration({value: [source[0], source[1]], unit: source[2]}, parent);
+  if (isObject(source)) return new Duration(source, parent);
+  throw new Error(&apos;Cannot coerce &apos; + source + &apos; to a duration!&apos;);
+};
+
+Duration.fromXML = function(xml) {
+  var obj = misc.parseXML(xml, {explicitArray: false, mergeAttrs: true, explicitCharkey: true});
+  return Duration.fromXMLObject(obj);
+};
+
+Duration.fromXMLObject = function(obj) {
+  if (typeof obj === &apos;string&apos;) return new Duration(parseInt(obj), &apos;divisions&apos;);
+  return new Duration({num: parseInt(obj._), unit: obj.unit || &apos;divisions&apos;});
+};
+
+Duration.itemType = &apos;Duration&apos;;
+
+import ItemHandler from &apos;../item-handler.js&apos;;
+ItemHandler.registerItem(Duration);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

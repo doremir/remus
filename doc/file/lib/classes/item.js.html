@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/classes/item.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/item.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _ from &apos;underscore&apos;;
+import Env from &apos;../env.js&apos;;
+import misc from &apos;../misc.js&apos;;
+import Validator from &apos;../validator.js&apos;;
+// import Fraction from &apos;fraction.js&apos;;
+
+/**
+ * Item is the base class for all remus objects (&quot;items&quot;).
+ */
+export default class Item {
+  constructor(properties, parent) {
+    var slots = {};
+    if (!properties) properties = {};
+
+    _.each(_.unique(this.constructor.getSlots()), (key) =&gt; {
+      slots[key] = properties[key];
+
+      Object.defineProperty(this, key, {
+        get: () =&gt; { return slots[key]; },
+        set: (v) =&gt; {
+          slots[key] = v;
+          this.shouldResolve = true;
+          this.triggerOnChange(key, v);
+        }
+      });
+    });
+
+    // For debugging: warn for unknown keys
+    if (!(properties instanceof Item)) {      // ... but not when using a &quot;live&quot; object as input
+      let s = this.constructor.getSlots().concat(&apos;type&apos;, &apos;env&apos;, &apos;metas&apos;, &apos;events&apos;); // TODO: don&apos;t hardcode metas and events
+      for (let key in properties) {                                     // (why aren&apos;t they slots in the first place??)
+        if (properties.hasOwnProperty(key) &amp;&amp; key !== &apos;cache&apos; &amp;&amp; s.indexOf(key) &lt; 0) {  // explicitly ignore cache
+          console.warn(&apos;Unknown slot &apos; + key + &apos; in item &apos;, properties);                // TODO: Fix the actual problem
+        }
+      }
+    }
+
+    this.shouldResolve = true;
+    /** @type {Env} */
+    this.env = new Env(properties.env);
+    this.env.setParent(parent ? parent.env : null);
+    this.env.set(&apos;currentItem&apos;, this);
+
+    this.init();
+  }
+
+  /** @type {?Item} */
+  get parent() {
+    var parentEnv = this.env.getParent();
+    if (parentEnv) {
+      return parentEnv.get(&apos;currentItem&apos;);
+    }
+  }
+
+  /** @type {?Item} */
+  set parent(parent) {
+    if (parent instanceof Item) {
+      this.env.setParent(parent.env);
+    } else if (!parent) {
+      this.env.setParent(null);
+    } else {
+      throw new Error(&apos;Parent must be an instance of the Item class&apos;);
+    }
+  }
+
+  /** @type {string} */
+  get type() {
+    return this.constructor.name;
+  }
+
+  /** @protected */
+  triggerOnChange(name, value) {
+    _.each(this.changeListeners, (listener) =&gt; {
+      listener(name, value);
+    });
+  }
+
+  /**
+   * Add a change handler
+   * @param {function} f
+   */
+  onChange(f) {
+    this.changeListeners.push(f);
+
+    return () =&gt; {
+      this.removeOnChange(f);
+    };
+  }
+
+  /**
+   * Remove a change handler
+   * @param {function} f
+   */
+  removeOnChange(f) {
+    this.changeListeners = _.filter(this.changeListeners, (listener) =&gt; {
+      return listener !== f;
+    });
+  }
+
+  /**
+   * Deep-copy the object
+   */
+  clone() {
+    var obj = new this.constructor({}, this.parent);
+    _.each(_.unique(this.constructor.getSlots()), (key) =&gt; {
+      if (key !== &apos;env&apos;) {
+        obj[key] = misc.clone(this[key]);
+      }
+    });
+    return obj;
+  }
+
+  /**
+   * @protected
+   * @return {string[]}
+   */
+  static getSlots() {
+    return [&apos;id&apos;, &apos;env&apos;, &apos;enabled&apos;, &apos;className&apos;];
+  }
+
+  /**
+   * @protected
+   * @return {Item}
+   */
+  init() {
+    if (this.enabled === undefined) this.enabled = true;
+
+    this.cache = {};
+    this.changeListeners = [];
+
+    return this;
+  }
+
+  /**
+   * @protected
+   * @param obj
+   * @param {?Item} [DefaultClass]
+   * @param [def]
+   * @return {Item}
+   */
+  initSubObject(obj, DefaultClass, def) {
+    return misc.initSubObject(this, obj, DefaultClass, def);
+  }
+
+  /**
+   * @protected
+   * @param obj
+   * @param {?Item} [DefaultClass]
+   * @param [def]
+   * @return {Item}
+   */
+  initSubObjects(obj, DefaultClass, def) {
+    return misc.initSubObjects(this, obj, DefaultClass, def);
+  }
+
+  /** @ignore */
+  toJSON() {
+    var obj = _.pick(this, this.constructor.getSlots().concat([&apos;type&apos;]));
+    obj.env = null;
+    if (obj.enabled === true) obj.enabled = undefined;
+
+    _.each(obj, (val, key) =&gt; {
+      if (val === undefined || val === null) {
+        delete obj[key];
+      }
+    });
+
+    if (this.cache &amp;&amp; !_.isEmpty(Item.serializeCache)) {
+      obj.cache = _.pick(this.cache, Item.serializeCache);
+    }
+
+    obj = _.mapObject(obj, (value, key) =&gt; {
+      if (_.isObject(value) &amp;&amp; value.toJSON) {
+        return value.toJSON();
+      } else {
+        return value;
+      }
+    });
+
+    return obj;
+  }
+
+  /**
+   * Perform validation. Override in subclasses to add additional checks.
+   *
+   * **Note:** Must return a Validator object!
+   * @protected
+   * @return {Validator}
+   * @example
+   * // In an Item subclass
+   * doValidate() {
+   *   var validator = super.doValidate();
+   *   validator.isNumber(this, &apos;someNumericSlot&apos;)
+   *   validator.isArrayOfIntegers(this, &apos;beats&apos;);
+   *   validator.isOneOf(this, &apos;denom&apos;, [1, 2, 4, 8, 16, 32, 64, 128, 256]);
+   *   return validator;
+   * }
+   */
+  doValidate() {
+    var validator = new Validator();
+    validator.isDefined(this, &apos;type&apos;);
+    validator.hasType(this, &apos;env&apos;, Env);
+    return validator;
+  }
+
+  /**
+   * Check for data consistency
+   * @param {?boolean} log - Write validation errors to the console
+   * @return {boolean}
+   */
+  validate(log = true) {
+    var validator = this.doValidate();
+    if (log) validator.log();
+    return validator.errors.length === 0;
+  }
+
+  enableAutoResolver() {
+    if (!this.autoResolveChangeListener) {
+      this.autoResolveChangeListener = this.onChange(() =&gt; {
+        this.resolve();
+      });
+
+      this.resolve();
+    }
+  }
+
+  disableAutoResolver() {
+    if (this.autoResolveChangeListener) {
+      this.autoResolveChangeListener();
+    }
+  }
+
+  /** @ignore */
+  resolve(force = false) {
+    this.localResolve();
+    return false;
+  }
+
+  /** @ignore */
+  localResolve() {
+  }
+}
+
+Item.prototype.inheritExplitDuration = true;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

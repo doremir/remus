@@ -1,0 +1,719 @@
+{
+  "coverage": "40.05%",
+  "expectCount": 699,
+  "actualCount": 280,
+  "files": {
+    "lib/classes/audio-file.js": {
+      "expectCount": 8,
+      "actualCount": 6,
+      "undocumentLines": [
+        7,
+        39
+      ]
+    },
+    "lib/classes/duration.js": {
+      "expectCount": 27,
+      "actualCount": 19,
+      "undocumentLines": [
+        10,
+        11,
+        14,
+        42,
+        178,
+        185,
+        198,
+        203
+      ]
+    },
+    "lib/classes/event/audio.js": {
+      "expectCount": 7,
+      "actualCount": 4,
+      "undocumentLines": [
+        18,
+        19,
+        33
+      ]
+    },
+    "lib/classes/event/chord-sequence.js": {
+      "expectCount": 17,
+      "actualCount": 3,
+      "undocumentLines": [
+        8,
+        12,
+        23,
+        29,
+        35,
+        54,
+        75,
+        92,
+        103,
+        126,
+        133,
+        143,
+        278,
+        283
+      ]
+    },
+    "lib/classes/event/chord.js": {
+      "expectCount": 9,
+      "actualCount": 7,
+      "undocumentLines": [
+        31,
+        50
+      ]
+    },
+    "lib/classes/event/event-container.js": {
+      "expectCount": 31,
+      "actualCount": 21,
+      "undocumentLines": [
+        51,
+        56,
+        62,
+        68,
+        69,
+        204,
+        209,
+        336,
+        380,
+        441
+      ]
+    },
+    "lib/classes/event/event.js": {
+      "expectCount": 25,
+      "actualCount": 24,
+      "undocumentLines": [
+        205
+      ]
+    },
+    "lib/classes/event/note-chord.js": {
+      "expectCount": 6,
+      "actualCount": 4,
+      "undocumentLines": [
+        6,
+        40
+      ]
+    },
+    "lib/classes/event/note.js": {
+      "expectCount": 18,
+      "actualCount": 13,
+      "undocumentLines": [
+        8,
+        9,
+        109,
+        125,
+        130
+      ]
+    },
+    "lib/classes/event/rest.js": {
+      "expectCount": 10,
+      "actualCount": 1,
+      "undocumentLines": [
+        7,
+        17,
+        22,
+        26,
+        30,
+        34,
+        41,
+        50,
+        55
+      ]
+    },
+    "lib/classes/event/song.js": {
+      "expectCount": 11,
+      "actualCount": 7,
+      "undocumentLines": [
+        34,
+        50,
+        66,
+        96
+      ]
+    },
+    "lib/classes/event/tuplet.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        19
+      ]
+    },
+    "lib/classes/event/vertical-container.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        37
+      ]
+    },
+    "lib/classes/event/voice-container.js": {
+      "expectCount": 7,
+      "actualCount": 1,
+      "undocumentLines": [
+        10,
+        14,
+        20,
+        24,
+        29,
+        34
+      ]
+    },
+    "lib/classes/event/voice.js": {
+      "expectCount": 12,
+      "actualCount": 4,
+      "undocumentLines": [
+        17,
+        21,
+        33,
+        39,
+        43,
+        48,
+        108,
+        126
+      ]
+    },
+    "lib/classes/harmony.js": {
+      "expectCount": 32,
+      "actualCount": 7,
+      "undocumentLines": [
+        11,
+        14,
+        18,
+        68,
+        77,
+        81,
+        85,
+        89,
+        94,
+        98,
+        102,
+        116,
+        168,
+        247,
+        291,
+        328,
+        334,
+        340,
+        407,
+        429,
+        544,
+        558,
+        563,
+        570,
+        684
+      ]
+    },
+    "lib/classes/interval.js": {
+      "expectCount": 28,
+      "actualCount": 20,
+      "undocumentLines": [
+        10,
+        101,
+        110,
+        202,
+        219,
+        228,
+        243,
+        247
+      ]
+    },
+    "lib/classes/item.js": {
+      "expectCount": 26,
+      "actualCount": 18,
+      "undocumentLines": [
+        11,
+        22,
+        95,
+        126,
+        128,
+        217,
+        219,
+        227
+      ]
+    },
+    "lib/classes/meta/clef.js": {
+      "expectCount": 12,
+      "actualCount": 8,
+      "undocumentLines": [
+        5,
+        6,
+        62,
+        72
+      ]
+    },
+    "lib/classes/meta/key.js": {
+      "expectCount": 18,
+      "actualCount": 14,
+      "undocumentLines": [
+        8,
+        9,
+        113,
+        126
+      ]
+    },
+    "lib/classes/meta/meta.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "lib/classes/meta/tempo.js": {
+      "expectCount": 12,
+      "actualCount": 9,
+      "undocumentLines": [
+        5,
+        6,
+        74
+      ]
+    },
+    "lib/classes/meta/time.js": {
+      "expectCount": 15,
+      "actualCount": 12,
+      "undocumentLines": [
+        7,
+        53,
+        112
+      ]
+    },
+    "lib/classes/mode.js": {
+      "expectCount": 13,
+      "actualCount": 11,
+      "undocumentLines": [
+        107,
+        121
+      ]
+    },
+    "lib/classes/pitch.js": {
+      "expectCount": 41,
+      "actualCount": 27,
+      "undocumentLines": [
+        13,
+        14,
+        15,
+        17,
+        303,
+        330,
+        491,
+        517,
+        537,
+        558,
+        574,
+        584,
+        593,
+        598
+      ]
+    },
+    "lib/classes/syllable.js": {
+      "expectCount": 15,
+      "actualCount": 10,
+      "undocumentLines": [
+        6,
+        7,
+        9,
+        80,
+        89
+      ]
+    },
+    "lib/env.js": {
+      "expectCount": 11,
+      "actualCount": 1,
+      "undocumentLines": [
+        6,
+        8,
+        11,
+        15,
+        19,
+        22,
+        26,
+        36,
+        44,
+        48
+      ]
+    },
+    "lib/item-handler.js": {
+      "expectCount": 4,
+      "actualCount": 3,
+      "undocumentLines": [
+        2
+      ]
+    },
+    "lib/music-ptr.js": {
+      "expectCount": 39,
+      "actualCount": 1,
+      "undocumentLines": [
+        11,
+        14,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        31,
+        33,
+        34,
+        35,
+        45,
+        46,
+        51,
+        59,
+        63,
+        67,
+        71,
+        75,
+        79,
+        83,
+        87,
+        91,
+        99,
+        101,
+        110,
+        124,
+        131,
+        136,
+        142,
+        153,
+        157,
+        163
+      ]
+    },
+    "lib/render.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        11,
+        17,
+        32
+      ]
+    },
+    "lib/resolver.js": {
+      "expectCount": 10,
+      "actualCount": 4,
+      "undocumentLines": [
+        35,
+        45,
+        97,
+        159,
+        221,
+        225
+      ]
+    },
+    "lib/score/classes/score-bar.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        9,
+        10,
+        16,
+        24,
+        38
+      ]
+    },
+    "lib/score/classes/score-bracket.js": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        6,
+        7,
+        10,
+        14,
+        15,
+        17,
+        18,
+        21
+      ]
+    },
+    "lib/score/classes/score-clef.js": {
+      "expectCount": 7,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        8,
+        9,
+        22,
+        33,
+        42
+      ]
+    },
+    "lib/score/classes/score-detail.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        6
+      ]
+    },
+    "lib/score/classes/score-event.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    },
+    "lib/score/classes/score-item.js": {
+      "expectCount": 23,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        41,
+        43,
+        44,
+        47,
+        51,
+        59,
+        68,
+        74,
+        78
+      ]
+    },
+    "lib/score/classes/score-key.js": {
+      "expectCount": 10,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        11,
+        12,
+        13,
+        24,
+        25,
+        42,
+        46,
+        56
+      ]
+    },
+    "lib/score/classes/score-meta.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "lib/score/classes/score-note-chord.js": {
+      "expectCount": 12,
+      "actualCount": 2,
+      "undocumentLines": [
+        3,
+        9,
+        20,
+        24,
+        33,
+        35,
+        38,
+        122,
+        264,
+        428
+      ]
+    },
+    "lib/score/classes/score-note.js": {
+      "expectCount": 12,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        8,
+        10,
+        24,
+        28,
+        29,
+        36,
+        40,
+        56,
+        70,
+        92
+      ]
+    },
+    "lib/score/classes/score-rest.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        8,
+        36
+      ]
+    },
+    "lib/score/classes/score-syllable.js": {
+      "expectCount": 8,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        12,
+        16
+      ]
+    },
+    "lib/score/classes/score-tie.js": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4,
+        7,
+        8,
+        11,
+        16,
+        24,
+        57,
+        88
+      ]
+    },
+    "lib/score/classes/score-time.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        9,
+        13,
+        17
+      ]
+    },
+    "lib/score/classes/score-tuplet.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        4,
+        5,
+        12,
+        15,
+        19
+      ]
+    },
+    "lib/score/classes/staff-system.js": {
+      "expectCount": 16,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        16,
+        23,
+        48
+      ]
+    },
+    "lib/score/score.js": {
+      "expectCount": 60,
+      "actualCount": 7,
+      "undocumentLines": [
+        28,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        64,
+        137,
+        203,
+        213,
+        217,
+        227,
+        232,
+        236,
+        237,
+        248,
+        252,
+        298,
+        306,
+        314,
+        354,
+        362,
+        522,
+        561,
+        1000,
+        1033,
+        1077,
+        1081,
+        1085,
+        1262,
+        1315,
+        1435,
+        1480,
+        1497
+      ]
+    },
+    "lib/validator.js": {
+      "expectCount": 25,
+      "actualCount": 1,
+      "undocumentLines": [
+        5,
+        7,
+        11,
+        17,
+        18,
+        19,
+        22,
+        27,
+        35,
+        50,
+        56,
+        61,
+        67,
+        72,
+        77,
+        82,
+        92,
+        102,
+        112,
+        116,
+        121,
+        127,
+        136,
+        145
+      ]
+    }
+  }
+}

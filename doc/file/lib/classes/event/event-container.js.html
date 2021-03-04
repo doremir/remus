@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">lib/classes/event/event-container.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/event/event-container.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import _ from &apos;underscore&apos;;
+import Event from &apos;./event.js&apos;;
+import Note from &apos;./note.js&apos;;
+import Duration from &apos;../duration.js&apos;;
+import ItemHandler from &apos;../../item-handler.js&apos;;
+import Fraction from &apos;fraction.js&apos;;
+import misc from &apos;../../misc.js&apos;;
+import { createState, stepState, updateState } from &apos;../../resolver.js&apos;;
+
+/**
+ * Base class for events that can contain other events.
+ *
+ * Event containers store their child events in two lists:
+ * `events` and `metas`. The `events` list is for Notes, Rests, Chords,
+ * Audio clips etc, while the `metas` list is used to store &quot;meta-events&quot;
+ * like Time, Key and Tempo.
+ *
+ * EventContainers can be nested, e.g. a Song could contain a voice, which
+ * in turn contains a NoteChord, containing some Notes.
+ *
+ * **Note** that `metas` cannot be nested. Events in `metas` also cannot
+ * have (non-zero) duration &#x2014; they only have position.
+ *
+ * All event containers have a *time mode* for its `events` and `metas` lists.
+ * Time mode can be either `absolute` or `relative`. This determines how
+ * the position of the contained events are interpreted.
+ *
+ * * In **absolute time mode**, positions are related to the parent container&apos;s start position
+ * * In **relative time mode**, positions are related to the previous event&apos;s end position
+ *
+ * Subclasses of EventContainer specify a default time mode, however that can be
+ * overridden in individual objects if needed.
+ *
+ * For example, VerticalContainer have the default `eventTimeMode` set to `absolute`.
+ * This means that Notes in a NoteChord relate to the beginning of the NoteChord by default,
+ * while NoteChords in a Voice are placed after each other by default (since the default
+ * `eventTimeMode` for Voice is `relative`).
+ */
+export default class EventContainer extends Event {
+  /**
+   * @ignore
+   */
+  static getSlots() {
+    return super.getSlots().concat([&apos;eventTimeMode&apos;, &apos;metaTimeMode&apos;, &apos;scale&apos;]);
+  }
+
+  /*
+   * @ignore
+   */
+  constructor(properties, parent) {
+    if (!properties) properties = {};
+    super(properties, parent);
+
+    this.initEvents(properties.events || [], this.defaultEventItemType); // Why not just specify events and metas as slots??
+    this.metas = this.initSubObjects(properties.metas);
+  }
+
+  /** @ignore */
+  initEvents(events, defaultItemType) {
+    var ItemConstructor = defaultItemType ? ItemHandler.getConstructor(defaultItemType) : null;
+    this.events = this.initSubObjects(events, ItemConstructor);
+  }
+
+  /** @ignore */
+  init() {
+    super.init();
+    this.eventTimeMode = this.eventTimeMode || this.defaultEventTimeMode;
+    this.metaTimeMode = this.metaTimeMode || this.defaultMetaTimeMode;
+    /** @type {Fraction} */
+    this.scale = this.scale === undefined ? null : new Fraction(this.scale);
+    return this;
+  }
+
+  /** @ignore */
+  clone() {
+    let copy = super.clone();
+    copy.events = misc.clone(this.events);
+    copy.metas = misc.clone(this.metas);
+    return copy;
+  }
+
+  /**
+   * Returns immediate children of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Array}
+   */
+  childEvents(selector) {
+    var selectorFunction = null;
+
+    if (_.isFunction(selector)) {
+      selectorFunction = selector;
+    } else if (_.isString(selector)) {
+      selectorFunction = (item) =&gt; {
+        return item.type === selector;
+      };
+    } else {
+      selectorFunction = v =&gt; true;
+    }
+
+    return _.filter(this.events, selectorFunction);
+  }
+
+  /**
+   * Returns descendents of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Array}
+   */
+  findEvents(selector) {
+    var events = this.childEvents(selector);
+
+    _.each(this.events, (event) =&gt; {        // NB: Go through the unfiltered this.events, in order to search the whole tree
+      if (event instanceof EventContainer) {
+        events = events.concat(event.findEvents(selector));
+      }
+    });
+
+    return events;
+  }
+
+  /**
+   * Find the first descendent of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Event?}
+   */
+  findEvent(selector) {
+    var events = this.findEvents(selector); // TODO: stop at first match instead of finding all
+    return events ? events[0] : null;
+  }
+
+  /**
+   * Returns immediate child metas of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Array}
+   */
+  childMetas(selector) {
+    var selectorFunction = null;
+
+    if (_.isFunction(selector)) {
+      selectorFunction = selector;
+    } else if (_.isString(selector)) {
+      selectorFunction = (item) =&gt; {
+        return item.type === selector;
+      };
+    } else {
+      selectorFunction = v =&gt; true;
+    }
+
+    return _.filter(this.metas, selectorFunction);
+  }
+
+  /**
+   * Returns descendent metas of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Array}
+   */
+  findMetas(selector) {
+    var metas = this.childMetas(selector);
+
+    _.each(this.events, (event) =&gt; {        // NB: Go through the unfiltered this.events, in order to search the whole tree
+      if (event instanceof EventContainer) {
+        metas = metas.concat(event.findMetas(selector));
+      }
+    });
+
+    return metas;
+  }
+
+  /**
+   * Find the first meta of the specified class, or matching the specified function.
+   * @param {?(string|function)} [selector] - A string, a function or `null` (for matching all items)
+   * @return {Event?}
+   */
+  findMeta(selector) {
+    var metas = this.findMetas(selector); // TODO: stop at first match instead of finding all
+    return metas ? metas[0] : null;
+  }
+
+  /**
+   * @ignore
+   */
+  toJSON() {
+    var obj = super.toJSON();
+    if (obj.scale instanceof Fraction &amp;&amp; obj.scale.valueOf() === 1) delete obj.scale;
+    if (obj.eventTimeMode === this.defaultEventTimeMode) delete obj.eventTimeMode;
+    if (obj.metaTimeMode === this.defaultMetaTimeMode) delete obj.metaTimeMode;
+    obj.events = _.map(this.childEvents(), event =&gt; event.toJSON());
+    let metas = this.childMetas();
+    if (metas &amp;&amp; metas.length) obj.metas = _.map(metas, meta =&gt; meta.toJSON());
+    return obj;
+  }
+
+  /**
+   * @ignore
+   */
+  doValidate() {
+    var validator = super.doValidate();
+    validator.isOneOf(this, &apos;eventTimeMode&apos;, [&apos;absolute&apos;, &apos;relative&apos;]);
+    validator.isOneOf(this, &apos;metaTimeMode&apos;, [&apos;absolute&apos;, &apos;relative&apos;]);
+    validator.hasTypeOrNull(this, &apos;scale&apos;, Fraction);
+    return validator;
+  }
+
+  enableAutoResolver() {
+    super.enableAutoResolver();
+    _.each(this.childEvents(), (event) =&gt; { event.enableAutoResolver(); });
+  }
+
+  disableAutoResolver() {
+    super.disableAutoResolver();
+    _.each(this.childEvents(), (event) =&gt; { event.disableAutoResolver(); });
+  }
+
+  /**
+   * @ignore
+   */
+  get defaultEventTimeMode() {
+    return &apos;relative&apos;;
+  }
+
+  /**
+   * @ignore
+   */
+  get defaultMetaTimeMode() {
+    return &apos;relative&apos;;
+  }
+
+  /**
+   * @protected
+   */
+  resolveMetas(force = false) {
+    super.resolveMetas(force);
+    if (!this.metas || this.metas.length === 0) return false;
+
+    // TODO: handle unsorted absolute lists
+
+    var absolute = this.metaTimeMode === &apos;absolute&apos;;
+    var state = absolute ? null : createState(this, this.cache.globals);
+    this.metas.forEach(child =&gt; {
+      if (child.position) {
+        if (absolute) {
+          if (!child.position.isFixed()) throw Error(&apos;Absolute meta lists must only have fixed duration units&apos;);
+          state = createState(this, this.cache.globals);
+        } else {
+          if (child.position.value &lt; 0) throw Error(&apos;Negative time values not allowed in relative meta list&apos;);
+        }
+        stepState(state, child.position, this.cache.globals);
+      }
+      child.cache.absTime = state.absTime;
+      child.cache.absWn = state.absWn;
+      child.cache.tempo = state.tempo;
+      child.cache.time = state.time;
+      child.cache.sPerWn = state.sPerWn;
+      child.cache.key = state.key;
+      // child.env.set(&quot;tempo&quot;, state.tempo);
+      // child.env.set(&quot;time&quot;, state.time);
+      // child.env.set(&quot;sPerWn&quot;, state.sPerWn);
+      switch (child.type) {
+        case &apos;Time&apos;:
+        case &apos;Tempo&apos;:
+        case &apos;Key&apos;:
+          this.cache.globals = _.sortBy(this.cache.globals.concat(child), &apos;absTime&apos;);
+          if (child.type === &apos;Tempo&apos;) state.tempo = child;
+          if (child.type === &apos;Time&apos;) state.time = child;
+          if (child.type === &apos;Key&apos;) state.key = child;
+          updateState(state, child);
+          break;
+      }
+      child.localResolve();
+    });
+
+    return true; // TODO!
+  }
+
+    /**
+   * Find overlapping events.
+   * Returns an array of arrays, where each top-level array is a &quot;cluster&quot; of overlapping events
+   * @return {Array}
+   */
+  findOverlappingEvents() {
+    this.resolve();
+    if (!this.events) return [];
+    // Sort events by start time
+    var events = this.events.slice().sort((a, b) =&gt; { return a.cache.absTime.sub(b.cache.absTime); });
+    var clusters = [];
+    var overlapping = [];
+    var max = null;
+    var lastEvent = null;
+    _.each(events, (event) =&gt; {
+      if (lastEvent &amp;&amp; (max &gt; event.cache.absTime)) {
+        // Overlap
+        max = max &gt; event.cache.endTime ? max : event.cache.endTime;
+        if (overlapping[overlapping.length - 1] !== lastEvent) overlapping.push(lastEvent);
+        overlapping.push(event);
+      } else {
+        // No overlap
+        max = event.cache.endTime;
+        if (overlapping.length) {
+          clusters.push(overlapping);
+          overlapping = [];
+        }
+      }
+      lastEvent = event;
+    });
+    if (overlapping.length) clusters.push(overlapping);
+    return clusters;
+  }
+
+ /**
+   * Non-destructivly (but see note below) split the EventContainer based on the layer slot of the contained events.
+   * @param {bool} [resetLayerSlot=false] - Set the layer slot to null for all events after splitting
+   * @return {Array} - Returns a list of new containers of the same class as the original EventContainer
+   * NOTE: In the current implementation, the EventContainer is cloned, but its events aren&apos;t.
+   * This means that the newly created EventContainers will share data with the original EventContainer,
+   * and if resetLayerSlot is used, layers will be reset also in the original EventContainer.
+   */
+  splitByLayers(resetLayerSlot = false) {
+    if (this.eventTimeMode !== &apos;absolute&apos;) {
+      throw new Error(&apos;splitByLayers can currently only be used with absolute-time containers&apos;);
+    }
+    // TODO: handle relative mode
+    var newEventLists = [];
+    _.each(this.events, (event) =&gt; {
+      var layer = event.layer || 0;
+      if (!newEventLists[layer]) newEventLists[layer] = [];
+      newEventLists[layer].push(event);
+      if (resetLayerSlot) event.layer = null;
+    });
+    return newEventLists.map((events) =&gt; {
+      var container = this.clone();
+      container.events = events;
+      return container;
+    }, this);
+  }
+
+  static mergeIntoLayers(containers) {
+    // Sanity check
+    if (containers.length === 0) throw new Error(&apos;Empty array passed to mergeIntoLayers&apos;);
+    if (_.uniq(containers.map((c) =&gt; { return c.type; })).length !== 1) {
+      console.warn(&apos;Non-uniform array passed to mergeIntoLayers&apos;);
+    }
+    // Can currently only handle absolute time mode
+    _.each(containers, (container) =&gt; {
+      if (container.eventTimeMode !== &apos;absolute&apos;) {
+        throw new Error(&apos;mergeIntoLayers can currently only be used with absolute-time containers&apos;);
+      }
+    });
+    // TODO: check for existing layers in the passed containers, and preferly do something about them
+    // (might be so simple as to call splitByLayers on every container)
+
+    var container = containers[0].clone();
+    _.each(container.events, (event) =&gt; { event.layer = 0; });
+    for (var i = 1; i &lt; containers.length; i++) {
+      _.each(containers[i].events, (event) =&gt; {
+        event.layer = i;    // TODO: this is a destructive operation! Document or handle differently
+        container.events.push(event);
+      });
+    }
+
+    return container;
+  }
+
+  // unwrapNotes() {
+  //   if (this.eventTimeMode !== &apos;absolute&apos;) {
+  //     throw new Error(&apos;unwrapNotes can currently only be used with absolute-time containers&apos;);
+  //   }
+  //   if (!this.events) return null;
+  //   this.resolve();
+  //   let notes = this.findEvents(&apos;Note&apos;);
+  //   _.each(notes, (note) =&gt; {
+  //     note.position = new Duration({ value: note.cache.absTime, unit: &apos;s&apos;});
+  //   });
+  //   this.events = notes;
+  // }
+
+  // Very Simple Version:
+  // - can only handle containers in absolute time mode
+  // - the actual Note objects being unwrapped cannot have an explicit [non-zero] position
+  // - unwrapping is not recursive, only one level deep (may be a feature though)
+  unwrapNotes() {
+    if (this.eventTimeMode !== &apos;absolute&apos;) {
+      throw new Error(&apos;unwrapNotes can currently only be used with absolute-time containers&apos;);
+    }
+    if (!this.events) return null;
+    let notes = [];
+    this.events = _.filter(this.events, (event) =&gt; {
+      if (event.events) { // Duck typing
+        let single = event.events.length === 1;
+        event.events = _.filter(event.events, (child) =&gt; {
+          if (child instanceof Note) {
+            if (child.position &amp;&amp; child.position.value !== 0) {
+              throw new Error(&apos;unwrapNotes can currently not handle notes with explicit position&apos;);
+            }
+            child.position = single ? event.position : new Duration(event.position); // Reuse if possible
+            notes.push(child);
+            return false;
+          }
+          return true;
+        });
+        return event.events.length &gt; 0; // Keep the event if there are sub-events left in it
+      }
+    });
+    this.events = this.events.concat(notes); // Add the extracted notes. TODO: sort by position?
+  }
+
+  /**
+   * Identify overlapping events (using {@link findOverlappingEvents()}) and
+   * assign ther layer slot, so that each event belongs to a non-overlapping layer.
+   * Non-overlapping events get their layer slot set to null.
+   * NOTE: Currently, no regard is given existing layer assignments; they are just discarded.
+   */
+  assignOverlapsToLayers() {
+    // Reset existing layer assignments
+    // TODO: Keep existing layer assignments
+    _.each(this.events, (event) =&gt; { event.layer = null; });
+
+    // Loop over overlap clusters one by one, as they are guaranteed to be disjoint
+    var clusters = this.findOverlappingEvents();
+    _.each(clusters, (cluster) =&gt; {
+      var layers = [];
+      _.each(cluster, (event) =&gt; {
+        // Check if this event fits into an existing layer
+        for (var i = 0; i &lt; layers.length; i++) {
+          if (event.cache.absTime &gt;= layers[i]) {
+            event.layer = i;
+            layers[i] = event.cache.endTime;
+            return;
+          }
+        }
+        // Doesn&apos;t fit in any existing layer, create a new one
+        event.layer = layers.length;
+        layers.push(event.cache.endTime);
+      });
+    });
+  }
+
+  // Very Simple Version:
+  // - can only handle containers in absolute time mode
+  // - the actual Note objects being unwrapped cannot have an explicit [non-zero] position
+  // - unwrapping is not recursive, only one level deep (may be a feature though)
+  wrapNotes() {
+    if (this.eventTimeMode !== &apos;absolute&apos;) {
+      throw new Error(&apos;wrapNotes can currently only be used with absolute-time containers&apos;);
+    }
+    if (!this.events) return null;
+    let NoteChord = ItemHandler.getConstructor(&apos;NoteChord&apos;); // Can&apos;t import NoteChord (circular dependency)
+    let noteChords = {}; // map position -&gt; object
+    this.events = _.filter(this.events, (note) =&gt; {
+      if (!(note instanceof Note)) return true; // Keep non-Note items
+      let pos = note.position ? note.position.toString() : &apos;no&apos;;
+      let dur = note.duration ? note.duration.toString() : &apos;no&apos;;
+      let ident = pos + &apos; &apos; + dur;
+      let noteChord = noteChords[ident];
+      if (!noteChord) {
+        noteChord = NoteChord.coerce({}); // cannot call new NoteChord(), it is not a function (but why really?)
+        noteChord.position = note.position;
+        noteChord.duration = note.duration;
+        noteChords[ident] = noteChord;
+      }
+      note.position = null;
+      note.duration = null;
+      noteChord.events.push(note);
+      return false; // Remove the Note from the event list
+    });
+    // Add the new noteChords. TODO: sort by position?
+    this.events = this.events.concat(_.values(noteChords));
+  }
+
+  /**
+   * Get pitch statistics of descendant notes
+   * Return an object with the keys `min`, `max`, `mean` and `median`,
+   * representing pitches in `mmel` units.
+   * @return {Object}
+   */
+  getAmbitus() {
+    let pitches = this.findEvents(&apos;Note&apos;).map((note) =&gt; {
+      return note.pitch.toMmel();
+    });
+    pitches.sort();
+    let count = pitches.length;
+    if (!count) return null;
+    let median = count % 2
+      ? pitches[Math.ceil(count / 2) - 1]  // odd number of elements: take the middle value
+      : (pitches[count / 2 - 1] + pitches[count / 2]) / 2; // even number: take the mean of the two middle values
+    return {
+      min: pitches[0],
+      max: pitches[count - 1],
+      mean: pitches.reduce((a, b) =&gt; { return a + b; }) / count,
+      median: median
+    };
+  }
+
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

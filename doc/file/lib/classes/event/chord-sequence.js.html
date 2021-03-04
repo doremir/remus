@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">lib/classes/event/chord-sequence.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/event/chord-sequence.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import _ from &apos;underscore&apos;;
+
+import EventContainer from &apos;./event-container.js&apos;;
+import Pitch from &apos;../pitch.js&apos;;
+import Interval from &apos;../interval.js&apos;;
+
+function fractionToWnJSON(fraction) {
+  return [fraction.n, fraction.d, &apos;wn&apos;];
+}
+
+function getChordPitches(chord) {
+  var root = chord.initSubObject(chord.harmony.root, &apos;Pitch&apos;);
+  var pitches = [root];
+
+  _.each(chord.harmony.intervals, (interval) =&gt; {
+    pitches.push(root.interval(interval));
+  });
+
+  return pitches;
+}
+
+function getChordMidiNumbers(chord) {
+  return _.map(getChordPitches(chord), (pitch) =&gt; {
+    return pitch.toMIDI();
+  });
+}
+
+function findClosestMidiNumber(targetNumber, inputNumber) {
+  var difference = targetNumber - inputNumber;
+  var octaveDifference = Math.round(difference / 12);
+  return inputNumber + (octaveDifference * 12);
+}
+
+function findClosestChordMidiNumber(targetNumber, chord) {
+  var chordNumbers = getChordMidiNumbers(chord);
+
+  var currentClosest = null;
+  var currentDistance = null;
+
+  _.each(chordNumbers, (n) =&gt; {
+    var closest = findClosestMidiNumber(targetNumber, n);
+    var distance = Math.abs(targetNumber - closest);
+
+    if (!currentClosest || distance &lt; currentDistance) {
+      currentClosest = closest;
+      currentDistance = distance;
+    }
+  });
+
+  return currentClosest;
+}
+
+function closestOctaveDifference(pitchFrom, pitchTo) {
+  var mod = (a, b) =&gt; (a % b + b) % b;
+
+  // calculate closest direction to transpose
+  var interval = pitchTo.interval(pitchFrom).coord[1];
+  var octaveDifference = Math.sign(interval) * Math.abs(Math.floor(interval / 12));
+
+  var chromaticDifference = mod(interval, 12);
+  if (chromaticDifference &gt; 6) {
+    chromaticDifference = chromaticDifference - 12;
+  }
+
+  // is closest new root in the same octave?
+  var octaveCorrection = Math.floor(pitchFrom.coord[1] / 12) - Math.floor((pitchFrom.coord[1] + chromaticDifference) / 12);
+
+  // adjust
+  octaveDifference += octaveCorrection;
+
+  return octaveDifference;
+}
+
+function transposeNote(keyFrom, keyTo, note) {
+  var pitch = note.pitch;
+
+  var octaveDifference = closestOctaveDifference(keyFrom.root, keyTo.root);
+  var octaveInterval = new Interval({coord: [octaveDifference * 7, octaveDifference * 12]});
+
+  // transpose destination root pitch to be in closest octave
+
+  var keyInterval = keyFrom.root.interval(keyTo.root);
+  keyInterval = keyInterval.add(octaveInterval);
+
+  // this mutates the original note rather than creating a new one, correct?
+  pitch.transpose(keyInterval);
+
+  return note;
+}
+
+function noteToAutoNote(env, chord, note) {
+  var targetNumber = note.pitch.toMIDI();
+  var result = findClosestChordMidiNumber(targetNumber, chord);
+
+  if (result) {
+    note.pitch = Pitch.fromMIDI(result, note);
+  } else {
+    note.amp = 0;
+  }
+}
+
+function noteToChordNote(env, chord, note) {
+  var step = env.harmonyRelation.step;
+
+  if (!step) {
+    console.error(&apos;&quot;step&quot; is required in harmonyRelation when using type &quot;chordNote&quot;!&apos;);
+    note.amp = 0;
+    return;
+  }
+
+  var chordNumbers = getChordMidiNumbers(chord);
+  var index = (step - 1) % chordNumbers.length;
+  var chordNoteNumber = chordNumbers[index];
+
+  var targetNumber = note.pitch.toMIDI();
+  var result = findClosestMidiNumber(targetNumber, chordNoteNumber);
+
+  if (result) {
+    note.pitch = Pitch.fromMIDI(result, note);
+  } else {
+    note.amp = 0;
+  }
+}
+
+function noteToKeyNote(env, note) {
+  var patternKey = env.patternKey;
+  var songKey = env.songKey;
+
+  return transposeNote(patternKey, songKey, note);
+}
+
+function getInstruments(song) {
+  return (
+    _.chain(song.findEvents(&apos;Voice&apos;))
+    .map(function(voice) { return voice.sound; })
+    .filter(_.identity)
+    .unique()
+    .value()
+  );
+}
+
+function generateChordPlayback(chordSequence, patternSong) {
+  var song = chordSequence.env.get(&apos;song&apos;);
+  var songKey = song.findMeta(&apos;Key&apos;);
+  var chords = chordSequence.findEvents(&apos;Chord&apos;);
+  var patternKey = patternSong.findMeta(&apos;Key&apos;);
+
+  // make sure pattern is 1 bar long
+  var pattern = (
+    _.chain(patternSong.findEvents(&apos;Note&apos;))
+    .filter((note) =&gt; {
+      var absWn = note.cache.absWn.valueOf();
+      return absWn &gt;= 0 &amp;&amp; absWn &lt; 1;
+    })
+    // We decided against transposing all notes, instead it only transposes key notes.
+    // .map((note) =&gt; {
+    //   return transposeNote(patternKey, songKey, note);
+    // })
+    .value()
+  );
+
+  // sort chords by time
+  chords = _.sortBy(chords, (chord) =&gt; {
+    return chord.cache.absTime.valueOf();
+  });
+
+  var chordEndWn = _.last(chords).cache.endWn;
+  var measures = _.times(Math.ceil(chordEndWn.valueOf()), _.identity);
+  var events = [];
+
+  _.each(measures, (measure) =&gt; {
+    var newEvents = _.map(pattern, (note) =&gt; {
+      var out = note.toJSON();
+
+      out.position = fractionToWnJSON(note.cache.absWn.add(measure));
+      out.duration = fractionToWnJSON(note.cache.absWn.sub(note.cache.endWn));
+
+      return out;
+    });
+
+    events = events.concat(newEvents);
+  });
+
+  var instruments = getInstruments(patternSong);
+
+  if (instruments.length &gt; 1) {
+    console.error(&apos;Pattern contains more than 1 instrument!&apos; +
+      &apos; Only the first one will be used. Instruments found:&apos;, instruments);
+  }
+
+  var container = song.initSubObject({
+    type: &apos;Voice&apos;,
+    id: &apos;generated-chords&apos;,
+    eventTimeMode: &apos;absolute&apos;,
+    sound: instruments[0] || &apos;keyboard&apos;,
+    events: events
+  });
+
+  container.resolve(true);
+
+  var env = {
+    song: song,
+    patternSong: patternSong,
+    chords: chords,
+    songKey: songKey,
+    patternKey: patternKey
+  };
+
+  var currentChordIndex = null;
+  var currentChord = null;
+
+  _.each(container.events, (event) =&gt; {
+    if (!currentChord) {
+      // https://github.com/infusion/Fraction.js/#boolean-comparen
+      if (event.cache.absWn.compare(chords[0].cache.absWn) &gt;= 0) {
+        currentChord = chords[0];
+        currentChordIndex = 0;
+      }
+    }
+
+    var nextChordIndex = currentChordIndex + 1;
+    var nextChord = chords[nextChordIndex];
+
+    if (nextChord &amp;&amp; event.cache.absWn.compare(nextChord.cache.absWn) &gt;= 0) {
+      currentChordIndex = nextChordIndex;
+      currentChord = nextChord;
+
+      nextChordIndex = currentChordIndex + 1;
+      nextChord = chords[nextChordIndex];
+    }
+
+    if (!currentChord) {
+      event.amp = 0;
+      return event;
+    }
+
+    var harmonyRelation = _.extend({
+      type: &apos;auto&apos;
+    }, event.harmonyRelation);
+
+    env.currentChord = currentChord;
+    env.nextChord = nextChord;
+    env.harmonyRelation = harmonyRelation;
+
+    var note = event;
+
+    switch (harmonyRelation.type) {
+      default:
+      case &apos;auto&apos;: noteToAutoNote(env, currentChord, note); break;
+      case &apos;keyNote&apos;: noteToKeyNote(env, note); break;
+      case &apos;chordNote&apos;: noteToChordNote(env, currentChord, note); break;
+    }
+  });
+
+  return container;
+}
+
+/**
+ * A sequence of chords
+ *
+ * Convenience class to group chords horizontally, like a {@link Voice} but for {@link Chord}s
+ * rather than for {@link Note}s or {@link NoteChord}s.
+ *
+ */
+export default class ChordSequence extends EventContainer {
+  /** @ignore */
+  get defaultEventItemType() {
+    return &apos;Chord&apos;;
+  }
+
+  /** @ignore */
+  inspect() {
+    // var color = chalk.yellow;
+    // return color.bold(&apos;ChordSequence&apos;) + color(&apos; [&apos;) + this.getEvents().join(&apos;, &apos;) + color(&apos;]&apos;);
+  }
+
+  generateChordPlayback(patternSong) {
+    return generateChordPlayback(this, patternSong);
+  }
+}
+
+ChordSequence.coerce = function(source, parent, copy) {
+  if (source instanceof ChordSequence) return copy ? new ChordSequence(source, parent) : source;
+  throw new Error(&apos;Cannot coerce &apos; + source + &apos; to a chord sequence!&apos;);
+};
+
+ChordSequence.itemType = &apos;ChordSequence&apos;;
+
+import ItemHandler from &apos;../../item-handler.js&apos;;
+ItemHandler.registerItem(ChordSequence);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

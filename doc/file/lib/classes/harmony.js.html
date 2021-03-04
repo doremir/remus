@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">lib/classes/harmony.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/classes/harmony.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import Item from &apos;./item.js&apos;;
+import knowledge from &apos;../knowledge.js&apos;;
+import Pitch from &apos;./pitch.js&apos;;
+import Interval from &apos;./interval.js&apos;;
+import misc from &apos;../misc.js&apos;;
+import xml2js from &apos;xml2js&apos;;
+// import var chalk from &apos;chalk&apos;;
+import _ from &apos;underscore&apos;;
+
+var get = _.get; // require(&apos;lodash.get&apos;);
+// var difference = _.difference;
+
+function simpleInterval(i) {
+  return i.toString();
+}
+
+export default class Harmony extends Item {
+  /** @ignore */
+  static getSlots() {
+    return super.getSlots().concat([&apos;root&apos;, &apos;intervals&apos;, &apos;bass&apos;, &apos;kindText&apos;]);
+  }
+
+  /** @ignore */
+  inspect() {
+    // return chalk.dim(&apos;&lt;&apos;) + chalk.yellow.bold(this.toString()) + &apos; &apos; + chalk.yellow(this.intervals) + chalk.dim(&apos;&gt;&apos;);
+  }
+
+  /** @ignore */
+  init() {
+    super.init();
+    /** @type {Pitch} */
+    this.root = this.initSubObject(this.root, Pitch);
+    /** @type {Pitch?} */
+    this.bass = this.initSubObject(this.bass, Pitch) || null;
+    /** @type {Interval[]} */
+    this.intervals = this.initSubObjects(this.intervals, Interval);
+    // TODO: bass
+    return this;
+  }
+
+  // getRootPitch() {
+  //   if (this.rootPitch) {
+  //     return this.rootPitch;
+  //   } else if (this.root instanceof Pitch) {
+  //     return this.root;
+  //   } else if (this.root) {
+  //     this.rootPitch = this.initSubObject(this.root, &apos;Pitch&apos;);
+  //     return this.rootPitch;
+  //   }
+
+  //   return null;
+  // }
+
+  // getBassPitch() {
+  //   if (this.bassPitch) {
+  //     return this.bassPitch;
+  //   } else if (this.bass instanceof Pitch) {
+  //     return this.bass;
+  //   } else if (this.bass) {
+  //     this.bassPitch = this.initSubObject(this.bass, &apos;Pitch&apos;);
+  //     return this.bassPitch;
+  //   }
+
+  //   return null;
+  // }
+
+  pitches() {
+    var root = this.root; // getRootPitch();
+    var pitches = [root];
+    this.intervals.forEach(function(interval) {
+      pitches.push(root.interval(interval));
+    });
+    return pitches;
+  }
+
+  simple() {
+    return this.pitches().map(function(n) { return n.toString(true); });
+  }
+
+  isMajor() {
+    return this.intervals.map(simpleInterval).indexOf(&apos;M3&apos;) &gt;= 0;
+  }
+
+  isMinor() {
+    return this.intervals.map(simpleInterval).indexOf(&apos;m3&apos;) &gt;= 0;
+  }
+
+  isDominant() {
+    var intervals = this.intervals.map(simpleInterval);
+    return intervals.indexOf(&apos;M3&apos;) &gt;= 0 &amp;&amp; intervals.indexOf(&apos;m7&apos;) &gt;= 0;
+  }
+
+  dominant(additional) {
+    return this.interval(&apos;P5&apos;);
+  }
+
+  subdominant(additional) {
+    return this.interval(&apos;P4&apos;);
+  }
+
+  parallel() {
+    var quality = this.quality();
+
+    if (this.harmonyType() !== &apos;triad&apos; || !(quality === &apos;major&apos; || quality === &apos;minor&apos;)) {
+      throw new Error(&apos;Only major/minor triads have parallel harmonies&apos;);
+    }
+
+    if (this.isMajor()) {
+      return new Harmony(this.root.interval(&apos;m3&apos;, &apos;down&apos;), &apos;minor&apos;);
+    } else {
+      return new Harmony(this.root.interval(&apos;m3&apos;, &apos;up&apos;), &apos;major&apos;);
+    }
+  }
+
+  quality() {
+    var third;
+    var fifth;
+    var seventh;
+    var intervals = this.intervals;
+
+    for (var i = 0, length = intervals.length; i &lt; length; i++) {
+      if (intervals[i].number() === 3) {
+        third = intervals[i];
+      } else if (intervals[i].number() === 5) {
+        fifth = intervals[i];
+      } else if (intervals[i].number() === 7) {
+        seventh = intervals[i];
+      }
+    }
+
+    if (!third) {
+      return;
+    }
+
+    third = (third.direction() === &apos;down&apos;) ? third.invert() : third;
+    third = third.simple().toString();
+
+    if (fifth) {
+      fifth = (fifth.direction === &apos;down&apos;) ? fifth.invert() : fifth;
+      fifth = fifth.simple().toString();
+    }
+
+    if (seventh) {
+      seventh = (seventh.direction === &apos;down&apos;) ? seventh.invert() : seventh;
+      seventh = seventh.simple().toString();
+    }
+
+    if (third === &apos;M3&apos;) {
+      if (fifth === &apos;A5&apos;) {
+        return &apos;augmented&apos;;
+      } else if (fifth === &apos;P5&apos;) {
+        return (seventh === &apos;m7&apos;) ? &apos;dominant&apos; : &apos;major&apos;;
+      }
+
+      return &apos;major&apos;;
+    } else if (third === &apos;m3&apos;) {
+      if (fifth === &apos;P5&apos;) {
+        return &apos;minor&apos;;
+      } else if (fifth === &apos;d5&apos;) {
+        return (seventh === &apos;m7&apos;) ? &apos;half-diminished&apos; : &apos;diminished&apos;;
+      }
+
+      return &apos;minor&apos;;
+    }
+  }
+
+  kind() {
+    var degrees = {};
+    [2, 3, 4, 5, 6, 7].map(function(x) {
+      var interval = this.getDegree(x);
+      degrees[x] = interval ? interval.quality() : null;
+    }, this);
+
+    // SPECIAL
+    if (!degrees[3] &amp;&amp; degrees[7] === &apos;m&apos; &amp;&amp; degrees[2] === &apos;M&apos; &amp;&amp; degrees[4] === &apos;P&apos;) {
+      return &apos;dominant-11th&apos;;
+    }
+    if (degrees[7] === &apos;m&apos; &amp;&amp; degrees[3] === &apos;M&apos; &amp;&amp; degrees[6] === &apos;M&apos;) {
+      return &apos;dominant-13th&apos;;
+    }
+    if (degrees[5] === &apos;P&apos; &amp;&amp; this.intervals.length === 1) {
+      return &apos;power&apos;;
+    }
+
+    // MAJOR CHORDS
+    if (degrees[3] === &apos;M&apos;) {
+      // Augmented
+      if (degrees[5] === &apos;A&apos;) {
+        if (degrees[7] === &apos;m&apos;) { return &apos;augmented-seventh&apos;; }
+        return &apos;augmented&apos;;
+      }
+      // Dominants
+      if (degrees[7] === &apos;m&apos;) {
+        if (degrees[2] === &apos;M&apos;) { return &apos;dominant-ninth&apos;; }
+        if (degrees[4] === &apos;P&apos;) { return &apos;dominant-eleventh&apos;; }
+        return &apos;dominant&apos;;
+      }
+      // Major sevenths
+      if (degrees[7] === &apos;M&apos;) {
+        if (degrees[6] === &apos;M&apos;) { return &apos;major-13th&apos;; }
+        if (degrees[2] === &apos;M&apos;) { return &apos;major-ninth&apos;; }
+        return &apos;major-seventh&apos;;
+      }
+      // Other major harmonies
+      if (degrees[5] === &apos;A&apos;) { return &apos;augmented&apos;; }
+      if (degrees[6] === &apos;M&apos;) { return &apos;major-sixth&apos;; }
+      return &apos;major&apos;;
+    }
+
+    // MINOR CHORDS
+    if (degrees[3] === &apos;m&apos;) {
+      // Diminished &amp; half-diminished
+      if (degrees[5] === &apos;d&apos;) {
+        if (degrees[7] === &apos;d&apos;) { return &apos;diminished-seventh&apos;; }
+        if (!degrees[7] &amp;&amp; degrees[6] === &apos;M&apos;) {
+           // arguably wrong but very common spelling of diminished chords
+          return &apos;diminished-seventh&apos;;
+        }
+        if (degrees[7] === &apos;m&apos;) { return &apos;half-diminished&apos;; }
+        return &apos;diminished&apos;;
+      }
+      // Sevenths
+      if (degrees[7] === &apos;m&apos;) {
+        if (degrees[2] === &apos;M&apos;) { return &apos;minor-ninth&apos;; }
+        return &apos;minor-seventh&apos;;
+      }
+      // Other minor harmonies
+      if (degrees[6] === &apos;M&apos;) { return &apos;minor-sixth&apos;; }
+      if (degrees[7] === &apos;M&apos;) { return &apos;major-minor&apos;; }
+      return &apos;minor&apos;;
+    }
+
+    // SUSPENDED
+    if (degrees[5] === &apos;P&apos; || !degrees[5]) {
+      if (degrees[2] === &apos;M&apos;) { return &apos;suspended-second&apos;; }
+      if (degrees[4] === &apos;P&apos;) { return &apos;suspended-fourth&apos;; }
+    }
+
+    if ((degrees[7] === &apos;m&apos;) &amp;&amp; !degrees[3]) {
+      return &apos;dominant&apos;;
+    }
+
+    return &apos;other&apos;;
+  }
+
+  harmonyType() { // In need of better name
+    var intervals = this.intervals();
+    var length = intervals.length;
+    var interval;
+    var has;
+    var invert;
+    var i;
+    var name;
+
+    if (length === 2) {
+      return &apos;dyad&apos;;
+    } else if (length === 3) {
+      has = {first: false, third: false, fifth: false};
+      for (i = 0; i &lt; length; i++) {
+        interval = intervals[i];
+        invert = interval.invert();
+        if (interval.base() in has) {
+          has[interval.base()] = true;
+        } else if (invert.base() in has) {
+          has[invert.base()] = true;
+        }
+      }
+
+      name = (has.first &amp;&amp; has.third &amp;&amp; has.fifth) ? &apos;triad&apos; : &apos;trichord&apos;;
+    } else if (length === 4) {
+      has = {first: false, third: false, fifth: false, seventh: false};
+      for (i = 0; i &lt; length; i++) {
+        interval = intervals[i];
+        invert = interval.invert();
+        if (interval.base() in has) {
+          has[interval.base()] = true;
+        } else if (invert.base() in has) {
+          has[invert.base()] = true;
+        }
+      }
+
+      if (has.first &amp;&amp; has.third &amp;&amp; has.fifth &amp;&amp; has.seventh) {
+        name = &apos;tetrad&apos;;
+      }
+    }
+
+    return name || &apos;unknown&apos;;
+  }
+
+  getDegree(interval) {
+    var intervals = this.intervals;
+    var length = intervals.length;
+
+    interval = (interval - 1) % 7;
+
+    for (var i = 0; i &lt; length; i++) {
+      if ((intervals[i].number() - 1) % 7 === interval) {
+        return intervals[i];
+      }
+    }
+    return null;
+  }
+
+  // get(interval) {
+  //   var intervals = this.intervals, i, length;
+  //   if (typeof interval === &apos;number&apos;) {
+  //     for (i = 0, length = intervals.length; i &lt; length; i++) {
+  //       if (intervals[i].number() === interval) {
+  //         return this.root.interval(intervals[i]);
+  //       }
+  //     }
+  //     return null;
+  //   } else if (typeof interval === &apos;string&apos; &amp;&amp; interval in knowledge.stepNumber) {
+  //     interval = knowledge.stepNumber[interval];
+  //     for (i = 0, length = intervals.length; i &lt; length; i++) {
+  //       if (intervals[i].number() === interval) {
+  //         return this.root.interval(intervals[i]);
+  //       }
+  //     }
+  //
+  //     return null;
+  //   } else {
+  //     throw new Error(&apos;Invalid interval name&apos;);
+  //   }
+  // },
+
+  interval(interval, parent = null) {
+    let root = this.root ? root.interval(interval) : this.root;
+    let bass = this.bass ? this.bass.interval(interval) : this.bass;
+    return new Harmony({root: root, bass: bass, intervals: misc.clone(this.intervals), kindText: this.kindText}, parent);
+  }
+
+  transpose(interval) {
+    this.root.transpose(interval);
+    if (this.bass) this.bass.transpose(interval);
+    return this;
+  }
+
+  toXML() {
+    var root = { step: this.root.name().toUpperCase(), alter: this.root.accidentalValue(), text: this.root.text };
+    var bass;
+
+    if (this.getBassPitch()) {
+      bass = { step: this.getBassPitch().name().toUpperCase(), alter: this.getBassPitch().accidentalValue(), text: this.getBassPitch().text };
+    }
+
+    var kind = this.kind();
+    var kindText = this.kindText;
+    var xml = &apos;&apos;;
+    xml += &apos;&lt;harmony&gt;\n&apos;;
+    xml += &apos;  &lt;root&gt;\n&apos;;
+
+    if (root.text &amp;&amp; root.text !== root.step) {
+      xml += &apos;    &lt;root-step text=&quot;&apos; + root.text + &apos;&quot;&gt;&apos; + root.step + &apos;&lt;/root-step&gt;\n&apos;;
+    } else {
+      xml += &apos;    &lt;root-step&gt;&apos; + root.step + &apos;&lt;/root-step&gt;\n&apos;;
+    }
+
+    if (root.alter) {
+      xml += &apos;    &lt;root-alter&gt;&apos; + root.alter + &apos;&lt;/root-alter&gt;\n&apos;;
+    }
+
+    xml += &apos;  &lt;/root&gt;\n&apos;;
+
+    if (bass) {
+      xml += &apos;  &lt;bass&gt;\n&apos;;
+      if (bass.text &amp;&amp; bass.text !== bass.step) {
+        xml += &apos;    &lt;bass-step text=&quot;&apos; + bass.text + &apos;&quot;&gt;&apos; + bass.step + &apos;&lt;/bass-step&gt;\n&apos;;
+      } else {
+        xml += &apos;    &lt;bass-step&gt;&apos; + bass.step + &apos;&lt;/bass-step&gt;\n&apos;;
+      }
+      if (bass.alter) {
+        xml += &apos;    &lt;bass-alter&gt;&apos; + bass.alter + &apos;&lt;/bass-alter&gt;\n&apos;;
+      }
+      xml += &apos;  &lt;/bass&gt;\n&apos;;
+    }
+
+    if (kindText) {
+      xml += &apos;&lt;kind text=&quot;&apos; + kindText + &apos;&quot;&gt;&apos; + kind + &apos;&lt;/kind&gt;\n&apos;;
+    } else {
+      xml += &apos;&lt;kind&gt;&apos; + kind + &apos;&lt;/kind&gt;\n&apos;;
+    }
+    // this.degrees.forEach(function(degree) {
+    //   xml += &apos;&lt;degree&gt;\n&apos;;
+    //   xml += (typeof degree.text === &apos;string&apos;) ? (&apos;  &lt;degree-type text=&quot;&apos; + degree.text + &apos;&quot;&gt;&apos;) : &apos;&lt;degree-type&gt;&apos;;
+    //   xml += degree.type;
+    //   xml += &apos;&lt;/degree-type&gt;\n&apos;;
+    //   xml += &apos;&lt;degree-value&gt;&apos; + degree.step + &apos;&lt;/degree-value&gt;\n&apos;;
+    //   switch (degree.type) {
+    //   case &apos;add&apos;:
+    //     // TODO
+    //     break;
+    //   case &apos;alter&apos;:
+    //     xml += &apos;&lt;degree-alter&gt;&apos; + degree.semitones + &apos;&lt;/degree-alter&gt;\n&apos;;
+    //     break;
+    //   case &apos;subtract&apos;:
+    //     // TODO
+    //     break;
+    //   }
+    //   xml += &apos;&lt;/degree&gt;\n&apos;;
+    // });
+    xml += &apos;&lt;/harmony&gt;\n&apos;;
+    return xml;
+  }
+
+  toString() {
+    let root = this.root.name().toUpperCase() + this.root.accidental();
+    let kind = this.kindText || knowledge.chordShort[this.kind()];
+    let bass = this.bass ? &apos;/&apos; + this.bass.name().toUpperCase() + this.bass.accidental() : &apos;&apos;;
+
+    // TODO: additions, alterations, subtractions
+    return root + kind + bass;
+  }
+
+  /**
+   * @ignore
+   */
+  toJSON() {
+    var obj = super.toJSON();
+    if (obj.intervals) {
+      obj.intervals = obj.intervals.map(i =&gt; {
+        return i.toString();
+      });
+    }
+    return obj;
+  }
+
+  defaultVoicings() {
+    let kind = this.kind();
+    let voicings = null;
+
+    var degrees = {};
+    [2, 3, 4, 5, 6, 7].map(function(x) {
+      var interval = this.getDegree(x);
+      degrees[x] = interval ? interval.quality() : null;
+    }, this);
+
+    //
+    // First, test for a few special or common chords
+    //
+
+    // 7#9
+    if ((kind === &apos;dominant&apos; || kind === &apos;dominant-ninth&apos;) &amp;&amp; degrees[2] === &apos;A&apos;) {
+      voicings = [[&apos;P1&apos;, &apos;M3&apos;, &apos;m7&apos;, &apos;a9&apos;],
+                  [&apos;P1&apos;, &apos;M3&apos;, &apos;m7&apos;, &apos;P1&apos;, &apos;a9&apos;],
+                  [&apos;M3&apos;, &apos;m7&apos;, &apos;P1&apos;, &apos;a9&apos;],
+                  [&apos;M3&apos;, &apos;m7&apos;, &apos;a9&apos;]];
+    } else if (kind === &apos;major&apos; &amp;&amp; degrees[2] === &apos;M&apos;) { // major add9
+      voicings = [[&apos;P1&apos;, &apos;M2&apos;, &apos;M3&apos;, &apos;P5&apos;],
+                  [&apos;P5&apos;, &apos;P1&apos;, &apos;M2&apos;, &apos;M3&apos;],
+                  [&apos;M2&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;P1&apos;]];
+    } else if (kind === &apos;minor&apos; &amp;&amp; degrees[2] === &apos;M&apos;) { // minor add9
+      voicings = [[&apos;P1&apos;, &apos;M2&apos;, &apos;m3&apos;, &apos;P5&apos;],
+                  [&apos;P5&apos;, &apos;P1&apos;, &apos;M2&apos;, &apos;m3&apos;],
+                  [&apos;M2&apos;, &apos;m3&apos;, &apos;P5&apos;, &apos;P1&apos;]];
+    } else {
+      //
+      // All other chords get their default voicings
+      //
+      switch (kind) {
+        case &apos;major&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;P5&apos;]); break;
+        case &apos;minor&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;P5&apos;]); break;
+        case &apos;augmented&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;A5&apos;]); break;
+        case &apos;diminished&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;d5&apos;]); break;
+        case &apos;dominant&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;]); break;
+        case &apos;major-seventh&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;]); break;
+        case &apos;minor-seventh&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;]); break;
+        case &apos;diminished-seventh&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;d5&apos;, &apos;d7&apos;]); break;
+        case &apos;augmented-seventh&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;A5&apos;, &apos;m7&apos;]); break;
+        case &apos;half-diminished&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;d5&apos;, &apos;m7&apos;]); break;
+        case &apos;major-minor&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;P5&apos;, &apos;M7&apos;]); break;
+        case &apos;dominant-suspended-fourth&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;P4&apos;, &apos;P5&apos;, &apos;m7&apos;]); break;
+        case &apos;major-sixth&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;M6&apos;]); break;
+        case &apos;minor-sixth&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;m3&apos;, &apos;P5&apos;, &apos;M6&apos;]); break;
+        case &apos;dominant-ninth&apos;: voicings = [[&apos;P1&apos;, &apos;M3&apos;, &apos;m7&apos;, &apos;M2&apos;],
+                                           [&apos;m7&apos;, &apos;M2&apos;, &apos;M3&apos;],
+                                           [&apos;M2&apos;, &apos;M3&apos;, &apos;m7&apos;],
+                                           [&apos;M2&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;],
+                                           [&apos;M3&apos;, &apos;m7&apos;, &apos;M2&apos;]]; break;
+        case &apos;major-ninth&apos;: voicings = [[&apos;P1&apos;, &apos;M3&apos;, &apos;M7&apos;, &apos;M2&apos;],
+                                        [&apos;M7&apos;, &apos;M2&apos;, &apos;M3&apos;],
+                                        [&apos;M2&apos;, &apos;M3&apos;, &apos;M7&apos;],
+                                        [&apos;M2&apos;, &apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;],
+                                        [&apos;M3&apos;, &apos;M7&apos;, &apos;M2&apos;]]; break;
+        case &apos;minor-ninth&apos;: voicings = [[&apos;P1&apos;, &apos;m3&apos;, &apos;m7&apos;, &apos;M2&apos;],
+                                        [&apos;m7&apos;, &apos;M2&apos;, &apos;m3&apos;],
+                                        [&apos;m7&apos;, &apos;M2&apos;, &apos;m3&apos;, &apos;P5&apos;],
+                                        [&apos;M2&apos;, &apos;m3&apos;, &apos;m7&apos;],
+                                        [&apos;M2&apos;, &apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;],
+                                        [&apos;m3&apos;, &apos;m7&apos;, &apos;M2&apos;]]; break;
+        case &apos;dominant-11th&apos;: voicings = misc.allRotations([&apos;m7&apos;, &apos;M2&apos;, &apos;P4&apos;]); break;
+        case &apos;minor-11th&apos;: voicings = misc.allRotations([&apos;m7&apos;, &apos;m3&apos;, &apos;P4&apos;]); break;
+        case &apos;dominant-13th&apos;: voicings = [[&apos;m7&apos;, &apos;M2&apos;, &apos;M3&apos;, &apos;M6&apos;]]; break; // 9th is removed below if not present
+        case &apos;minor-13th&apos;: voicings = misc.allRotations([&apos;m7&apos;, &apos;M2&apos;, &apos;m3&apos;, &apos;M6&apos;]); break; // same here
+        case &apos;suspended-second&apos;: voicings = [[&apos;P1&apos;, &apos;M2&apos;, &apos;P5&apos;], [&apos;P5&apos;, &apos;P1&apos;, &apos;M2&apos;]]; break;
+        case &apos;suspended-fourth&apos;: voicings = misc.allRotations([&apos;P1&apos;, &apos;P4&apos;, &apos;P5&apos;]); break;
+        case &apos;power&apos;: voicings = [[&apos;P1&apos;, &apos;P5&apos;], [&apos;P5&apos;, &apos;P1&apos;]]; break;
+      }
+    }
+
+    if (!voicings) return [];
+
+    // Filter out notes that aren&apos;t present as degrees
+    // and alter notes according to the degrees
+    // KNOWN ISSUE: cannot handle more than one existance of each degree, e.g. M3 m10
+    for (let v = 0; v &lt; voicings.length; v++) {
+      voicings[v] = voicings[v].filter(interval =&gt; {
+        return (interval === &apos;P1&apos; || degrees[interval[1]]);
+      }).map(interval =&gt; {
+        if (interval === &apos;P1&apos;) return interval;
+        return degrees[interval[1]] + interval[1];
+      });
+    }
+
+    // Add missing degrees
+    for (let d = 2; d &lt;= 7; d++) {
+      if (!degrees[d]) continue;
+      for (let v = 0; v &lt; voicings.length; v++) {
+        if (voicings[v].map(i =&gt; { return +i[1]; }).indexOf(d) &gt;= 0) continue;
+        // The degree d is missing from this voicing. Find out where to insert it.
+        // console.log(&apos;Missing interval: &apos;, d, degrees[d]);
+        let pos = 0;
+        for (let p = 0; p &lt; voicings[v].length - 1; p++) {
+          let x = voicings[v][p][1];
+          let y = voicings[v][p + 1][1];
+          if (y &lt; x) y += 7;
+          if (x &lt; d &amp;&amp; d &lt; y) {
+            pos = p + 1;
+            break;
+          }
+        }
+        // The new degree is to be inserted at position pos (which defaults to 0)
+        let interval = degrees[d] + d;
+        // console.log(&apos;Inserting &apos; + interval + &apos; at position &apos; + pos + &apos; in array &apos; + voicings[v]);
+        voicings[v].splice(pos, 0, interval);
+      }
+    }
+
+    return voicings;
+  }
+}
+
+Harmony.coerce = function(source, parent, copy) {
+  if (source instanceof Harmony) {
+    if (copy) {
+      return new Harmony(source, parent);
+    } else {
+      return source;
+    }
+  }
+  if (typeof source === &apos;string&apos;) { return Harmony.fromString(source, parent); }
+  if (_.isObject(source) &amp;&amp; source.isChord) { return new Harmony(source.harmony, parent); }
+  throw new Error(&apos;Cannot coerce &apos; + source + &apos; to a harmony!&apos;);
+};
+
+// Helper
+function find(elem, array) {
+  return array.indexOf(elem) &gt;= 0;
+}
+
+// Helper
+function addInterval(step, acc) {
+  var defaultAddAlter = &apos;xPMMPPMmPMMPPM&apos;;
+  var interval = Interval.fromString(defaultAddAlter[step] + step); // concatenation
+  interval.coord[1] += acc;
+  return interval;
+}
+
+Harmony.fromString = function(str, parent) {
+  // N.C.
+  if (str.match(/^\\s*N\\.?\\s*C\\.?\\s*$/i) || str.match(/^\\s*no\\s*harmony/i)) {
+    return new Harmony({}, parent);
+  }
+
+  // Normal harmonies
+  var matches = str.match(/^\(?([A-Ga-gHh](?:[x&#x1D12A;&#x1D12B;]|[#&#x266F;]+|[b&#x266D;]+)?)\s*(\(?(.*?)((?:(?:add|no|omit)[#b&#x1D12A;&#x266F;&#x266D;&#x1D12B;]*\d+|[#b&#x1D12A;&#x266F;&#x266D;&#x1D12B;]+\d+)*)\)?)(?:\/([A-Ga-gHh](?:[x&#x1D12A;&#x1D12B;]|[#&#x266F;]+|[b&#x266D;]+)?))?$/i);
+  if (matches) {
+    var root = Pitch.fromString(matches[1], parent);
+    root.text = matches[1];
+    var rest = matches[2].trim();
+    const delta = String.fromCharCode(8710);  // &#x2206;
+    var main = matches[3].trim().replace(/\(/g, &apos;&apos;).replace(/\^/g, delta);
+    var extra = matches[4].trim().replace(/\^/g, delta);
+    main = main.replace(/\^/g, delta);
+    rest = rest.replace(/\^/g, delta);
+    main = main.replace(String.fromCharCode(916), delta);  // there are two identical-looking deltas,
+    rest = rest.replace(String.fromCharCode(916), delta);  // coerce to one of them
+    var bass = matches[5] ? Pitch.fromString(matches[5], parent) : null;
+    if (bass) bass.text = matches[5];
+
+    var kind;
+    var override = {};
+    // console.log(root, &apos;rest: &apos; + rest, &apos;main: &apos; + main, &apos;extra: &apos; + extra, bass);
+
+    // Triads (excluding diminished, which is tested for below)
+    if (!main) kind = &apos;major&apos;;
+    else if (find(main, [&apos;-&apos;, &apos;m&apos;, &apos;mi&apos;, &apos;min&apos;])) kind = &apos;minor&apos;;
+    else if (find(main, [&apos;aug&apos;, &apos;+&apos;, &apos;+5&apos;, &apos;#5&apos;])) kind = &apos;augmented&apos;;
+    // Sevenths
+    else if (main === &apos;7&apos;) kind = &apos;dominant&apos;;
+    else if (find(main, [&apos;&#xF8;&apos;, &apos;&#xF8;7&apos;, &apos;&#xD8;&apos;, &apos;&#xD8;7&apos;, &apos;0&apos;, &apos;07&apos;]) ||
+      find(rest.replace(/\\\(/g, &apos;&apos;), [&apos;-7b5&apos;, &apos;m7b5&apos;, &apos;m7-5&apos;, &apos;mi7b5&apos;])) kind = &apos;half-diminished&apos;;
+    else if (find(main, [&apos;aug7&apos;, &apos;7#5&apos;, &apos;+7&apos;, &apos;7+&apos;, &apos;7+5&apos;])) kind = &apos;augmented-seventh&apos;;
+    else if (find(main, [&apos;maj&apos;, &apos;maj7&apos;, delta, `${delta}7`, &apos;M&apos;, &apos;M7&apos;])) kind = &apos;major-seventh&apos;;
+    else if (find(main, [&apos;-7&apos;, &apos;m7&apos;, &apos;mi7&apos;])) kind = &apos;minor-seventh&apos;;
+    else if (find(main, [&apos;dim&apos;, &apos;dim7&apos;, &apos;o&apos;, &apos;&#xB0;&apos;, &apos;o7&apos;, &apos;&#xB0;7&apos;])) kind = &apos;diminished-seventh&apos;;
+    else if (find(main, [&apos;7sus&apos;, &apos;7sus4&apos;, &apos;sus7&apos;])) kind = &apos;dominant-suspended-fourth&apos;; // XXX
+    else if (rest.match(/^(\-|m|mi|min)[\/\(]?(M9|\u22069|maj9)/)) {  // \u2206 = 8710 = delta
+      kind = &apos;major-minor&apos;;
+      override[9] = &apos;M&apos;;
+    } else if (rest.match(/^(\-|m|mi|min)[\/\(]?(\\+7|maj(?!9)|M7?|\u2206|\u22067|maj7)/)) {
+      kind = &apos;major-minor&apos;;
+    } else if (rest.match(/(\+5?|aug)?[\/\(]?(\\+7|M7|\u2206|\u22067|maj7)/)) {
+      kind = &apos;major-seventh&apos;;
+      override[5] = &apos;A&apos;;
+    } else if (find(main, [&apos;6&apos;, &apos;M6&apos;, &apos;maj6&apos;])) {
+      // Sixths
+      kind = &apos;major-sixth&apos;;
+    } else if (find(main, [&apos;-6&apos;, &apos;m6&apos;, &apos;mi6&apos;])) kind = &apos;minor-sixth&apos;;
+    else if (find(main, [&apos;6/9&apos;, &apos;69&apos;, &apos;9/6&apos;])) {
+      kind = &apos;major-sixth&apos;;
+      override[9] = &apos;M&apos;;
+    } else if (main === &apos;9&apos;) {
+      // Ninths
+      kind = &apos;dominant-ninth&apos;;
+    } else if (find(main, [&apos;M9&apos;, &apos;maj9&apos;, &apos;\u22069&apos;])) kind = &apos;major-ninth&apos;;
+    else if (find(main, [&apos;-9&apos;, &apos;m9&apos;, &apos;mi9&apos;])) kind = &apos;minor-ninth&apos;;
+    else if (main === &apos;m2&apos;) { // synonym for madd9
+      kind = &apos;minor&apos;;
+      override[9] = &apos;M&apos;;
+    } else if (find(main, [&apos;11&apos;, &apos;9sus&apos;, &apos;9sus4&apos;])) {
+      // 11ths
+      kind = &apos;dominant-11th&apos;;
+    } else if (find(main, [&apos;M11&apos;, &apos;maj11&apos;, &apos;&#x394;11&apos;])) kind = &apos;major-11th&apos;;
+    else if (find(main, [&apos;-11&apos;, &apos;m11&apos;, &apos;mi11&apos;])) kind = &apos;minor-11th&apos;;
+    // 13ths
+    else if (main === &apos;13&apos;) kind = &apos;dominant-13th&apos;;
+    else if (find(main, [&apos;M13&apos;, &apos;maj13&apos;, &apos;&#x394;13&apos;])) kind = &apos;major-13th&apos;;
+    else if (find(main, [&apos;-13&apos;, &apos;m13&apos;, &apos;mi13&apos;])) kind = &apos;minor-13th&apos;;
+    // Suspended
+    else if (main === &apos;sus2&apos;) kind = &apos;suspended-second&apos;;
+    else if (find(main, [&apos;sus&apos;, &apos;sus4&apos;])) kind = &apos;suspended-fourth&apos;;
+    // Other
+    else if (find(main, [&apos;5&apos;, &apos;no3&apos;])) kind = &apos;power&apos;;
+
+    var intervals = {};
+    var defaultIntervals = knowledge.chordDegrees[kind];
+    var x;
+    for (x in defaultIntervals) intervals[x] = defaultIntervals[x];
+    for (x in override) intervals[x] = override[x];
+
+    extra.split(/(\D+\d+)/).forEach(function(x) {
+      if (x) {
+        var matches = x.match(/^[ \(\)]*(add|no|omit)?([#b]?)(\d+)/);
+        if (matches) {
+          var acc = knowledge.accidentals.indexOf(matches[2]) - 2;
+          if (acc &lt; -2) acc = 0;
+          var step = matches[3];
+          if (step &gt;= 2 &amp;&amp; step &lt;= 13) {
+            // console.log(matches[1], acc, step);
+            if (matches[1] === &apos;add&apos;) {
+              if (acc === 0) intervals[step] = &apos;xxMMPPMmPMMPPM&apos;[step];
+              else if (acc === 1) intervals[step] = &apos;xxAAAAAAAAAAAA&apos;[step];
+              else if (acc === -1) intervals[step] = &apos;xxmmddmmdmmddm&apos;[step];
+            } else if (find(matches[1], [&apos;no&apos;, &apos;omit&apos;])) {
+              delete intervals[step];
+            } else if (acc !== 0) {
+              if (acc === 1) intervals[step] = &apos;xxAAAAAAAAAAAA&apos;[step];
+              else if (acc === -1) intervals[step] = &apos;xxmmddmmdmmddm&apos;[step];
+            }
+          }
+        }
+      }
+    });
+
+    var intervalList = [];
+    for (var i in intervals) intervalList.push(Interval.fromString(intervals[i] + i, parent));
+
+    return new Harmony({root: root, intervals: intervalList, bass: bass, kindText: rest}, parent);
+  }
+};
+
+Harmony.fromXML = function(xml) {
+  var parser = xml2js.Parser({
+    tagNameProcessors: [misc.dashToCamel],
+    explicitArray: false,
+    mergeAttrs: true,
+    explicitCharkey: true});
+  var result;
+  parser.parseString(xml, function(err, obj) {
+    if (err) { console.error(err); return; }
+
+    // console.log(get(obj, &apos;harmony.root[0].rootStep[0]&apos;));
+    var root = Pitch.fromString(get(obj, &apos;harmony.root.rootStep._&apos;));
+    root.coord[1] += parseFloat(get(obj, &apos;harmony.root.rootAlter._&apos;, 0));
+    var bass = get(obj, &apos;harmony.bass.bassStep._&apos;);
+    if (bass) {
+      bass = Pitch.fromString(bass);
+      bass.coord[1] += parseFloat(get(obj, &apos;harmony.bass.bassAlter._&apos;, 0));
+    }
+    var kind = get(obj, &apos;harmony.kind._&apos;);
+    // var text = get(obj, &apos;harmony.kind.text&apos;);
+
+    // TODO: follow the spec regarding degree-alter:
+    // The degree-type element can be add, alter, or
+    // subtract. If the degree-type is alter or subtract, the
+    // degree-alter is relative to the degree already in the
+    // harmony based on its kind element. If the degree-type is
+    // add, the degree-alter is relative to a dominant harmony
+    // (major and perfect intervals except for a minor
+    // seventh).
+    // [http://www.musicxml.com/for-developers/musicxml-dtd/direction-elements/]
+
+    var degrees = [];
+    var ds = get(obj, &apos;harmony.degree&apos;);
+    if (!(ds instanceof Array)) ds = [ds];
+    ds.forEach(function(d) {
+      var step = get(d, &apos;degreeValue._&apos;);
+      var acc = parseInt(get(d, &apos;degreeAlter._&apos;, 0));
+      var text = get(d, &apos;degreeType.text&apos;);
+      if (step) {
+        switch (d.degreeType._) {
+          case &apos;add&apos;: degrees.push({type: &apos;add&apos;, step: step, interval: addInterval(step, acc), text: text}); break;
+          case &apos;subtract&apos;: degrees.push({type: &apos;subtract&apos;, step: step, text: text}); break;
+          case &apos;alter&apos;: degrees.push({type: &apos;alter&apos;, step: step, semitones: acc, text: text}); break;
+        }
+      }
+    });
+
+    result = new Harmony({root: root, intervals: degrees, bass: bass, kindText: kind}); // TODO
+  });
+  return result;
+};
+
+Harmony.itemType = &apos;Harmony&apos;;
+
+import ItemHandler from &apos;../item-handler.js&apos;;
+ItemHandler.registerItem(Harmony);
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

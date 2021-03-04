@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/resolver.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/resolver.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">// import Tempo from &apos;./classes/tempo.js&apos;;
+
+import misc from &apos;./misc.js&apos;;
+import Duration from &apos;./classes/duration.js&apos;;
+import Fraction from &apos;fraction.js&apos;;
+
+/** @ignore */
+export function createState(item, globals) {
+  var state = {
+    tempo: item.cache.tempo || getPrevGlobal(item.cache.absTime, globals, &apos;Tempo&apos;, true),
+    time: item.cache.time || getPrevGlobal(item.cache.absTime, globals, &apos;Time&apos;, true), // || {beats: [1, 1, 1, 1], denom: 4},
+    key: item.cache.key || getPrevGlobal(item.cache.absTime, globals, &apos;Key&apos;, true),
+    scale: item.parent ? item.parent.cache.scale : new Fraction(1),
+    absWn: item.cache.absWn,
+    absTime: item.cache.absTime,
+    item: item // for debugging
+  };
+  if (!state.tempo) {
+    if (state.parent) console.warn(&apos;createState could not find tempo for &apos;, item, globals);
+    // console.warn(&quot;... &quot;, getNextGlobal(0, globals, &quot;Tempo&quot;, false));
+    // console.warn(&quot;... &quot;, getNextGlobal(0, globals, &quot;Tempo&quot;, true));
+  }
+  state.sPerWn = state.tempo ? state.tempo.sPerWn() : null;
+  return state;
+}
+
+// function copyState(state, except) {
+//   var copy = {};
+//   Object.keys(state).forEach(function(key) {
+//     if (!except || except.indexOf(key) &lt; 0) copy[key] = state[key];
+//   });
+//   return copy;
+// }
+
+function getNextGlobal(absTime, globals, type, inclusive) {
+  var pos = 0;
+  if (inclusive) {
+    while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &lt; absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos++;
+  } else {
+    while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &lt;= absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos++;
+  }
+  return globals[pos];
+}
+
+function getPrevGlobal(absTime, globals, type, inclusive) {
+  var pos = globals.length - 1;
+  if (inclusive) {
+    while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &gt; absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos--;
+  } else {
+    while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &gt;= absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos--;
+  }
+  return globals[pos];
+}
+
+/** @ignore */
+export function updateState(state, meta) {
+  // console.log(&quot;UpdateState! &quot;, state, meta);
+  switch (meta.type) {
+    case &apos;Tempo&apos;:
+      state.tempo = meta;
+      state.sPerWn = meta.sPerWn();
+      // console.log(&quot;At &quot; + state.absWn + &quot; Tempo is now &quot; + meta.bpm + &quot;BPM, sPerWn = &quot; + state.sPerWn);
+      break;
+    case &apos;Time&apos;:
+      state.time = meta;
+      break;
+    case &apos;Key&apos;:
+      state.key = meta;
+      break;
+  }
+}
+
+// Update state with globals found at the current position
+// TODO: make more efficient
+/** @ignore */
+export function maybeUpdateState(state, globals) {
+  for (var i = 0; i &lt; globals.length; i++) {
+    var g = globals[i];
+    if (g.cache.absTime.equals(state.absTime)) {
+      updateState(state, g);
+    }
+  }
+}
+
+/** @ignore */
+export function stepState(state, duration, globals) {
+  if (!duration) return;
+  if (duration.isZero()) return;
+  if (!state.tempo) {
+    // console.warn(&quot;CANNOT STEP: duration: &quot;, duration, &quot;state: &quot;, state);
+    throw Error(&apos;Cannot step without a tempo!&apos;);
+  }
+  if (duration.value &lt; 0) return stepStateBw(state, duration, globals);
+  return stepStateFw(state, duration, globals);
+}
+
+function stepStateFw(state, duration, globals) {
+  var s;
+  var rest;
+  var step;
+
+  if (!duration.isTime) console.log(&apos;Duration is &apos;, duration, &apos; in stepStateFw&apos;); // if duration is not a Duration object
+  if (duration.isTime()) {
+    s = state.scale.mul(duration.toSeconds());
+    var nextTempo = getNextGlobal(state.absTime, globals, &apos;Tempo&apos;);
+    if (!nextTempo || (nextTempo.cache.absTime &gt; (state.absTime + s))) {
+      // Simple step
+      state.absTime = state.absTime.add(s);
+      state.absWn = state.absWn.add(new Fraction(s, state.sPerWn));
+    } else {
+      // Step to next tempo change
+      step = nextTempo.cache.absTime.sub(state.absTime);
+      state.absTime = nextTempo.cache.absTime; // avoid precision error
+      state.absWn = state.absWn.add(new Fraction(step, state.sPerWn));
+      maybeUpdateState(state, globals);
+      // Call recursively with resting duration
+      rest = s.sub(step);
+      if (rest &gt; 0) {
+        stepState(state, Duration.coerce({value: rest, unit: &apos;s&apos;}), globals);
+      }
+    }
+  } else {
+    var wn;
+    switch (duration.unit) {
+      case &apos;wn&apos;: wn = duration.value; break;
+      case &apos;beats&apos;: wn = wnPerBeat(state).mul(duration.value); break;
+      case &apos;measures&apos;: wn = wnPerMeasure(state).mul(duration.value); break;
+      default:
+        console.log(&apos;Bad duration unit: &apos;, duration.unit);
+        throw Error(&apos;Bad duration unit: &apos; + duration.unit);
+    }
+    wn = state.scale.mul(wn);
+
+    var nextGlobal = getNextGlobal(state.absTime, globals);
+    s = wn.mul(state.sPerWn);
+    // if (nextGlobal) console.log(&apos;nextGlobal: &apos;, nextGlobal.type, nextGlobal.cache.absTime, &apos;state.absTime: &apos;, state.absTime, &apos;s: &apos;, s);
+    if (!nextGlobal || (nextGlobal.cache.absTime &gt; (state.absTime.add(s)))) {
+      // Simple step
+      // console.log(&apos;simple step&apos;, wn);
+      state.absTime = state.absTime.add(wn.mul(state.sPerWn));
+      state.absWn = state.absWn.add(wn);
+    } else {
+      // Step to next global
+      step = nextGlobal.cache.absWn.sub(state.absWn);
+      // console.log(&apos;split step&apos;, wn.valueOf(), step.valueOf(), state.absWn.valueOf(), nextGlobal.cache.absWn.valueOf());
+      state.absTime = state.absTime.add(step.mul(state.sPerWn));
+      state.absWn = nextGlobal.cache.absWn; // avoid precision error
+      maybeUpdateState(state, globals);
+      // Call recursively with resting duration
+      rest = wn.sub(step);
+      // console.log(&quot;rest is &quot; + rest.valueOf());
+      if (rest &gt; 0) {
+        stepState(state, Duration.coerce({value: rest, unit: &apos;wn&apos;}), globals);
+      }
+    }
+  }
+}
+
+function stepStateBw(state, duration, globals) {
+  var rest;
+  var step;
+  var s;
+
+  if (!duration.isTime) console.log(&apos;Duration is &apos;, duration, &apos; in stepStateBw&apos;); // if duration is not a Duration object
+  if (duration.isTime()) {
+    s = state.mul.scale(duration.toSeconds());
+    var prevTempo = getPrevGlobal(state.absTime, globals, &apos;Tempo&apos;);
+    if (!prevTempo || (prevTempo.cache.absTime &lt; (state.absTime.add(s)))) {
+      // Simple step
+      state.absTime = state.absTime.add(s); // duration is negative
+      state.absWn = state.absWn.add(s.div(state.sPerWn));
+    } else {
+      // Step to next tempo change
+      step = prevTempo.cache.absTime.sub(state.absTime);
+      state.absTime = prevTempo.cache.absTime; // avoid precision error
+      state.absWn = state.absWn.add(step.div(state.sPerWn));
+      maybeUpdateState(state, globals); // TODO!!
+      // Call recursively with resting duration
+      rest = s.sub(step);
+      if (rest &lt; 0) {
+        stepState(state, Duration.coerce({value: rest, unit: &apos;s&apos;}), globals);
+      }
+    }
+  } else {
+    var a;
+    switch (duration.unit) {
+      case &apos;wn&apos;: a = duration.value; break;
+      case &apos;beats&apos;: a = wnPerBeat(state).mul(duration.value); break;
+      case &apos;measures&apos;: a = wnPerMeasure(state).mul(duration.value); break;
+      default:
+        console.log(&apos;Bad duration unit: &apos; + duration.unit);
+        throw Error(&apos;Bad duration unit: &apos; + duration.unit);
+    }
+    a = state.scale.mul(a);
+
+    var prevGlobal = getPrevGlobal(state.absTime, globals);
+    s = a.mul(state.sPerWn);
+    // if (prevGlobal) console.log(&apos;prevGlobal: &apos;, prevGlobal.type, prevGlobal.cache.absTime, &apos;state.absTime: &apos;, state.absTime, &apos;s: &apos;, s);
+    if (!prevGlobal || (prevGlobal.cache.absTime &lt; (state.absTime.add(s)))) {
+      // Simple step
+      // console.log(&apos;simple step&apos;, a);
+      state.absTime = state.absTime.add((new Fraction(a)).mul(state.sPerWn));
+      state.absWn = state.absWn.add(a);
+    } else {
+      // Step to next global
+      step = prevGlobal.cache.absWn.sub(state.absWn);
+      console.log(&apos;split step&apos;, a, step, state.absWn, prevGlobal.cache.absWn);
+      state.absTime = state.absTime.add(step.mul(state.sPerWn));
+      state.absWn = prevGlobal.cache.absWn; // avoid precision error
+      maybeUpdateState(state, globals); // TODO!
+      // Call recursively with resting duration
+      rest = a.sub(step);
+      if (rest &lt; 0) {
+        stepState(state, Duration.coerce({value: rest, unit: &apos;wn&apos;}), globals);
+      }
+    }
+  }
+}
+
+// temp
+function wnPerBeat(state) {
+  return new Fraction(state.time.beats[0], state.time.denom);
+}
+
+function wnPerMeasure(state) {
+  return new Fraction(misc.sumArray(state.time.beats), state.time.denom);
+}
+
+// import misc from &apos;./misc.js&apos;;
+// import _ from &apos;underscore&apos;;
+// import Duration from &apos;./classes/duration.js&apos;;
+// import VerticalContainer from &apos;./classes/vertical-container.js&apos;;
+// import Song from &apos;./classes/song.js&apos;;
+// import Voice from &apos;./classes/voice.js&apos;;
+// import Tempo from &apos;./classes/tempo.js&apos;;
+// import Fraction from &apos;fraction.js&apos;;
+
+// function setParents(item) {
+//   var children = item.events ? item.events.slice(0) : [];
+//   if (!item.cache) item.cache = {};
+//   // Make sure master objects come first
+//   // TODO: Sorting in Chrome (and Opera) is not stable,
+//   // so we can&apos;t do sorting this way
+// //   children.sort(function(a, b) {
+// //     if (a.master) return -1;
+// //     if (b.master) return 1;
+// //     return 0;
+// //   });
+//   item.cache.children = children;
+//   item.cache.enabled = item.parent ? !!(item.parent.cache.enabled &amp;&amp; item.enabled) : !!item.enabled;
+//   item.cache.amp = _.isNumber(item.amp) ? item.amp : (item.parent ? item.parent.cache.amp : 1.0);
+//   var no = 0;
+//   children.forEach(function(child) {
+//     // child.parent = item;
+//     setParents(child);
+//     child.cache.no = no++;
+//   });
+// }
+
+// function copyState(state, except) {
+//   var copy = {};
+//   Object.keys(state).forEach(function(key) {
+//     if (!except || except.indexOf(key) &lt; 0) copy[key] = state[key];
+//   });
+//   return copy;
+// }
+
+// function getNextGlobal(absTime, globals, type) {
+//   var pos = 0;
+//   while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &lt;= absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos++;
+//   return globals[pos];
+// }
+
+// function getPrevGlobal(absTime, globals, type) {
+//   var pos = globals.length - 1;
+//   while (globals[pos] &amp;&amp; ((globals[pos].cache.absTime &gt;= absTime) || (type &amp;&amp; !(globals[pos].type === type)))) pos--;
+//   return globals[pos];
+// }
+
+// // Update state with globals found at the current position
+// // TODO: make more efficient
+// function updateState(state, globals) {
+//   for (var i = 0; i &lt; globals.length; i++) {
+//     var g = globals[i];
+//     if (g.cache.absTime === state.absTime) {
+//       switch (g.type) {
+//         case &apos;Tempo&apos;:
+//           state.tempo = g;
+//           state.sPerWn = g.sPerWn();
+//           break;
+//         case &apos;Time&apos;:
+//           state.time = g;
+//           break;
+//       }
+//     }
+//   }
+// }
+
+// function stepState(state, duration, globals) {
+//   // console.log(&apos;stepState: &apos; + duration);
+//   if (!duration) return;
+//   if (duration.absolute) { // duration may actually be a Position
+//     // Absolute position
+//     throw Error(&apos;TODO: Absolute position&apos;);
+//   } else {
+//     // Relative position
+//     if (duration.isZero()) return;
+//     if (duration.value &lt; 0) return stepStateBw(state, duration, globals);
+//     return stepStateFw(state, duration, globals);
+//   }
+// }
+
+// function stepStateFw(state, duration, globals) {
+//   var s;
+//   var rest;
+//   var step;
+
+//   if (!duration.isTime) console.log(&apos;Duration is &apos;, duration, &apos; in stepStateFw&apos;); // if duration is not a Duration object
+//   if (duration.isTime()) {
+//     s = duration.toFloatSeconds();
+//     var nextTempo = getNextGlobal(state.absTime, globals, &apos;Tempo&apos;);
+//     if (!nextTempo || (nextTempo.cache.absTime &gt; (state.absTime + s))) {
+//       // Simple step
+//       state.absTime += s;
+//       state.absWn += s / state.sPerWn;
+//     } else {
+//       // Step to next tempo change
+//       step = nextTempo.cache.absTime - state.absTime;
+//       state.absTime = nextTempo.cache.absTime; // avoid precision error
+//       state.absWn += step / state.sPerWn;
+//       updateState(state, globals);
+//       // Call recursively with resting duration
+//       rest = s - step;
+//       if (rest &gt; 0) {
+//         stepState(state, Duration.coerce({num: rest, unit: &apos;s&apos;}), globals);
+//       }
+//     }
+//   } else {
+//     var a;
+//     switch (duration.unit) {
+//       case &apos;wn&apos;: a = duration.toFloat(); break;
+//       case &apos;beats&apos;: a = wnPerBeat(state) * duration.toFloat(); break;
+//       case &apos;measures&apos;: a = wnPerMeasure(state) * duration.toFloat(); break;
+//       default:
+//         console.log(&apos;Bad duration unit: &apos; + duration.unit);
+//         throw Error(&apos;Bad duration unit: &apos; + duration.unit);
+//     }
+
+//     var nextGlobal = getNextGlobal(state.absTime, globals);
+//     s = a * state.sPerWn;
+//     if (nextGlobal) console.log(&apos;nextGlobal: &apos;, nextGlobal.type, nextGlobal.cache.absTime, &apos;state.absTime: &apos;, state.absTime, &apos;s: &apos;, s);
+//     if (!nextGlobal || (nextGlobal.cache.absTime &gt; (state.absTime + s))) {
+//       // Simple step
+//       // console.log(&apos;simple step&apos;, a);
+//       state.absTime += a * state.sPerWn;
+//       state.absWn += a;
+//     } else {
+//       // Step to next global
+//       step = nextGlobal.cache.absWn - state.absWn;
+//       console.log(&apos;split step&apos;, a, step, state.absWn, nextGlobal.cache.absWn);
+//       state.absTime += step * state.sPerWn;
+//       state.absWn = nextGlobal.cache.absWn; // avoid precision error
+//       updateState(state, globals);
+//       // Call recursively with resting duration
+//       rest = a - step;
+//       if (rest &gt; 0) {
+//         stepState(state, Duration.coerce({num: rest, unit: &apos;wn&apos;}), globals);
+//       }
+//     }
+//   }
+// }
+
+// function stepStateBw(state, duration, globals) {
+//   var rest;
+//   var step;
+//   var s;
+
+//   if (!duration.isTime) console.log(&apos;Duration is &apos;, duration, &apos; in stepStateBw&apos;); // if duration is not a Duration object
+//   if (duration.isTime()) {
+//     s = duration.toFloatSeconds();
+//     var prevTempo = getPrevGlobal(state.absTime, globals, &apos;Tempo&apos;);
+//     if (!prevTempo || (prevTempo.cache.absTime &lt; (state.absTime + s))) {
+//       // Simple step
+//       state.absTime += s; // duration is negative
+//       state.absWn += s / state.sPerWn;
+//     } else {
+//       // Step to next tempo change
+//       step = prevTempo.cache.absTime - state.absTime;
+//       state.absTime = nextTempo.cache.absTime; // avoid precision error
+//       state.absWn += step / state.sPerWn;
+//       updateState(state, globals); // TODO!!
+//       // Call recursively with resting duration
+//       rest = s - step;
+//       if (rest &lt; 0) {
+//         stepState(state, Duration.coerce({num: rest, unit: &apos;s&apos;}), globals);
+//       }
+//     }
+//   } else {
+//     var a;
+//     switch (duration.unit) {
+//       case &apos;wn&apos;: a = duration.toFloat(); break;
+//       case &apos;beats&apos;: a = wnPerBeat(state) * duration.toFloat(); break;
+//       case &apos;measures&apos;: a = wnPerMeasure(state) * duration.toFloat(); break;
+//       default:
+//         console.log(&apos;Bad duration unit: &apos; + duration.unit);
+//         throw Error(&apos;Bad duration unit: &apos; + duration.unit);
+//     }
+
+//     var prevGlobal = getPrevGlobal(state.absTime, globals);
+//     s = a * state.sPerWn;
+//     if (prevGlobal) console.log(&apos;prevGlobal: &apos;, prevGlobal.type, prevGlobal.cache.absTime, &apos;state.absTime: &apos;, state.absTime, &apos;s: &apos;, s);
+//     if (!prevGlobal || (prevGlobal.cache.absTime &lt; (state.absTime + s))) {
+//       // Simple step
+//       // console.log(&apos;simple step&apos;, a);
+//       state.absTime += a * state.sPerWn;
+//       state.absWn += a;
+//     } else {
+//       // Step to next global
+//       step = prevGlobal.cache.absWn - state.absWn;
+//       console.log(&apos;split step&apos;, a, step, state.absWn, prevGlobal.cache.absWn);
+//       state.absTime += step * state.sPerWn;
+//       state.absWn = prevGlobal.cache.absWn; // avoid precision error
+//       updateState(state, globals); // TODO!
+//       // Call recursively with resting duration
+//       rest = a - step;
+//       if (rest &lt; 0) {
+//         stepState(state, Duration.coerce({num: rest, unit: &apos;wn&apos;}), globals);
+//       }
+//     }
+//   }
+// }
+
+// // function sPerWn(tempo) {
+// //   return 60 / (tempo.bpm * tempo.beat); // TODO: use fraction
+// // }
+
+// // temp
+// function wnPerBeat(state) {
+//   return new Fraction(state.time.beats[0], state.time.denom);
+// }
+
+// function wnPerMeasure(state) {
+//   return new Fraction(misc.sumArray(state.time.beats), state.time.denom);
+// }
+
+// function resolveGlobals(item, state, globals) {
+//   var oldState = copyState(state);
+//   item.cache.children.forEach(function(child) {
+//     if ((item instanceof VerticalContainer) || (item instanceof Song)) {
+//       state = copyState(oldState);
+//       // throw new Error(&apos;VerticalContainer cannot currently contain globals&apos;);
+//     }
+//     if (child.position &amp;&amp; child.position.absolute) {
+//       if (!child.position.isTime()) console.log(&apos;Warning: absolute position is only supported for time units&apos;);
+//       state = copyState(oldState);
+//       stepState(state, child.position, globals);
+//       // throw new Error(&apos;Absolute positioning of globals not supported&apos;);
+//     } else if (child.position) {
+//       stepState(state, child.position, globals);
+//     }
+
+//     switch (child.type) {
+//       case &apos;Time&apos;:
+//         globals.push(child);
+//         state.time = child;
+//         state.sPerWn = state.tempo.sPerWn();
+//         console.log(state.absWn, state.absTime, &apos;At Time, new sPerWn: &apos;, state.sPerWn);
+//         break;
+//       case &apos;Tempo&apos;:
+//         globals.push(child);
+//         state.tempo = child;
+//         state.sPerWn = state.tempo.sPerWn();
+//         console.log(state.absWn, state.absTime, &apos;At Tempo, new sPerWn: &apos;, state.sPerWn);
+//         break;
+//     }
+//     child.cache.absWn = state.absWn;
+//     child.cache.absTime = state.absTime;
+
+//     resolveGlobals(child, state, globals);
+//   });
+//   state = oldState;
+// }
+
+// function resolveItem(item, state, globals, result) {
+//   var oldState = copyState(state);
+//   var maxEndTime = 0;
+//   var maxEndWn = 0;
+
+//   // Calculate left trim
+//   if (item.trimLeft &amp;&amp; !item.trimLeft.isZero()) {
+//     stepState(state, item.trimLeft, globals);
+//     item.cache.trimmedStartWn = state.absWn;
+//     item.cache.trimmedStartTime = state.absTime;
+//     state = copyState(oldState);
+//   }
+
+//   item.cache.children.forEach(function(child) {
+//     // console.log(&apos;-- &apos;, child.type, state.tempo, state.time);
+
+//     if ((item instanceof VerticalContainer) || (item instanceof Song)) { // item.type === &apos;VerticalContainer&apos; || item.type === &apos;NoteChord&apos;) {
+//       state = copyState(oldState);
+//     }
+//     if (child.position &amp;&amp; child.position.absolute) {
+//       if (!child.position.isTime()) console.log(&apos;Warning: absolute position is only supported for time units&apos;);
+//       state = copyState(oldState);
+//       stepState(state, child.position, globals);
+//     } else if (child.position) {
+//       stepState(state, child.position, globals);
+//     }
+
+//     var absWn = state.absWn;
+//     var absTime = state.absTime;
+//     child.cache.absWn = absWn;
+//     child.cache.absTime = absTime;
+
+//     resolveItem(child, state, globals, result);
+
+//     // If child has an explicit duration, use it
+//     if (child.duration) {
+//       stepState(state, child.duration, globals);
+//     } else if (child.cache.maxChildEndTime) {
+//     // Otherwise, check if child has a duration derived from its children
+//       var diff = child.cache.maxChildEndTime - state.absTime;
+//       stepState(state, Duration.coerce({num: diff, unit: &apos;s&apos;}), globals);
+//     } else if (item.duration &amp;&amp; ((item instanceof VerticalContainer) || (item instanceof Song))) {
+//       // If the child still doesn&apos;t have a duration, expand children of VerticalContainer
+//       // (including inherited classes, such as NoteChord) to the duration of the parent
+//       stepState(state, item.duration, globals);
+//     }
+//     var endWn = state.absWn;
+//     var endTime = state.absTime;
+//     child.cache.endWn = endWn;
+//     child.cache.endTime = endTime;
+//     if (endTime &gt; maxEndTime) maxEndTime = endTime;
+//     if (endWn &gt; maxEndWn) maxEndWn = endWn;
+
+//     result.push({absWn: absWn, absTime: absTime, endWn: endWn, endTime: endTime, event: child});
+//   });
+
+//   // Calculate right trim
+//   // TODO: Are we in the right position (i.e. the end of the current event) here?
+//   if (item.trimRight &amp;&amp; !item.trimRight.isZero()) {
+//     stepState(state, item.trimRight.inverse(), globals);
+//     item.cache.trimmedEndWn = state.absWn;
+//     item.cache.trimmedEndTime = state.absTime;
+//   }
+
+//   state = oldState;
+//   if (!item.duration &amp;&amp; maxEndTime) {
+//     item.cache.maxChildEndTime = maxEndTime;
+//     // item.cache.endTime = maxEndTime;
+//     // item.cache.endWn = maxEndWn;
+//   }
+// }
+
+// function propagateTrim(item) {
+//   // Left trim
+//   if (item.parent &amp;&amp; (item.parent.cache.trimmedStartTime !== undefined)) {
+//     if ((item.cache.trimmedStartTime === undefined) || (item.cache.trimmedStartTime &lt; item.parent.cache.trimmedStartTime)) {
+//       item.cache.trimmedStartTime = item.parent.cache.trimmedStartTime;
+//       item.cache.trimmedStartWn = item.parent.cache.trimmedStartWn;
+//     }
+//   }
+
+//   // Right trim
+//   if (item.parent &amp;&amp; (item.parent.cache.trimmedEndTime !== undefined)) {
+//     if ((item.cache.trimmedEndTime === undefined) || (item.cache.trimmedEndTime &gt; item.parent.cache.trimmedEndTime)) {
+//       item.cache.trimmedEndTime = item.parent.cache.trimmedEndTime;
+//       item.cache.trimmedEndWn = item.parent.cache.trimmedEndWn;
+//     }
+//   }
+
+//   // Set trimmedStart and trimmedEnd
+//   if ((item.cache.trimmedStartTime !== undefined) &amp;&amp; (item.cache.absTime &lt; item.cache.trimmedStartTime)) {
+//     item.cache.trimmedStart = true;
+//     item.cache.skip = (item.cache.trimmedStartTime &gt; item.cache.absTime) ? (item.cache.trimmedStartTime - item.cache.absTime) : 0;
+//     // TEMPORARY:
+//     // Set enabled to false for Notes or NoteChords that have a trimmed start
+//     if (((item.type === &apos;Note&apos;) || (item.type === &apos;NoteChord&apos;)) &amp;&amp; (item.cache.skip &gt; 0)) item.cache.enabled = false;
+//   }
+//   if ((item.cache.trimmedEndTime !== undefined) &amp;&amp; item.cache.absTime &gt; item.cache.trimmedEndTime) {
+//     item.cache.trimmedStart = true;
+//     if ((item.type === &apos;Note&apos;) || (item.type === &apos;NoteChord&apos;)) item.cache.enabled = false;
+//   }
+
+//   // Propagate to children
+//   if (item.cache.children) {
+//     item.cache.children.forEach(function(child) {
+//       propagateTrim(child);
+//     });
+//   }
+// }
+
+// export default {
+//   resolve: function(item) {
+//     // Set parents
+//     setParents(item);
+
+//     // Resolve time
+//     var globals = [];
+//     var state = {
+//       tempo: new Tempo({bpm: 120, beat: 1 / 4}),
+//       time: {beats: [1, 1, 1, 1], denom: 4},
+//       sPerWn: 2,
+//       absWn: 0,
+//       absTime: 0
+//     };
+//     resolveGlobals(item, state, globals);
+//     var firstTempo = _.find(globals, (x) =&gt; { return x.type === &apos;Tempo&apos;; }) || new Tempo({ bpm: 120, beat: 1 / 4 });
+//     var firstTime = _.find(globals, (x) =&gt; { return x.type === &apos;Time&apos;; }) || { beats: [1, 1, 1, 1], denom: 4 };
+//     // console.log(&apos;firstTempo: &apos;, firstTempo, &apos;  sPerWn: &apos;, sPerWn(firstTempo));
+//     console.log(&apos;----- Resolving items ------&apos;);
+//     // Resolve time
+//     var result = [];
+//     state = {
+//       tempo: firstTempo,
+//       time: firstTime,
+//       sPerWn: firstTempo.sPerWn(),
+//       absWn: 0,
+//       absTime: 0
+//     };
+//     resolveItem(item, state, globals, result);
+//     if (!item.cache.absTime) {
+//       item.cache.absTime = 0;
+//       item.cache.absWn = 0;
+//     }
+//     propagateTrim(item);
+//     // console.log(&apos;State:   &apos;, state);
+//     console.log(&apos;Globals:&apos;);
+//     globals.forEach(function(g) {
+//       console.log(g.cache.absWn, g.cache.absTime, g);
+//     });
+//     var items = result.sort(function(a, b) {
+//       return a.absTime - b.absTime;
+//     });
+//     var voices = _.filter(items, (x) =&gt; { return x.event instanceof Voice; });
+//     var programChanges = [];
+//     voices.forEach((v) =&gt; {
+//       var voice = v.event;
+//       // console.log(&apos;ok voice: &apos;, voice);
+//       if (voice.sound &amp;&amp; voice.cache.enabled) {
+//         programChanges.push({
+//           absWn: voice.cache.absWn,
+//           absTime: voice.cache.absTime,
+//           sound: voice.sound,
+//           channel: voice.channel
+//         });
+//       }
+//     });
+
+//     return {
+//       startTempo: firstTempo,
+//       voices: voices,
+//       programChanges: programChanges,
+//       events: items
+//     };
+//   }
+// };
+
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

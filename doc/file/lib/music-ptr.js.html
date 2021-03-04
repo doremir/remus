@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/music-ptr.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/music-ptr.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+// import _ from &apos;underscore&apos;;
+// import Item from &apos;./item.js&apos;;
+// import chalk from &apos;chalk&apos;;
+
+import Fraction from &apos;fraction.js&apos;;
+import EventContainer from &apos;./classes/event/event-container.js&apos;;
+
+/** @ignore */
+export default class MusicPtr {
+  constructor(container) {
+    if (!(container instanceof EventContainer)) throw new Error(&apos;MusicPtr must be initialized with an event container&apos;);
+    // container.resolve(); // or is it caller&apos;s responsibility?
+    this.container = container;
+    this.reset();
+  }
+
+  reset() {
+    this.eventStatus = &apos;head&apos;;
+    this.metaStatus = &apos;head&apos;;
+    this.absWn = new Fraction(0);
+    this.prevBar = new Fraction(0);
+    this.globals = this.container.cache.globals;
+    this.setTime(this.container.cache.time);
+    this.tempo = this.container.cache.tempo;
+    this.nextTime = this.getNextGlobal(&apos;Time&apos;);
+    this.nextTempo = this.getNextGlobal(&apos;Tempo&apos;);
+    this.currentBeat = 1;
+  }
+
+  setTime(time) {
+    if (!time) throw new Error(&apos;No Time event present in container (or the container is not resolved)&apos;);
+    this.time = time;
+    this.measureLength = time.getMeasureWn();
+    this.beatOffsets = Array(time.beats.length);
+    let totalAtoms = 0;
+    for (let i = 0; i &lt; time.beats.length; i++) {
+      let atoms = time.beats[i];
+      totalAtoms += atoms;
+      this.beatOffsets[i] = new Fraction(totalAtoms, time.denom);
+    }
+    this.updateOffsets();
+  }
+
+  updateOffsets() {
+    this.barOffset = this.absWn.sub(this.time.cache.absWn).mod(this.measureLength);
+    this.prevBar = this.absWn.sub(this.barOffset);
+    let lastBeat = 0;
+    for (let i = 0; i &lt; this.beatOffsets.length; i++) {
+      if (this.barOffset &lt; this.beatOffsets[i]) {
+        this.beatOffset = this.barOffset.sub(lastBeat);
+        this.currentBeat = i + 1;
+        break;
+      }
+      lastBeat = this.beatOffsets[i];
+    }
+  }
+
+  atHead() {
+    return this.eventStatus === &apos;head&apos; &amp;&amp; this.metaStatus === &apos;head&apos;;
+  }
+
+  atTail() {
+    return this.eventStatus === &apos;tail&apos; &amp;&amp; this.metaStatus === &apos;tail&apos;;
+  }
+
+  atBar() {
+    return this.barOffset.n === 0;
+  }
+
+  atBeat() {
+    return this.beatOffset.n === 0;
+  }
+
+  atEvent() {
+    return this.event;
+  }
+
+  atMeta() {
+    return this.meta;
+  }
+
+  get offset() {
+    return this.absWn;
+  }
+
+  get eventOffset() {
+    return this.event ? this.absWn.sub(this.event.cache.absWn) : null;
+  }
+
+  stepBeat() {
+    let step = this.currentBeatLength.sub(this.beatOffset);
+    this.absWn = this.absWn.add(step);
+    this.updateOffsets();
+    this.updateCurrentEvent(this.eventIndex);
+    return step;
+  }
+
+  stepEvent() {
+    if (this.eventStatus === &apos;head&apos;) {
+      this.eventIndex = 0;
+      this.eventStatus = &apos;event&apos;;
+    } else if (this.eventStatus === &apos;tail&apos;) {
+      console.warn(&apos;stepEvent: Cannot step past event tail&apos;);
+      return null;
+    } else {
+      this.eventIndex++;
+    }
+    if (this.eventIndex &lt; this.container.events.length) {
+      this.event = this.container.events[this.eventIndex];
+      this.absWn = this.event.cache.absWn;
+      this.updateOffsets();
+    } else {
+      if (this.event) {
+        this.absWn = this.event.cache.endWn;
+        this.updateOffsets();
+      }
+      this.eventStatus = &apos;tail&apos;;
+      this.eventIndex = null;
+      this.event = null;
+    }
+  }
+
+  stepWn(wn) {
+    this.absWn = this.absWn.add(wn);
+    this.updateOffsets();
+    this.updateCurrentEvent(this.eventIndex);
+    return wn;
+  }
+
+  get currentBeatLength() {
+    let i = this.currentBeat;
+    return this.beatOffsets[i - 1].sub(this.beatOffsets[i - 2] || 0);
+  }
+
+  updateCurrentEvent(fromIndex) {
+    let index = this.getEventIndexAtWn(this.absWn, fromIndex);
+    this.eventIndex = index;
+    this.event = index ? this.container.events[index] : null;
+  }
+
+  getEventIndexAtWn(wn, fromIndex) {
+    let events = this.container.events;
+    let eventCount = events.length;
+    for (let i = fromIndex || 0; i &lt; eventCount; i++) {
+      if (events[i].cache.absWn &lt;= wn &amp;&amp; events[i].cache.endWn &gt; wn) {
+        return i;
+      }
+    }
+    console.log(&apos;Could not find any event at &apos; + wn.toFraction());
+  }
+
+  copy() {
+    throw new Error(&apos;Not implemented&apos;);
+  }
+
+  getNextGlobal(type) {
+    var pos = 0;
+    while (this.globals[pos] &amp;&amp; ((this.globals[pos].cache.absWn &lt;= this.absWn) || (type &amp;&amp; !(this.globals[pos].type === type)))) pos++;
+    return this.globals[pos];
+  }
+
+  getPrevGlobal(type) {
+    var pos = this.globals.length - 1;
+    while (this.globals[pos] &amp;&amp; ((this.globals[pos].cache.absWn &gt;= this.absWn) || (type &amp;&amp; !(this.globals[pos].type === type)))) pos--;
+    return this.globals[pos];
+  }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

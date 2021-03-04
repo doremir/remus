@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">lib/knowledge.js | remus</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="Generalized music representation"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="remus"><meta property="twitter:description" content="Generalized music representation"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes">classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/audio-file.js~AudioFile.html">AudioFile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/duration.js~Duration.html">Duration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/harmony.js~Harmony.html">Harmony</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/interval.js~Interval.html">Interval</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/item.js~Item.html">Item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/mode.js~Mode.html">Mode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/pitch.js~Pitch.html">Pitch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/syllable.js~Syllable.html">Syllable</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-event">classes/event</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/audio.js~Audio.html">Audio</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord-sequence.js~ChordSequence.html">ChordSequence</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/chord.js~Chord.html">Chord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event-container.js~EventContainer.html">EventContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note-chord.js~NoteChord.html">NoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/note.js~Note.html">Note</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/rest.js~Rest.html">Rest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/song.js~Song.html">Song</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/tuplet.js~Tuplet.html">Tuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/vertical-container.js~VerticalContainer.html">VerticalContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice-container.js~VoiceContainer.html">VoiceContainer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/event/voice.js~Voice.html">Voice</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#classes-meta">classes/meta</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/clef.js~Clef.html">Clef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/key.js~Key.html">Key</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/meta.js~Meta.html">Meta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/tempo.js~Tempo.html">Tempo</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/classes/meta/time.js~Time.html">Time</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score">score</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/score.js~Score.html">Score</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#score-classes">score/classes</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bar.js~ScoreBar.html">ScoreBar</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-bracket.js~ScoreBracket.html">ScoreBracket</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-clef.js~ScoreClef.html">ScoreClef</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-detail.js~ScoreDetail.html">ScoreDetail</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-event.js~ScoreEvent.html">ScoreEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-item.js~ScoreItem.html">ScoreItem</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-key.js~ScoreKey.html">ScoreKey</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-meta.js~ScoreMeta.html">ScoreMeta</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note-chord.js~ScoreNoteChord.html">ScoreNoteChord</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-note.js~ScoreNote.html">ScoreNote</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-rest.js~ScoreRest.html">ScoreRest</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-syllable.js~ScoreSyllable.html">ScoreSyllable</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tie.js~ScoreTie.html">ScoreTie</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-time.js~ScoreTime.html">ScoreTime</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/score-tuplet.js~ScoreTuplet.html">ScoreTuplet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/lib/score/classes/staff-system.js~StaffSystem.html">StaffSystem</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">lib/knowledge.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
+import notecoord from &apos;notecoord&apos;;
+
+// Pitch coordinates [octave, fifth] relative to C
+export default {
+  pitches: notecoord.notes,
+
+  intervals: {
+    unison: [0, 0],
+    second: [1, 1],
+    third: [2, 3],
+    fourth: [3, 5],
+    fifth: [4, 7],
+    sixth: [5, 8],
+    seventh: [6, 10],
+    octave: [7, 12]
+  },
+
+  intervalFromFifth: [&apos;second&apos;, &apos;sixth&apos;, &apos;third&apos;, &apos;seventh&apos;, &apos;fourth&apos;,
+                         &apos;unison&apos;, &apos;fifth&apos;],
+
+  intervalsIndex: [&apos;unison&apos;, &apos;second&apos;, &apos;third&apos;, &apos;fourth&apos;, &apos;fifth&apos;,
+                      &apos;sixth&apos;, &apos;seventh&apos;, &apos;octave&apos;, &apos;ninth&apos;, &apos;tenth&apos;,
+                      &apos;eleventh&apos;, &apos;twelfth&apos;, &apos;thirteenth&apos;, &apos;fourteenth&apos;,
+                      &apos;fifteenth&apos;],
+
+// linaer index to fifth = (2 * index + 1) % 7
+  fifths: [&apos;f&apos;, &apos;c&apos;, &apos;g&apos;, &apos;d&apos;, &apos;a&apos;, &apos;e&apos;, &apos;b&apos;],
+  tones: [&apos;c&apos;, &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;a&apos;, &apos;b&apos;],
+  accidentals: [&apos;bb&apos;, &apos;b&apos;, &apos;&apos;, &apos;#&apos;, &apos;x&apos;],
+  quarterToneAccidentals: [&apos;bb&apos;, &apos;&#xBE;b&apos;, &apos;b&apos;, &apos;&#xBC;b&apos;, &apos;&apos;, &apos;&#xBC;#&apos;, &apos;#&apos;, &apos;&#xBE;#&apos;, &apos;x&apos;],
+  vexFlowAccidentals: [&apos;bb&apos;, &apos;bbs&apos;, &apos;b&apos;, &apos;d&apos;, &apos;n&apos;, &apos;+&apos;, &apos;#&apos;, &apos;++&apos;, &apos;##&apos;],
+
+  sharp: notecoord.sharp,
+  A4: [notecoord.A4[0] + 7, notecoord.A4[1] + 12], // Use C-1 as reference
+
+  durations: {
+    &apos;0.25&apos;: &apos;longa&apos;,
+    &apos;0.5&apos;: &apos;breve&apos;,
+    &apos;1&apos;: &apos;whole&apos;,
+    &apos;2&apos;: &apos;half&apos;,
+    &apos;4&apos;: &apos;quarter&apos;,
+    &apos;8&apos;: &apos;eighth&apos;,
+    &apos;16&apos;: &apos;sixteenth&apos;,
+    &apos;32&apos;: &apos;thirty-second&apos;,
+    &apos;64&apos;: &apos;sixty-fourth&apos;,
+    &apos;128&apos;: &apos;hundred-twenty-eighth&apos;
+  },
+
+  qualityLong: {
+    P: &apos;perfect&apos;,
+    M: &apos;major&apos;,
+    m: &apos;minor&apos;,
+    A: &apos;augmented&apos;,
+    AA: &apos;doubly augmented&apos;,
+    d: &apos;diminished&apos;,
+    dd: &apos;doubly diminished&apos;
+  },
+
+  alterations: {
+    perfect: [&apos;dd&apos;, &apos;d&apos;, &apos;P&apos;, &apos;A&apos;, &apos;AA&apos;],
+    minor: [&apos;dd&apos;, &apos;d&apos;, &apos;m&apos;, &apos;M&apos;, &apos;A&apos;, &apos;AA&apos;]
+  },
+
+  symbols: {
+    &apos;min&apos;: [&apos;m3&apos;, &apos;P5&apos;],
+    &apos;m&apos;: [&apos;m3&apos;, &apos;P5&apos;],
+    &apos;-&apos;: [&apos;m3&apos;, &apos;P5&apos;],
+
+    &apos;M&apos;: [&apos;M3&apos;, &apos;P5&apos;],
+    &apos;&apos;: [&apos;M3&apos;, &apos;P5&apos;],
+
+    &apos;+&apos;: [&apos;M3&apos;, &apos;A5&apos;],
+    &apos;aug&apos;: [&apos;M3&apos;, &apos;A5&apos;],
+
+    &apos;dim&apos;: [&apos;m3&apos;, &apos;d5&apos;],
+    &apos;o&apos;: [&apos;m3&apos;, &apos;d5&apos;],
+
+    &apos;maj&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;],
+    &apos;dom&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;],
+    &apos;&#xF8;&apos;: [&apos;m3&apos;, &apos;d5&apos;, &apos;m7&apos;],
+
+    &apos;5&apos;: [&apos;P5&apos;]
+  },
+
+  chordShort: {
+    &apos;major&apos;: &apos;&apos;,
+    &apos;minor&apos;: &apos;m&apos;,
+    &apos;augmented&apos;: &apos;+&apos;,
+    &apos;diminished&apos;: &apos;o&apos;,
+    &apos;dominant&apos;: &apos;7&apos;,
+    &apos;major-seventh&apos;: &apos;M7&apos;,
+    &apos;minor-seventh&apos;: &apos;m7&apos;,
+    &apos;diminished-seventh&apos;: &apos;o7&apos;,
+    &apos;augmented-seventh&apos;: &apos;+7&apos;,
+    &apos;half-diminished&apos;: &apos;&#xF8;&apos;,
+    &apos;major-minor&apos;: &apos;mM&apos;,
+    &apos;dominant-suspended-fourth&apos;: &apos;7sus4&apos;,
+    &apos;major-sixth&apos;: &apos;6&apos;,
+    &apos;minor-sixth&apos;: &apos;m6&apos;,
+    &apos;dominant-ninth&apos;: &apos;9&apos;,
+    &apos;major-ninth&apos;: &apos;M9&apos;,
+    &apos;minor-ninth&apos;: &apos;m9&apos;,
+    &apos;dominant-11th&apos;: &apos;11&apos;,
+    &apos;major-11th&apos;: &apos;M11&apos;,
+    &apos;minor-11th&apos;: &apos;m11&apos;,
+    &apos;dominant-13th&apos;: &apos;13&apos;,
+    &apos;major-13th&apos;: &apos;M13&apos;,
+    &apos;minor-13th&apos;: &apos;m13&apos;,
+    &apos;suspended-second&apos;: &apos;sus2&apos;,
+    &apos;suspended-fourth&apos;: &apos;sus4&apos;,
+    &apos;Neapolitan&apos;: &apos;N&apos;,
+    // &apos;Italian&apos;
+    // &apos;French&apos;
+    // &apos;German&apos;
+    // &apos;pedal&apos;
+    &apos;power&apos;: &apos;5&apos;,
+    &apos;Tristan&apos;: &apos;tristan&apos;
+  },
+
+  // chordDegrees: {
+  //   &apos;major&apos;: [&apos;M3&apos;, &apos;P5&apos;],
+  //   &apos;minor&apos;: [&apos;m3&apos;, &apos;P5&apos;],
+  //   &apos;augmented&apos;: [&apos;M3&apos;, &apos;A5&apos;],
+  //   &apos;diminished&apos;: [&apos;m3&apos;, &apos;d5&apos;],
+  //   &apos;dominant&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;],
+  //   &apos;major-seventh&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;],
+  //   &apos;minor-seventh&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;],
+  //   &apos;diminished-seventh&apos;: [&apos;m3&apos;, &apos;d5&apos;, &apos;d7&apos;],
+  //   &apos;augmented-seventh&apos;: [&apos;M3&apos;, &apos;A5&apos;, &apos;m7&apos;],
+  //   &apos;half-diminished&apos;: [&apos;m3&apos;, &apos;d5&apos;, &apos;m7&apos;],
+  //   &apos;major-minor&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;M7&apos;],
+  //   &apos;dominant-suspended-fourth&apos;: [&apos;P4&apos;, &apos;P5&apos;, &apos;m7&apos;], // not present in MusicXML
+  //   &apos;major-sixth&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M6&apos;],
+  //   &apos;minor-sixth&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;M6&apos;],
+  //   &apos;dominant-ninth&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;],
+  //   &apos;major-ninth&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;, &apos;M9&apos;],
+  //   &apos;minor-ninth&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;],
+  //   &apos;dominant-11th&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;, &apos;P11&apos;],
+  //   &apos;major-11th&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;, &apos;M9&apos;, &apos;P11&apos;],
+  //   &apos;minor-11th&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;, &apos;P11&apos;],
+  //   &apos;dominant-13th&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;, &apos;P11&apos;],
+  //   &apos;major-13th&apos;: [&apos;M3&apos;, &apos;P5&apos;, &apos;M7&apos;, &apos;M9&apos;, &apos;P11&apos;, &apos;M13&apos;],
+  //   &apos;minor-13th&apos;: [&apos;m3&apos;, &apos;P5&apos;, &apos;m7&apos;, &apos;M9&apos;, &apos;P11&apos;, &apos;M13&apos;],
+  //   &apos;suspended-second&apos;: [&apos;M2&apos;, &apos;P5&apos;],
+  //   &apos;suspended-fourth&apos;: [&apos;P4&apos;, &apos;P5&apos;],
+  //   &apos;Neapolitan&apos;: [&apos;M3&apos;, &apos;m6&apos;],
+  //   // &apos;Italian&apos;
+  //   // &apos;French&apos;
+  //   // &apos;German&apos;
+  //   // &apos;pedal&apos;
+  //   &apos;power&apos;: [&apos;P5&apos;],
+  //   &apos;Tristan&apos;: [&apos;A4&apos;, &apos;A6&apos;, &apos;A9&apos;]
+  // },
+
+  chordDegrees: {
+    &apos;major&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;},
+    &apos;minor&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;},
+    &apos;augmented&apos;: {3: &apos;M&apos;, 5: &apos;A&apos;},
+    &apos;diminished&apos;: {3: &apos;m&apos;, 5: &apos;d&apos;},
+    &apos;dominant&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;},
+    &apos;major-seventh&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;M&apos;},
+    &apos;minor-seventh&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;},
+    &apos;diminished-seventh&apos;: {3: &apos;m&apos;, 5: &apos;d&apos;, 7: &apos;d&apos;},
+    &apos;augmented-seventh&apos;: {3: &apos;M&apos;, 5: &apos;A&apos;, 7: &apos;m&apos;},
+    &apos;half-diminished&apos;: {3: &apos;m&apos;, 5: &apos;d&apos;, 7: &apos;m&apos;},
+    &apos;major-minor&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 7: &apos;M&apos;},
+    &apos;dominant-suspended-fourth&apos;: {4: &apos;P&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;}, // not present in MusicXML
+    &apos;major-sixth&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 6: &apos;M&apos;},
+    &apos;minor-sixth&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 6: &apos;M&apos;},
+    &apos;dominant-ninth&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;},
+    &apos;major-ninth&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;M&apos;, 9: &apos;M&apos;},
+    &apos;minor-ninth&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;},
+    &apos;dominant-11th&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;},
+    &apos;major-11th&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;M&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;},
+    &apos;minor-11th&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;},
+    &apos;dominant-13th&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;, 13: &apos;M&apos;},
+    &apos;major-13th&apos;: {3: &apos;M&apos;, 5: &apos;P&apos;, 7: &apos;M&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;, 13: &apos;M&apos;},
+    &apos;minor-13th&apos;: {3: &apos;m&apos;, 5: &apos;P&apos;, 7: &apos;m&apos;, 9: &apos;M&apos;, 11: &apos;P&apos;, 13: &apos;M&apos;},
+    &apos;suspended-second&apos;: {2: &apos;M&apos;, 5: &apos;P&apos;},
+    &apos;suspended-fourth&apos;: {4: &apos;P&apos;, 5: &apos;P&apos;},
+    &apos;Neapolitan&apos;: {3: &apos;M&apos;, 6: &apos;m&apos;},
+    // &apos;Italian&apos;
+    // &apos;French&apos;
+    // &apos;German&apos;
+    // &apos;pedal&apos;
+    &apos;power&apos;: {5: &apos;P&apos;},
+    &apos;Tristan&apos;: {4: &apos;A&apos;, 6: &apos;A&apos;, 9: &apos;A&apos;}
+  },
+
+  stepNumber: {
+    &apos;unison&apos;: 1,
+    &apos;first&apos;: 1,
+    &apos;second&apos;: 2,
+    &apos;third&apos;: 3,
+    &apos;fourth&apos;: 4,
+    &apos;fifth&apos;: 5,
+    &apos;sixth&apos;: 6,
+    &apos;seventh&apos;: 7,
+    &apos;octave&apos;: 8,
+    &apos;ninth&apos;: 9,
+    &apos;eleventh&apos;: 11,
+    &apos;thirteenth&apos;: 13
+  },
+
+  // Adjusted Shearer syllables - Chromatic solfege system
+  // Some intervals are not provided for. These include:
+  // dd2 - Doubly diminished second
+  // dd3 - Doubly diminished third
+  // AA3 - Doubly augmented third
+  // dd6 - Doubly diminished sixth
+  // dd7 - Doubly diminished seventh
+  // AA7 - Doubly augmented seventh
+  intervalSolfege: {
+    &apos;dd1&apos;: &apos;daw&apos;,
+    &apos;d1&apos;: &apos;de&apos;,
+    &apos;P1&apos;: &apos;do&apos;,
+    &apos;A1&apos;: &apos;di&apos;,
+    &apos;AA1&apos;: &apos;dai&apos;,
+    &apos;d2&apos;: &apos;raw&apos;,
+    &apos;m2&apos;: &apos;ra&apos;,
+    &apos;M2&apos;: &apos;re&apos;,
+    &apos;A2&apos;: &apos;ri&apos;,
+    &apos;AA2&apos;: &apos;rai&apos;,
+    &apos;d3&apos;: &apos;maw&apos;,
+    &apos;m3&apos;: &apos;me&apos;,
+    &apos;M3&apos;: &apos;mi&apos;,
+    &apos;A3&apos;: &apos;mai&apos;,
+    &apos;dd4&apos;: &apos;faw&apos;,
+    &apos;d4&apos;: &apos;fe&apos;,
+    &apos;P4&apos;: &apos;fa&apos;,
+    &apos;A4&apos;: &apos;fi&apos;,
+    &apos;AA4&apos;: &apos;fai&apos;,
+    &apos;dd5&apos;: &apos;saw&apos;,
+    &apos;d5&apos;: &apos;se&apos;,
+    &apos;P5&apos;: &apos;so&apos;,
+    &apos;A5&apos;: &apos;si&apos;,
+    &apos;AA5&apos;: &apos;sai&apos;,
+    &apos;d6&apos;: &apos;law&apos;,
+    &apos;m6&apos;: &apos;le&apos;,
+    &apos;M6&apos;: &apos;la&apos;,
+    &apos;A6&apos;: &apos;li&apos;,
+    &apos;AA6&apos;: &apos;lai&apos;,
+    &apos;d7&apos;: &apos;taw&apos;,
+    &apos;m7&apos;: &apos;te&apos;,
+    &apos;M7&apos;: &apos;ti&apos;,
+    &apos;A7&apos;: &apos;tai&apos;,
+    &apos;dd8&apos;: &apos;daw&apos;,
+    &apos;d8&apos;: &apos;de&apos;,
+    &apos;P8&apos;: &apos;do&apos;,
+    &apos;A8&apos;: &apos;di&apos;,
+    &apos;AA8&apos;: &apos;dai&apos;
+  },
+
+  // Default scales (assuming 7 steps, 12 tcu per octave)
+  // scales: {
+  //   &apos;major&apos;: [&apos;P&apos;, &apos;M&apos;, &apos;M&apos;, &apos;P&apos;, &apos;P&apos;, &apos;M&apos;, &apos;M&apos;],
+  //   &apos;minor&apos;: [&apos;P&apos;, &apos;M&apos;, &apos;m&apos;, &apos;P&apos;, &apos;P&apos;, &apos;m&apos;, &apos;m&apos;],
+  //   &apos;mixolydian&apos;: [&apos;P&apos;, &apos;M&apos;, &apos;M&apos;, &apos;P&apos;, &apos;P&apos;, &apos;M&apos;, &apos;m&apos;],
+  //   &apos;dorian&apos;: [&apos;P&apos;, &apos;M&apos;, &apos;m&apos;, &apos;P&apos;, &apos;P&apos;, &apos;M&apos;, &apos;m&apos;],
+  //   &apos;harmonic-minor&apos;: [&apos;P&apos;, &apos;M&apos;, &apos;m&apos;, &apos;P&apos;, &apos;P&apos;, &apos;m&apos;, &apos;M&apos;]
+  // }
+
+  scales: {
+    &apos;major&apos;: [0, 2, 4, 5, 7, 9, 11],
+    &apos;minor&apos;: [0, 2, 3, 5, 7, 8, 10],
+    &apos;mixolydian&apos;: [0, 2, 4, 5, 7, 9, 10],
+    &apos;dorian&apos;: [0, 2, 3, 5, 7, 9, 10],
+    &apos;harmonic-minor&apos;: [0, 2, 3, 5, 7, 8, 11],
+    &apos;phrygian&apos;: [0, 1, 3, 5, 7, 8, 10],
+    &apos;lydian&apos;: [0, 2, 4, 6, 7, 9, 11],
+    &apos;aeolian&apos;: [0, 2, 3, 5, 7, 8, 10],
+    // The following scales are not correct but still useful for reducing to simple mode
+    // This format will change in the future
+    &apos;diminished&apos;: [0, 2, 3, 5, 6, 9, 10],
+    &apos;minor-blues&apos;: [0, 2, 3, 5, 7, 8, 10],
+    &apos;minor-penta&apos;: [0, 2, 3, 5, 7, 8, 10],
+    &apos;major-blues&apos;: [0, 2, 4, 5, 7, 9, 11],
+    &apos;major-penta&apos;: [0, 2, 4, 5, 7, 9, 11]
+  }
+};
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
