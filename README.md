@@ -157,7 +157,7 @@ Each event has an anchor point, which is normally the “start” of the event. 
 
 Remus is designed with flexibility and extendability as high priorities. The flip side is that parsing remus may be a complex process since the code needs knowledge about the various concepts and representations supported by remus.
 
-To facilitate things, the remus library can _resolve_ a remus object. This means that is walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.
+To facilitate things, the remus library can _resolve_ a remus object. This means that it walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.
 
 ```
 let remus = loadSomeComplexRemusFile();

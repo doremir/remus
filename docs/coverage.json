@@ -15,14 +15,14 @@
       "expectCount": 27,
       "actualCount": 19,
       "undocumentLines": [
+        6,
+        7,
         10,
-        11,
-        14,
-        42,
-        178,
-        185,
-        198,
-        203
+        38,
+        174,
+        181,
+        194,
+        199
       ]
     },
     "lib/classes/event/audio.js": {

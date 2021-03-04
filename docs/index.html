@@ -192,7 +192,7 @@ three elements in the event list doesn&apos;t need <code>type: &quot;Note&quot;<
 </code></pre><h2 id="positioning">Positioning</h2><p>Events are generally positioned in relation to their parent container. For example, notes specify their position in relation to their voice.</p>
 <p>Each event has an anchor point, which is normally the &#x201C;start&#x201D; of the event. It may however be changed so that e.g. voices with pickups to sync to other events on their first downbeat, rather than their first note.</p>
 <h2 id="resolving">Resolving</h2><p>Remus is designed with flexibility and extendability as high priorities. The flip side is that parsing remus may be a complex process since the code needs knowledge about the various concepts and representations supported by remus.</p>
-<p>To facilitate things, the remus library can <em>resolve</em> a remus object. This means that is walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.</p>
+<p>To facilitate things, the remus library can <em>resolve</em> a remus object. This means that it walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.</p>
 <pre><code><code class="source-code prettyprint">let remus = loadSomeComplexRemusFile();
 remus.resolve();
 let note = remus.findEvent(&apos;Note&apos;);

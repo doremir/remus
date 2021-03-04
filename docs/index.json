@@ -757,7 +757,7 @@
     "__docId__": 57,
     "kind": "file",
     "name": "lib/classes/duration.js",
-    "content": "/**\n * Pants module.\n * @module duration\n * @see module:my/shirt\n */\nimport Item from './item.js';\nimport misc from '../misc.js';\nimport Fraction from 'fraction.js';\nimport _ from 'underscore';\nvar isNumber = _.isNumber;\nvar isObject = _.isObject;\n\n/* eslint-disable */\nvar wnToVexFlow = {\n  '7/4':   { duration: 'w',  dots: 2 },  // \"noteValue\" would be better than \"duration\",\n  '3/2':   { duration: 'w',  dots: 1 },  // but let's follow VexFlow's nomenclature\n  '1/1':   { duration: 'w',  dots: 0 },\n  '7/8':   { duration: 'h',  dots: 2 },\n  '3/4':   { duration: 'h',  dots: 1 },\n  '1/2':   { duration: 'h',  dots: 0 },\n  '7/16':  { duration: 'q',  dots: 2 },\n  '3/8':   { duration: 'q',  dots: 1 },\n  '1/4':   { duration: 'q',  dots: 0 },\n  '7/32':  { duration: '8',  dots: 2 },\n  '3/16':  { duration: '8',  dots: 1 },\n  '1/8':   { duration: '8',  dots: 0 },\n  '7/64':  { duration: '16', dots: 2 },\n  '3/32':  { duration: '16', dots: 1 },\n  '1/16':  { duration: '16', dots: 0 },\n  '7/128': { duration: '32', dots: 2 },\n  '3/64':  { duration: '32', dots: 1 },\n  '1/32':  { duration: '32', dots: 0 },\n  // '7/256': { duration: '64', dots: 2 },\n  '3/128': { duration: '64', dots: 1 },\n  '1/64':  { duration: '64', dots: 0 },\n  // '7/512': { duration: '128', dots: 2 },\n  // '3/256': { duration: '128', dots: 1 },\n  '1/128': { duration: '128', dots: 0 },\n}\n/* eslint-enable */\n\nexport default class Duration extends Item {\n  /**\n   * @ignore\n   */\n  static getSlots() {\n    return super.getSlots().concat(['value', 'unit']);\n  }\n\n  /**\n   * @ignore\n   */\n  inspect() {\n    // return chalk.blue.bold(this.value.toFraction()) + ' ' + chalk.blue(this.unit);\n  }\n\n  /**\n   * @ignore\n   */\n  init() {\n    super.init();\n    /** @type {Fraction} */\n    this.value = new Fraction(this.value || 0);\n    /** @type {String} */\n    this.unit = this.unit || 'ms';\n    return this;\n  }\n\n  /**\n   * Is this a zero duration?\n   * @return {boolean}\n   */\n  isZero() {\n    // eslint-disable-next-line eqeqeq\n    return this.value == 0; // N.B: Don't use ===\n  }\n\n  /**\n   * Returns `true` if the duration is in time units (currently `s` or `ms`), `false` otherwise.\n   * @return {boolean}\n   */\n  isTime() {\n    return ['s', 'ms'].indexOf(this.unit) >= 0;\n  }\n\n  /**\n   * Returns `true` if the duration is in atomic units, `false` otherwise.\n   * The inverse of {@link isTime()}\n   * @return {boolean}\n   */\n  isAtom() {\n    return !this.isTime();\n  }\n\n  /**\n   * Returns `true` if the duration has a fixed unit, i.e. unaffected by time signature.\n   * Currently, the fixed units are `s`, `ms` and `wn`.\n   * @return {boolean}\n   */\n  isFixed() {\n    return ['s', 'ms', 'wn'].indexOf(this.unit) >= 0;\n  }\n\n  /**\n   * Returns a new duration with same unit and inverted value\n   * (positive durations become negative and v.v.)\n   * The current object is not changed.\n   * @return {Duration}\n   */\n  inverse() {\n    return new Duration({value: this.value.neg(), unit: this.unit});\n  }\n\n  /**\n   * Return the duration as a number of seconds.\n   * Valid only when the duration is expressed in time units (`s` or `ms`)\n   * @return {Fraction}\n   */\n  toSeconds() {\n    switch (this.unit) {\n      case 's': return this.value;\n      case 'ms': return this.value.div(1000);\n    }\n  }\n\n  /**\n   * Return the value of the duration as a floating point number (ignoring the unit).\n   * @return {Number}\n   */\n  toFloat() {\n    return this.value.valueOf();\n  }\n\n  /** @ignore */\n  doValidate() {\n    var validator = super.doValidate();\n    validator.hasType(this, 'value', Fraction);\n    validator.isOneOf(this, 'unit', ['s', 'ms', 'measures', 'beats', 'atoms', 'wn']);\n    return validator;\n  }\n\n  /** @ignore */\n  toString() {\n    return this.value.toFraction() + ' ' + this.unit;\n  }\n\n  /** @ignore */\n  toJSON() {\n    if (this.value.n === 0) return 0;\n    if (this.value.d === 1) return [this.value.n * this.value.s, this.unit];\n    return [this.value.n * this.value.s, this.value.d, this.unit];\n  }\n\n  /** @ignore */\n  toXML(rootName) {\n    return misc.buildXML(this.toXMLObject(), {rootName: rootName || 'duration'});\n  }\n\n  /** @ignore */\n  toXMLObject() {\n    if (this.unit === '' || this.unit === 'divisions') return {_: this.num / this.denom};\n    return {_: this.num / this.denom, '$': {unit: this.unit}};\n  }\n\n  /** @ignore */\n  toVexFlow() {\n    if (this.unit === 'wn') {\n      return Duration.wnToVexFlow(this.value);\n    }\n  }\n\n  /** @ignore */\n  static wnToVexFlow(fraction) {\n    return wnToVexFlow[fraction.n + '/' + fraction.d];\n  }\n}\n\nDuration.fromString = function(str, parent) {\n  var matches = str.match(/^([0-9\\.]+(?:\\/[1-9][0-9]*)?)\\s*([A-Za-z]*)$/);\n  if (matches) {\n    return new Duration({value: matches[1], unit: matches[2]}, parent);\n  }\n};\n\nDuration.coerce = function(source, parent, copy) {\n  if (source instanceof Duration) {\n    if (copy) return new Duration(source, parent);\n    else return source;\n  }\n  if (typeof source === 'string') return Duration.fromString(source, parent);\n  if (isNumber(source)) return new Duration({value: source}, parent);\n  if (source instanceof Array && source.length === 2) return new Duration({value: source[0], unit: source[1]}, parent);\n  if (source instanceof Array && source.length === 3) return new Duration({value: [source[0], source[1]], unit: source[2]}, parent);\n  if (isObject(source)) return new Duration(source, parent);\n  throw new Error('Cannot coerce ' + source + ' to a duration!');\n};\n\nDuration.fromXML = function(xml) {\n  var obj = misc.parseXML(xml, {explicitArray: false, mergeAttrs: true, explicitCharkey: true});\n  return Duration.fromXMLObject(obj);\n};\n\nDuration.fromXMLObject = function(obj) {\n  if (typeof obj === 'string') return new Duration(parseInt(obj), 'divisions');\n  return new Duration({num: parseInt(obj._), unit: obj.unit || 'divisions'});\n};\n\nDuration.itemType = 'Duration';\n\nimport ItemHandler from '../item-handler.js';\nItemHandler.registerItem(Duration);\n",
+    "content": "\nimport Item from './item.js';\nimport misc from '../misc.js';\nimport Fraction from 'fraction.js';\nimport _ from 'underscore';\nvar isNumber = _.isNumber;\nvar isObject = _.isObject;\n\n/* eslint-disable */\nvar wnToVexFlow = {\n  '7/4':   { duration: 'w',  dots: 2 },  // \"noteValue\" would be better than \"duration\",\n  '3/2':   { duration: 'w',  dots: 1 },  // but let's follow VexFlow's nomenclature\n  '1/1':   { duration: 'w',  dots: 0 },\n  '7/8':   { duration: 'h',  dots: 2 },\n  '3/4':   { duration: 'h',  dots: 1 },\n  '1/2':   { duration: 'h',  dots: 0 },\n  '7/16':  { duration: 'q',  dots: 2 },\n  '3/8':   { duration: 'q',  dots: 1 },\n  '1/4':   { duration: 'q',  dots: 0 },\n  '7/32':  { duration: '8',  dots: 2 },\n  '3/16':  { duration: '8',  dots: 1 },\n  '1/8':   { duration: '8',  dots: 0 },\n  '7/64':  { duration: '16', dots: 2 },\n  '3/32':  { duration: '16', dots: 1 },\n  '1/16':  { duration: '16', dots: 0 },\n  '7/128': { duration: '32', dots: 2 },\n  '3/64':  { duration: '32', dots: 1 },\n  '1/32':  { duration: '32', dots: 0 },\n  // '7/256': { duration: '64', dots: 2 },\n  '3/128': { duration: '64', dots: 1 },\n  '1/64':  { duration: '64', dots: 0 },\n  // '7/512': { duration: '128', dots: 2 },\n  // '3/256': { duration: '128', dots: 1 },\n  '1/128': { duration: '128', dots: 0 },\n}\n/* eslint-enable */\n\nexport default class Duration extends Item {\n  /**\n   * @ignore\n   */\n  static getSlots() {\n    return super.getSlots().concat(['value', 'unit']);\n  }\n\n  /**\n   * @ignore\n   */\n  inspect() {\n    // return chalk.blue.bold(this.value.toFraction()) + ' ' + chalk.blue(this.unit);\n  }\n\n  /**\n   * @ignore\n   */\n  init() {\n    super.init();\n    /** @type {Fraction} */\n    this.value = new Fraction(this.value || 0);\n    /** @type {String} */\n    this.unit = this.unit || 'ms';\n    return this;\n  }\n\n  /**\n   * Is this a zero duration?\n   * @return {boolean}\n   */\n  isZero() {\n    // eslint-disable-next-line eqeqeq\n    return this.value == 0; // N.B: Don't use ===\n  }\n\n  /**\n   * Returns `true` if the duration is in time units (currently `s` or `ms`), `false` otherwise.\n   * @return {boolean}\n   */\n  isTime() {\n    return ['s', 'ms'].indexOf(this.unit) >= 0;\n  }\n\n  /**\n   * Returns `true` if the duration is in atomic units, `false` otherwise.\n   * The inverse of {@link isTime()}\n   * @return {boolean}\n   */\n  isAtom() {\n    return !this.isTime();\n  }\n\n  /**\n   * Returns `true` if the duration has a fixed unit, i.e. unaffected by time signature.\n   * Currently, the fixed units are `s`, `ms` and `wn`.\n   * @return {boolean}\n   */\n  isFixed() {\n    return ['s', 'ms', 'wn'].indexOf(this.unit) >= 0;\n  }\n\n  /**\n   * Returns a new duration with same unit and inverted value\n   * (positive durations become negative and v.v.)\n   * The current object is not changed.\n   * @return {Duration}\n   */\n  inverse() {\n    return new Duration({value: this.value.neg(), unit: this.unit});\n  }\n\n  /**\n   * Return the duration as a number of seconds.\n   * Valid only when the duration is expressed in time units (`s` or `ms`)\n   * @return {Fraction}\n   */\n  toSeconds() {\n    switch (this.unit) {\n      case 's': return this.value;\n      case 'ms': return this.value.div(1000);\n    }\n  }\n\n  /**\n   * Return the value of the duration as a floating point number (ignoring the unit).\n   * @return {Number}\n   */\n  toFloat() {\n    return this.value.valueOf();\n  }\n\n  /** @ignore */\n  doValidate() {\n    var validator = super.doValidate();\n    validator.hasType(this, 'value', Fraction);\n    validator.isOneOf(this, 'unit', ['s', 'ms', 'measures', 'beats', 'atoms', 'wn']);\n    return validator;\n  }\n\n  /** @ignore */\n  toString() {\n    return this.value.toFraction() + ' ' + this.unit;\n  }\n\n  /** @ignore */\n  toJSON() {\n    if (this.value.n === 0) return 0;\n    if (this.value.d === 1) return [this.value.n * this.value.s, this.unit];\n    return [this.value.n * this.value.s, this.value.d, this.unit];\n  }\n\n  /** @ignore */\n  toXML(rootName) {\n    return misc.buildXML(this.toXMLObject(), {rootName: rootName || 'duration'});\n  }\n\n  /** @ignore */\n  toXMLObject() {\n    if (this.unit === '' || this.unit === 'divisions') return {_: this.num / this.denom};\n    return {_: this.num / this.denom, '$': {unit: this.unit}};\n  }\n\n  /** @ignore */\n  toVexFlow() {\n    if (this.unit === 'wn') {\n      return Duration.wnToVexFlow(this.value);\n    }\n  }\n\n  /** @ignore */\n  static wnToVexFlow(fraction) {\n    return wnToVexFlow[fraction.n + '/' + fraction.d];\n  }\n}\n\nDuration.fromString = function(str, parent) {\n  var matches = str.match(/^([0-9\\.]+(?:\\/[1-9][0-9]*)?)\\s*([A-Za-z]*)$/);\n  if (matches) {\n    return new Duration({value: matches[1], unit: matches[2]}, parent);\n  }\n};\n\nDuration.coerce = function(source, parent, copy) {\n  if (source instanceof Duration) {\n    if (copy) return new Duration(source, parent);\n    else return source;\n  }\n  if (typeof source === 'string') return Duration.fromString(source, parent);\n  if (isNumber(source)) return new Duration({value: source}, parent);\n  if (source instanceof Array && source.length === 2) return new Duration({value: source[0], unit: source[1]}, parent);\n  if (source instanceof Array && source.length === 3) return new Duration({value: [source[0], source[1]], unit: source[2]}, parent);\n  if (isObject(source)) return new Duration(source, parent);\n  throw new Error('Cannot coerce ' + source + ' to a duration!');\n};\n\nDuration.fromXML = function(xml) {\n  var obj = misc.parseXML(xml, {explicitArray: false, mergeAttrs: true, explicitCharkey: true});\n  return Duration.fromXMLObject(obj);\n};\n\nDuration.fromXMLObject = function(obj) {\n  if (typeof obj === 'string') return new Duration(parseInt(obj), 'divisions');\n  return new Duration({num: parseInt(obj._), unit: obj.unit || 'divisions'});\n};\n\nDuration.itemType = 'Duration';\n\nimport ItemHandler from '../item-handler.js';\nItemHandler.registerItem(Duration);\n",
     "static": true,
     "longname": "/Volumes/DoReMIR/remus/lib/classes/duration.js",
     "access": "public",
@@ -776,7 +776,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 10,
+    "lineNumber": 6,
     "undocument": true,
     "type": {
       "types": [
@@ -797,7 +797,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 11,
+    "lineNumber": 7,
     "undocument": true,
     "type": {
       "types": [
@@ -818,7 +818,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 14,
+    "lineNumber": 10,
     "undocument": true,
     "type": {
       "types": [
@@ -839,7 +839,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": "Duration",
     "description": null,
-    "lineNumber": 42,
+    "lineNumber": 38,
     "undocument": true,
     "interface": false,
     "extends": [
@@ -857,7 +857,7 @@
     "longname": "lib/classes/duration.js~Duration.getSlots",
     "access": "public",
     "description": "",
-    "lineNumber": 46,
+    "lineNumber": 42,
     "ignore": true,
     "params": [],
     "return": {
@@ -877,7 +877,7 @@
     "longname": "lib/classes/duration.js~Duration#inspect",
     "access": "public",
     "description": "",
-    "lineNumber": 53,
+    "lineNumber": 49,
     "ignore": true,
     "params": [],
     "return": null
@@ -893,7 +893,7 @@
     "longname": "lib/classes/duration.js~Duration#init",
     "access": "public",
     "description": "",
-    "lineNumber": 60,
+    "lineNumber": 56,
     "ignore": true,
     "params": [],
     "return": {
@@ -911,7 +911,7 @@
     "longname": "lib/classes/duration.js~Duration#value",
     "access": "public",
     "description": null,
-    "lineNumber": 63,
+    "lineNumber": 59,
     "type": {
       "nullable": null,
       "types": [
@@ -930,7 +930,7 @@
     "longname": "lib/classes/duration.js~Duration#unit",
     "access": "public",
     "description": null,
-    "lineNumber": 65,
+    "lineNumber": 61,
     "type": {
       "nullable": null,
       "types": [
@@ -951,7 +951,7 @@
     "longname": "lib/classes/duration.js~Duration#isZero",
     "access": "public",
     "description": "Is this a zero duration?",
-    "lineNumber": 73,
+    "lineNumber": 69,
     "return": {
       "nullable": null,
       "types": [
@@ -973,7 +973,7 @@
     "longname": "lib/classes/duration.js~Duration#isTime",
     "access": "public",
     "description": "Returns `true` if the duration is in time units (currently `s` or `ms`), `false` otherwise.",
-    "lineNumber": 82,
+    "lineNumber": 78,
     "return": {
       "nullable": null,
       "types": [
@@ -995,7 +995,7 @@
     "longname": "lib/classes/duration.js~Duration#isAtom",
     "access": "public",
     "description": "Returns `true` if the duration is in atomic units, `false` otherwise.\nThe inverse of {@link isTime()}",
-    "lineNumber": 91,
+    "lineNumber": 87,
     "return": {
       "nullable": null,
       "types": [
@@ -1017,7 +1017,7 @@
     "longname": "lib/classes/duration.js~Duration#isFixed",
     "access": "public",
     "description": "Returns `true` if the duration has a fixed unit, i.e. unaffected by time signature.\nCurrently, the fixed units are `s`, `ms` and `wn`.",
-    "lineNumber": 100,
+    "lineNumber": 96,
     "return": {
       "nullable": null,
       "types": [
@@ -1039,7 +1039,7 @@
     "longname": "lib/classes/duration.js~Duration#inverse",
     "access": "public",
     "description": "Returns a new duration with same unit and inverted value\n(positive durations become negative and v.v.)\nThe current object is not changed.",
-    "lineNumber": 110,
+    "lineNumber": 106,
     "return": {
       "nullable": null,
       "types": [
@@ -1061,7 +1061,7 @@
     "longname": "lib/classes/duration.js~Duration#toSeconds",
     "access": "public",
     "description": "Return the duration as a number of seconds.\nValid only when the duration is expressed in time units (`s` or `ms`)",
-    "lineNumber": 119,
+    "lineNumber": 115,
     "return": {
       "nullable": null,
       "types": [
@@ -1083,7 +1083,7 @@
     "longname": "lib/classes/duration.js~Duration#toFloat",
     "access": "public",
     "description": "Return the value of the duration as a floating point number (ignoring the unit).",
-    "lineNumber": 130,
+    "lineNumber": 126,
     "return": {
       "nullable": null,
       "types": [
@@ -1105,7 +1105,7 @@
     "longname": "lib/classes/duration.js~Duration#doValidate",
     "access": "public",
     "description": null,
-    "lineNumber": 135,
+    "lineNumber": 131,
     "ignore": true,
     "params": [],
     "return": {
@@ -1125,7 +1125,7 @@
     "longname": "lib/classes/duration.js~Duration#toString",
     "access": "public",
     "description": null,
-    "lineNumber": 143,
+    "lineNumber": 139,
     "ignore": true,
     "params": [],
     "return": {
@@ -1145,7 +1145,7 @@
     "longname": "lib/classes/duration.js~Duration#toJSON",
     "access": "public",
     "description": null,
-    "lineNumber": 148,
+    "lineNumber": 144,
     "ignore": true,
     "params": [],
     "return": {
@@ -1165,7 +1165,7 @@
     "longname": "lib/classes/duration.js~Duration#toXML",
     "access": "public",
     "description": null,
-    "lineNumber": 155,
+    "lineNumber": 151,
     "ignore": true,
     "params": [
       {
@@ -1192,7 +1192,7 @@
     "longname": "lib/classes/duration.js~Duration#toXMLObject",
     "access": "public",
     "description": null,
-    "lineNumber": 160,
+    "lineNumber": 156,
     "ignore": true,
     "params": [],
     "return": {
@@ -1212,7 +1212,7 @@
     "longname": "lib/classes/duration.js~Duration#toVexFlow",
     "access": "public",
     "description": null,
-    "lineNumber": 166,
+    "lineNumber": 162,
     "ignore": true,
     "params": [],
     "return": {
@@ -1232,7 +1232,7 @@
     "longname": "lib/classes/duration.js~Duration.wnToVexFlow",
     "access": "public",
     "description": null,
-    "lineNumber": 173,
+    "lineNumber": 169,
     "ignore": true,
     "params": [
       {
@@ -1262,7 +1262,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 178,
+    "lineNumber": 174,
     "undocument": true,
     "params": [
       {
@@ -1299,7 +1299,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 185,
+    "lineNumber": 181,
     "undocument": true,
     "params": [
       {
@@ -1342,7 +1342,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 198,
+    "lineNumber": 194,
     "undocument": true,
     "params": [
       {
@@ -1373,7 +1373,7 @@
     "importPath": "remus/lib/classes/duration.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 203,
+    "lineNumber": 199,
     "undocument": true,
     "params": [
       {
@@ -17308,7 +17308,7 @@
   },
   {
     "kind": "index",
-    "content": "Remus\n=====\n\nRemus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  \n\n## Basic structure\n\nRemus is a hierarchical structure of musical objects where the root object is the [`Song`](class/lib/classes/event/song.js~Song.html). Conceptually, a song consists of\n\n* a timeline\n* objects relating to the timeline\n* objects that do not relate to the timeline, and therefore have no timing (a resource pool)\n\nExamples of the latter can be links, audio files not [yet] used in the actual song, imported lyrics, MIDI-files, etc.\n\nTechnically, objects on the timeline are stored under one of two JS keys: `events` and `metas`. This is similar (but not identical) to how MIDI files use “events” and “meta events”. The event list contains the objects that actually “sounds”, notes, chords and audio file references, while the meta list contains information such as tempo, time and key signature.\n\nThe event list may also contain other containers to created nested objects of arbitrary depth. (Note however that there are restrictions for where certain objects can be stored)\n\n## Items\n\nAll objects in remus document are referred to as _items_ and inherit from the [`Item`](class/lib/classes/item.js~Item.html) class. All items have a `type`, a string denoting the class name. When loading remus using the `remus` library, items are instantiated to the JS class named by their specified `type`.\n\nHere follows an overview over the various item classes. Detailed documentation is available in the source files of the respective item class.\n\n### Abstract classes\n- [`Item`](class/lib/classes/item.js~Item.html)\nAncestor of all items\n- [`Event`](class/lib/classes/event/event.js~Event.html)\nAncestor of all items that have a position on the timeline\n- [`Meta`](class/lib/classes/event/meta.js~Meta.html)\n  Meta events\n- [`EventContainer`](class/lib/classes/event/event-container.js~EventContainer.html)\n  Events containing other events\n\n### Basic types\n- [`Duration`](class/lib/classes/duration.js~Duration.html)\n  Durations in various units\n- [`Pitch`](class/lib/classes/pitch.js~Pitch.html)\n  Pitch representation\n- [`Interval`](class/lib/classes/interval.js~Interval.html)\n  Pitch intervals\n- [`Harmony`](class/lib/classes/harmony.js~Harmony.html)\n  Chords (e.g. dominant or minor seventh)\n- [`Mode`](class/lib/classes/mode.js~Mode.html)\n  Modes and scales (e.g. major, dorian, minor penta)\n\n### Events\n- [`Note`](class/lib/classes/event/note.js~Note.html)\n  A single note (essentially a Pitch placed on the timeline)\n- [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html)\n  A “chord” of simultanous notes\n- [`Chord`](class/lib/classes/event/chord.js~Chord.html)\n  A chord (essentially a Harmony placed on the timeline)\n- [`Rest`](class/lib/classes/event/rest.js~Rest.html)\n\n### Meta-events\n- [`Time`](class/lib/classes/meta/time.js~Time.html)\n  A time signature such as 4/4 or 6/8\n- [`Key`](class/lib/classes/meta/key.js~key.html)\n  Key signature\n- [`Tempo`](class/lib/classes/meta/tempo.js~Tempo.html)\n  Tempo indication or tempo change\n- [`Clef`](class/lib/classes/meta/clef.js~Clef.html)\n  Clef (for sheet music generation)\n\n\n## Coercing and type inference\n\nMost of the `Item` classes has a `coerce` method that simplifies creation of instances.\n\nFor example, this is an easy way to create a [`Pitch`](class/lib/classes/pitch.js~Pitch.html) object:\n\n```\nPitch.coerce(\"Ab4\")\n// equivalent to\nnew Pitch({coord: [40, 68]})\n```\n\n(For information of supported formats, see the documentation of the respective `Item` class)\n\nIn places where a specific `Item` class is expected, its `coerce` method is called automatically. Therefore it is often not needed to specify a complete JS object.\n\nFor example, the [`Key`](class/lib/classes/meta/key.js~key.html) class has two members called `root` and `mode` which are of type `Pitch` and `Mode` respectively. The following code works as expected:\n\n```\nnew Key({pitch: \"Bb\", mode: \"minor\"})\n```\n\nThis is because under the hood, the `Key` constructor calls `Pitch.coerce` on the string `\"Bb\"` and `Mode.coerce` on the string `\"minor\"`, resulting in a `Pitch` and a `Mode` object.\n\nAs an another example, this is a valid representation of a [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html):\n\n```\n{\n  \"type\": \"NoteChord\",\n  \"duration\": \"3/16 wn\",\n  \"events\": [\n    {\"pitch\": \"D5\"},\n    {\"pitch\": \"Bb4\"},\n    {\"pitch\": \"F4\"}\n  ]\n}\n```\n\nNotice that\n\n- the duration is coerced to a `Duration` object\n- the default event type of `NoteChord` is `Note`, so the\n  three elements in the event list doesn't need `type: \"Note\"`\n- the duration of the `NoteChord` is inherited by the notes\n- the pitches of the individual notes are coerced into `Pitch` objects\n\nThis is usually preferable to specifying every object in full:\n\n```\n{\n  \"type\": \"NoteChord\",\n  \"duration\": {\n    \"type\": \"Duration\",\n    \"value\": \"3/16\",\n    \"unit\": \"wn\"\n  },\n  \"events\": [\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [43, 74]\n      }\n    },\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [41, 70]\n      }\n    },\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [38, 65]\n      }\n    }\n  ]\n}\n```\n\n## Positioning\n\nEvents are generally positioned in relation to their parent container. For example, notes specify their position in relation to their voice.\n\nEach event has an anchor point, which is normally the “start” of the event. It may however be changed so that e.g. voices with pickups to sync to other events on their first downbeat, rather than their first note.\n\n## Resolving\n\nRemus is designed with flexibility and extendability as high priorities. The flip side is that parsing remus may be a complex process since the code needs knowledge about the various concepts and representations supported by remus.\n\nTo facilitate things, the remus library can _resolve_ a remus object. This means that is walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.\n\n```\nlet remus = loadSomeComplexRemusFile();\nremus.resolve();\nlet note = remus.findEvent('Note');\nnote.cache.absWn\n  => the absolute position of note in wn (whole notes)\n```\n\nFor detailed documentation of the timeline-related cache keys, see [`Event`](class/lib/classes/event/event.js~Event.html).",
+    "content": "Remus\n=====\n\nRemus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  \n\n## Basic structure\n\nRemus is a hierarchical structure of musical objects where the root object is the [`Song`](class/lib/classes/event/song.js~Song.html). Conceptually, a song consists of\n\n* a timeline\n* objects relating to the timeline\n* objects that do not relate to the timeline, and therefore have no timing (a resource pool)\n\nExamples of the latter can be links, audio files not [yet] used in the actual song, imported lyrics, MIDI-files, etc.\n\nTechnically, objects on the timeline are stored under one of two JS keys: `events` and `metas`. This is similar (but not identical) to how MIDI files use “events” and “meta events”. The event list contains the objects that actually “sounds”, notes, chords and audio file references, while the meta list contains information such as tempo, time and key signature.\n\nThe event list may also contain other containers to created nested objects of arbitrary depth. (Note however that there are restrictions for where certain objects can be stored)\n\n## Items\n\nAll objects in remus document are referred to as _items_ and inherit from the [`Item`](class/lib/classes/item.js~Item.html) class. All items have a `type`, a string denoting the class name. When loading remus using the `remus` library, items are instantiated to the JS class named by their specified `type`.\n\nHere follows an overview over the various item classes. Detailed documentation is available in the source files of the respective item class.\n\n### Abstract classes\n- [`Item`](class/lib/classes/item.js~Item.html)\nAncestor of all items\n- [`Event`](class/lib/classes/event/event.js~Event.html)\nAncestor of all items that have a position on the timeline\n- [`Meta`](class/lib/classes/event/meta.js~Meta.html)\n  Meta events\n- [`EventContainer`](class/lib/classes/event/event-container.js~EventContainer.html)\n  Events containing other events\n\n### Basic types\n- [`Duration`](class/lib/classes/duration.js~Duration.html)\n  Durations in various units\n- [`Pitch`](class/lib/classes/pitch.js~Pitch.html)\n  Pitch representation\n- [`Interval`](class/lib/classes/interval.js~Interval.html)\n  Pitch intervals\n- [`Harmony`](class/lib/classes/harmony.js~Harmony.html)\n  Chords (e.g. dominant or minor seventh)\n- [`Mode`](class/lib/classes/mode.js~Mode.html)\n  Modes and scales (e.g. major, dorian, minor penta)\n\n### Events\n- [`Note`](class/lib/classes/event/note.js~Note.html)\n  A single note (essentially a Pitch placed on the timeline)\n- [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html)\n  A “chord” of simultanous notes\n- [`Chord`](class/lib/classes/event/chord.js~Chord.html)\n  A chord (essentially a Harmony placed on the timeline)\n- [`Rest`](class/lib/classes/event/rest.js~Rest.html)\n\n### Meta-events\n- [`Time`](class/lib/classes/meta/time.js~Time.html)\n  A time signature such as 4/4 or 6/8\n- [`Key`](class/lib/classes/meta/key.js~key.html)\n  Key signature\n- [`Tempo`](class/lib/classes/meta/tempo.js~Tempo.html)\n  Tempo indication or tempo change\n- [`Clef`](class/lib/classes/meta/clef.js~Clef.html)\n  Clef (for sheet music generation)\n\n\n## Coercing and type inference\n\nMost of the `Item` classes has a `coerce` method that simplifies creation of instances.\n\nFor example, this is an easy way to create a [`Pitch`](class/lib/classes/pitch.js~Pitch.html) object:\n\n```\nPitch.coerce(\"Ab4\")\n// equivalent to\nnew Pitch({coord: [40, 68]})\n```\n\n(For information of supported formats, see the documentation of the respective `Item` class)\n\nIn places where a specific `Item` class is expected, its `coerce` method is called automatically. Therefore it is often not needed to specify a complete JS object.\n\nFor example, the [`Key`](class/lib/classes/meta/key.js~key.html) class has two members called `root` and `mode` which are of type `Pitch` and `Mode` respectively. The following code works as expected:\n\n```\nnew Key({pitch: \"Bb\", mode: \"minor\"})\n```\n\nThis is because under the hood, the `Key` constructor calls `Pitch.coerce` on the string `\"Bb\"` and `Mode.coerce` on the string `\"minor\"`, resulting in a `Pitch` and a `Mode` object.\n\nAs an another example, this is a valid representation of a [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html):\n\n```\n{\n  \"type\": \"NoteChord\",\n  \"duration\": \"3/16 wn\",\n  \"events\": [\n    {\"pitch\": \"D5\"},\n    {\"pitch\": \"Bb4\"},\n    {\"pitch\": \"F4\"}\n  ]\n}\n```\n\nNotice that\n\n- the duration is coerced to a `Duration` object\n- the default event type of `NoteChord` is `Note`, so the\n  three elements in the event list doesn't need `type: \"Note\"`\n- the duration of the `NoteChord` is inherited by the notes\n- the pitches of the individual notes are coerced into `Pitch` objects\n\nThis is usually preferable to specifying every object in full:\n\n```\n{\n  \"type\": \"NoteChord\",\n  \"duration\": {\n    \"type\": \"Duration\",\n    \"value\": \"3/16\",\n    \"unit\": \"wn\"\n  },\n  \"events\": [\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [43, 74]\n      }\n    },\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [41, 70]\n      }\n    },\n    {\n      \"type\": \"Note\",\n      \"pitch\": {\n        \"type\": \"Pitch\",\n        \"coord\": [38, 65]\n      }\n    }\n  ]\n}\n```\n\n## Positioning\n\nEvents are generally positioned in relation to their parent container. For example, notes specify their position in relation to their voice.\n\nEach event has an anchor point, which is normally the “start” of the event. It may however be changed so that e.g. voices with pickups to sync to other events on their first downbeat, rather than their first note.\n\n## Resolving\n\nRemus is designed with flexibility and extendability as high priorities. The flip side is that parsing remus may be a complex process since the code needs knowledge about the various concepts and representations supported by remus.\n\nTo facilitate things, the remus library can _resolve_ a remus object. This means that it walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.\n\n```\nlet remus = loadSomeComplexRemusFile();\nremus.resolve();\nlet note = remus.findEvent('Note');\nnote.cache.absWn\n  => the absolute position of note in wn (whole notes)\n```\n\nFor detailed documentation of the timeline-related cache keys, see [`Event`](class/lib/classes/event/event.js~Event.html).",
     "longname": "/Volumes/DoReMIR/remus/README.md",
     "name": "./README.md",
     "static": true,
