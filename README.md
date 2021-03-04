@@ -1,261 +1,170 @@
 Remus
 =====
 
-## Basic types
+Remus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  
 
-----------------------
+## Basic structure
 
-### Pitch
+Remus is a hierarchical structure of musical objects where the root object is the [`Song`](class/lib/classes/event/song.js~Song.html). Conceptually, a song consists of
 
-#### Types of pitch
-
-Three types of pitches are supported:
-
-* Exact tone-height (in *mmel* units, see below)
-* Tone-height category (in *tcu* above C0)
-* Structural pitch category, i.e. tones including “spelling” (F# ≠ Gb)
-
-Exact tone-height is measured in *mmel*, which is a floating-point number corresponding to MIDI note numbers. Examples (at concert pitch 440 Hz): 0.0 = C0 = 16.35 Hz, 69.0 = A4 = 440 Hz.
-
-Tone-height category is measured in *tcu* (Tone-height Category Units), which defaults to 24 per octave (quarter tones), but that may be overridden per song or even locally in e.g. a specific voice. Note that the default setting implies `midiNoteNumber = units / 2`. Note that tone-height category must be an integer. If higher resolution is needed, the pitch resolution should be changed, globally or locally.
-
-Structural pitch categories are stored as [Intervals](# Interval) relative to C0
-
-*(Possible extensions: pitch-class/chroma, i.e. tone-height without octave information, and corresponding tonal representation without octave)*
-
-**Note** that more than one of the pitch types can be simultaneously present in the same Pitch object. For example, an imported MIDI file will only have tone-heights set, while structural pitch categories may be added later by some analysis process.
-
-#### Additional data
-
-The tone-height and tonal representations can be complemented by a value for *pitch deviation* in cents. This is stored in the property `pitchDeviation`.
-
-#### TODO
-
-* Vibrato (min/max pitch)
-* “Pitch envelope”
-* Glissando
-
-#### Coercing
-
-In places where a pitch is expected, the following inputs can be coerced to a pitch (using Pitch.coerce):
-
-* Strings of structural pitch categories in scientific notation (e.g. "Ab4" or "C3")
-* Strings of frequencies (e.g. `"440 Hz"`), converted to *mmel*
-* Strings of exact pitches in tcu (e.g. `"69 mmel"`)
-* Strings of tone-height categories (e.g. `"136 tcu"`)
-* Integers, interpreted as tone-height category in *tcu*
-* Floating point numbers, interpreted as exact tone-height in *mmel*
-* An [Interval](# Interval) object, interpreted as relative to C0
-* A list of a number and a string, which is interpreted as `[value, unit]`. Valid units are `Hz`, `mmel` and `tcu`.
-* A list of two numbers, which is first coerced to an [interval](# Interval)
-
-#### Questions
-
-* Should non-pitched sounds be represented *inside* the Pitch class, or by using another class (or e.g. `null`) in the referencing object?
-* Multiple representations are probably not strictly needed in the case of pitch – if pitch-deviation is stored, no information is lost when going "up" from a frequency to a tone-height or tonal representation. Having a single representation at any given time would probably make it easier using the class, however, that could possibly close the door for future extensions of the pitch class.
-* Unpitched / Semi-pitched as separate classes, or as variants of the Pitch class?
-
------------------
-
-### Interval
-
-Intervals are “qualified”, i.e. they consist of a *quality* (perfect, major, minor, augmented, diminished) and a *value* (second, third, octave, etc).
-
-Internally, intervals are stored as arrays of two numbers: `[steps, semitones]`. A major second up (M2) represented by `[1, 2]`, because it means one diatonic step and two semitones up. A perfect fifth down is `[-4, -7]`.
-
-Note that the first number has to be an integer, while the second number can be a floating point number, in order to represent a microtonal interval. For example, `[2, 3.5]` is a third of 3.5 semitones, which is in between a minor and major third.
-
-#### Coercing
-
-Where an interval is expected, the following input formats are accepted and coerced to an interval:
-
-* Strings of shorthand notation (`"m2"` = minor second up, `"d-5"` = diminished fifth down)
-* Number. The quality is implicitly that of a major scale (i.e perfect/major for upwards intervals, and perfect/minor for downwards intervals)
-* A list of an integer and a number, as described above
-
-#### Questions
-
-* Would it be smart to have types of intervals corresponding to the different types of pitches? In that case, we would need a "frequency interval" and a "tone-height interval" in addition to the qualified interval. As they would both be represented by a simple numeric difference in Hz or semitones, respectively, it would be simple to implement, but on the other hand, is there really a need for it?
-* Johan’s comment: “diatonic” intervals (step only)
-* TODO: step numbers mustn’t be locked to a heptatonical context
-
------------------
-
-### Duration
-
-A duration consists of a *value* and a *unit*. While durations can be used on their own, they are typically used as parts of bigger objects, such as [notes](# Note).
-
-The duration class in itself has no knowledge of semantics of the value and unit – it is up to the containing context to define their meaning. However, at least these units can be expected to be used:
-
-* `ms` (milliseconds)
-* `divisions` (as in MusicXML, divisions of a quarter note, the resolution is set in the surrounding context)
-* `measures`
-* `beats`
-* `beat-groups`
-
-TODO: clarify metrical/non-metrical structure
-
------------
-
-### Note
-
-A note consists mainly of [position](# Positioning), [pitch](# Pitch), velocity and a [duration](# Duration). The duration is the "nominal duration", i.e. it reflects a duration *category* (quarter note, dotted half note, etc) rather than an exact amount of time the note sounds.
-
-In addition to the nominal duration, an *actual duration* can be specified. In case of a not-yet-analyzed recording, notes will generally lack nominal duration values, in which case the actual duration is the only available value.
-
-TODO: document position
-
-#### Additional data
-
-Additional data is not specified here, but could include parameters such as
-
-* performance duration / duration deviation
-* performance timing
-* articulation
-* ornamentation
-* stress
-* score information (courtesy accidental, etc)
-* other display information (color, graphical offset ,etc)
-
-TODO: tremolo – recurring events, or grouping events into “super-events” (e.g. trills)
-
----------------
-
-### NoteList
-
-A collection of simultaneous [notes](# Note), sharing “horizontal” properties (such as timing and duration), but with different pitches and possibly other differing properties (such as velocity and articulation).
-
-If a note in a NoteList specifies its own nominal position, it is ignored. Durations can differ, however.
-
----------------
-
-### Harmony
-
-(Under work!)
-
-Properties:
-
-* List of actual [pitches](# Pitch)
-* Root
-* Categorization
-  - Main category
-  - Main tension
-  - Additional tensions
-  - Modifiers
-* List of chord degrees
-* String representation (optional)
-
-Actual pitches is generally only present when the harmony originates from a performance. If a chord is chosen from a list or created from a text representation (such as `"Cm7b5"`), the list of actual pitches will be empty, unless it is filled in with some pre-defined or computed voicing.
-
-#### Categories
-
-Main category includes `major`, `minor`, `suspended-fourth`, `augmented`, `diminished` and `power`. Main tension is `sixth`, `minor-seventh` and `major-seventh`. Additional tensions can then be added, such as 9, 11 and 13. Modifiers can add, remove or alter chord degrees present from the category and tensions.
-
-#### Chord degrees
-
-The list of chord degrees is mainly redundant to the categorization, but enables the use of harmonies for which there are no pre-defined categories. While the list of supported categories could of course be extended, should the need arise, a category system can never contain all possible harmonies.
-
-Note that these chord degrees denote a “nominal harmony” rather than voicing. E.g. a 7sus4 chord would be represented as `[P4, P5, m7]`, even if the seventh was actually played in the octave below the fourth. Octave equivalence is generally assumed, with the exception that the intervals between octave and 13th can be used for tensions, as in common in Western harmonic systems.
-
-The list contains of values that can be coerced to [Interval objects](# Interval). Note that microtonal intervals are supported.
-
-From a list of intervals, a hash can be generated, which is often much easier to work with:
-
-`[M3, A5, m7]` ==> `{3: M3, 5: A5, 7: m7}` or even `{3: 'M', 5: 'A', 7: 'm'}`
-
-This approach is limited to one version of each chord degree, (e.g. both perfect and augmented fifth is not supported). However this is rarely a problem in practice, at least when working with tonal music.
-
-TODO: relation to tonal context?
-
-#### Note
-
-In MusicXML, unknown harmonies are accomplished by using the category `other`, and specifying all included chord degrees as *add* degrees. While this is perhaps not very elegant, it still makes it possible to represent arbitrary harmonies. It could be argued that a list of chord degrees should be calculated instead of stored separately, since it would reduce redundancy. But a degree list is in many ways a “cleaner” solution than a category-based representation, and sometimes it is useful to specify the components of a harmony explicitly.
-
-As an example, a 13th chord may or may not include the fifth, ninth and 11th. While the addition or subtraction of the fifth does not change the categorization of the chord as a 13th chord, it still changes the "color". The presence or absence of a perfect fifth may also be important in a tonal context where the fifth would otherwise be altered.
-
--------------
-
-### Chord
-
-Chord relates to [harmony](# Harmony) in a similar way that [note](# Note) relates to [pitch](# Pitch) – that is, it represents an actual occurrence of a harmony. Thus, it includes a reference to a Harmony object, as well as a position and a [duration](# Duration) (and more?)
-
-#### TODO
-
-* reference to multiple harmonies, in order to provide multiple possible interpretations
-* store actual note list in chord, rather than in harmony (or both?)
-
--------------
-
-## Songs
-
-Objects are organized hierarchially, with a Song being the root object.
-
-Conceptually, a song consists of
-
-* a timeline, or [spine](# Spine)
-* objects relating to the spine (events)
-* objects that do not relate to the spine, and therefore have no timing (a resource pool)
+* a timeline
+* objects relating to the timeline
+* objects that do not relate to the timeline, and therefore have no timing (a resource pool)
 
 Examples of the latter can be links, audio files not [yet] used in the actual song, imported lyrics, MIDI-files, etc.
 
-(Technically, resources may be stored in the same list as timed events, but lacking an explicit position or reference to the spine)
+Technically, objects on the timeline are stored under one of two JS keys: `events` and `metas`. This is similar (but not identical) to how MIDI files use “events” and “meta events”. The event list contains the objects that actually “sounds”, notes, chords and audio file references, while the meta list contains information such as tempo, time and key signature.
+
+The event list may also contain other containers to created nested objects of arbitrary depth. (Note however that there are restrictions for where certain objects can be stored)
+
+## Items
+
+All objects in remus document are referred to as _items_ and inherit from the [`Item`](class/lib/classes/item.js~Item.html) class. All items have a `type`, a string denoting the class name. When loading remus using the `remus` library, items are instantiated to the JS class named by their specified `type`.
+
+Here follows an overview over the various item classes. Detailed documentation is available in the source files of the respective item class.
+
+### Abstract classes
+- [`Item`](class/lib/classes/item.js~Item.html)
+Ancestor of all items
+- [`Event`](class/lib/classes/event/event.js~Event.html)
+Ancestor of all items that have a position on the timeline
+- [`Meta`](class/lib/classes/event/meta.js~Meta.html)
+  Meta events
+- [`EventContainer`](class/lib/classes/event/event-container.js~EventContainer.html)
+  Events containing other events
+
+### Basic types
+- [`Duration`](class/lib/classes/duration.js~Duration.html)
+  Durations in various units
+- [`Pitch`](class/lib/classes/pitch.js~Pitch.html)
+  Pitch representation
+- [`Interval`](class/lib/classes/interval.js~Interval.html)
+  Pitch intervals
+- [`Harmony`](class/lib/classes/harmony.js~Harmony.html)
+  Chords (e.g. dominant or minor seventh)
+- [`Mode`](class/lib/classes/mode.js~Mode.html)
+  Modes and scales (e.g. major, dorian, minor penta)
 
 ### Events
+- [`Note`](class/lib/classes/event/note.js~Note.html)
+  A single note (essentially a Pitch placed on the timeline)
+- [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html)
+  A “chord” of simultanous notes
+- [`Chord`](class/lib/classes/event/chord.js~Chord.html)
+  A chord (essentially a Harmony placed on the timeline)
+- [`Rest`](class/lib/classes/event/rest.js~Rest.html)
 
-We need to support at least the following types:
+### Meta-events
+- [`Time`](class/lib/classes/meta/time.js~Time.html)
+  A time signature such as 4/4 or 6/8
+- [`Key`](class/lib/classes/meta/key.js~key.html)
+  Key signature
+- [`Tempo`](class/lib/classes/meta/tempo.js~Tempo.html)
+  Tempo indication or tempo change
+- [`Clef`](class/lib/classes/meta/clef.js~Clef.html)
+  Clef (for sheet music generation)
 
-* Audio files (or rather, references thereto)
-* Chord sequences
-* Voices (can be polyphonic, or divided into monophonic subvoices)
-* Lyrics
-* Generic containers, used for grouping events (vertically and/or horizontally)
 
-TODO: Maybe a "timeline object" is also needed, a container which specifies time signature and tempo (and possibly other semi-global properties) for the contained objects.
+## Coercing and type inference
 
-An audio recording will first result in an audio file. After audio analysis, there will be a voice, where the individual notes have no nominal positions and durations, only actual ditto. After music analysis, nominal values are added.
+Most of the `Item` classes has a `coerce` method that simplifies creation of instances.
 
-(An alternative solution would be to have two different kinds of voices, like in SC Studio where the listener format is a simple time/pitch grid and the voice structure used by songs is a different format)
+For example, this is an easy way to create a [`Pitch`](class/lib/classes/pitch.js~Pitch.html) object:
 
-### Positioning
+```
+Pitch.coerce("Ab4")
+// equivalent to
+new Pitch({coord: [40, 68]})
+```
 
-#### Relativity
+(For information of supported formats, see the documentation of the respective `Item` class)
+
+In places where a specific `Item` class is expected, its `coerce` method is called automatically. Therefore it is often not needed to specify a complete JS object.
+
+For example, the [`Key`](class/lib/classes/meta/key.js~key.html) class has two members called `root` and `mode` which are of type `Pitch` and `Mode` respectively. The following code works as expected:
+
+```
+new Key({pitch: "Bb", mode: "minor"})
+```
+
+This is because under the hood, the `Key` constructor calls `Pitch.coerce` on the string `"Bb"` and `Mode.coerce` on the string `"minor"`, resulting in a `Pitch` and a `Mode` object.
+
+As an another example, this is a valid representation of a [`NoteChord`](class/lib/classes/event/note-chord.js~NoteChord.html):
+
+```
+{
+  "type": "NoteChord",
+  "duration": "3/16 wn",
+  "events": [
+    {"pitch": "D5"},
+    {"pitch": "Bb4"},
+    {"pitch": "F4"}
+  ]
+}
+```
+
+Notice that
+
+- the duration is coerced to a `Duration` object
+- the default event type of `NoteChord` is `Note`, so the
+  three elements in the event list doesn't need `type: "Note"`
+- the duration of the `NoteChord` is inherited by the notes
+- the pitches of the individual notes are coerced into `Pitch` objects
+
+This is usually preferable to specifying every object in full:
+
+```
+{
+  "type": "NoteChord",
+  "duration": {
+    "type": "Duration",
+    "value": "3/16",
+    "unit": "wn"
+  },
+  "events": [
+    {
+      "type": "Note",
+      "pitch": {
+        "type": "Pitch",
+        "coord": [43, 74]
+      }
+    },
+    {
+      "type": "Note",
+      "pitch": {
+        "type": "Pitch",
+        "coord": [41, 70]
+      }
+    },
+    {
+      "type": "Note",
+      "pitch": {
+        "type": "Pitch",
+        "coord": [38, 65]
+      }
+    }
+  ]
+}
+```
+
+## Positioning
 
 Events are generally positioned in relation to their parent container. For example, notes specify their position in relation to their voice.
 
-Each event has a origo (anchor point), which may be different from the "start" of the event. This enables e.g. voices with pickups to sync to other events on their first downbeat, rather than their first note.
+Each event has an anchor point, which is normally the “start” of the event. It may however be changed so that e.g. voices with pickups to sync to other events on their first downbeat, rather than their first note.
 
-In addition to the hierarchical positioning, events may also refer to the spine. This makes it possible to sync events directly to events in other containers.
+## Resolving
 
-#### Spine
+Remus is designed with flexibility and extendability as high priorities. The flip side is that parsing remus may be a complex process since the code needs knowledge about the various concepts and representations supported by remus.
 
-The spine concept is borrowed from IEEE 1599. Quoting from [http://www.mx.lim.di.unimi.it/reference_manual/spine.php]():
+To facilitate things, the remus library can _resolve_ a remus object. This means that is walks through its structure, expands inherited properties, converts various units etc. The result is then cached in each remus object.
 
->  Spine is made of a sorted list of music events, where the definition and granularity of the term "event" can be defined by the author of the encoding. In this sense, spine represents an abstraction level, as the events identified do not have to correspond necessarily to score symbols, or audio samples, or anything else. The author can decide each time what goes under the definition of "music event", according to the needs.
->
->  ...
->
->  [S]pine acts also as a glue in a multi-layer structure, in which music events are not only listed and ordered by spine, but also tagged by unique identifiers. These identifiers, conceptually similar to unique key constraints in a database, are referred to by all instances of the corresponding event representations in other layers.
+```
+let remus = loadSomeComplexRemusFile();
+remus.resolve();
+let note = remus.findEvent('Note');
+note.cache.absWn
+  => the absolute position of note in wn (whole notes)
+```
 
-#### Questions
-
-* How is time-line consistency guaranteed? The ordering of events must be enforced, while spine references makes time-line inconsistencies possible. Some kind of validation function perhaps, that can remove illegal spine references.
-
-
-## Global/local parameters
-
-Tonal resolution (heptatonic, pentatonic etc)
-Tone-height resolution (how many pitches per octave) (what about non-uniform distribution and temperment?)
-
-
-## TODO: Metrical layers / metrical structure
-
-## TODO: Non-metrical structure (phrase-based?)
-
-## TODO: Tonality
-
-## TODO: Macro objects – for example loop a sequence of notes for a certain time, or a certain number of events
-
-## TODO: group objects and render them as something else, e.g. trills
-
-
-
+For detailed documentation of the timeline-related cache keys, see [`Event`](class/lib/classes/event/event.js~Event.html).
