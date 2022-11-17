@@ -32,6 +32,11 @@ import Score from './lib/score/score.js';
 
 import NoteSplit from 'note-split';
 
+// Default export
+// Example use:
+// 
+//   import remus from 'remus';
+// 
 export default {
   Store: Store,
 
@@ -89,3 +94,39 @@ export default {
   tuplet: Tuplet.coerce,
 
 };
+
+// Named exports
+// Example use:
+// 
+//   import { Item } from 'remus';
+// 
+export {
+  Store,
+
+  Fraction,
+  Interval,
+  Pitch,
+  Duration,
+  Mode,
+  Note,
+  NoteChord,
+  Rest,
+  Harmony,
+  Chord,
+  ChordSequence,
+  Voice,
+  VerticalContainer,
+  VoiceContainer,
+  AudioFile,
+  Audio,
+  Tempo,
+  Time,
+  Clef,
+  Song,
+  Key,
+  Tuplet,
+  Item,
+  MusicPtr,
+
+  Score,
+}
