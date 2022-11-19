@@ -6,12 +6,12 @@
   "main": "remus.js",
   "dependencies": {
     "fraction.js": "^4.0.13",
-    "helmholtz": "erikronstrom/helmholtz",
-    "interval-coords": "erikronstrom/interval-coords",
+    "helmholtz": "doremir/helmholtz",
+    "interval-coords": "doremir/interval-coords",
     "jquery": "^3.5.1",
     "note-split": "doremir/note-split",
-    "notecoord": "erikronstrom/notecoord",
-    "scientific-notation": "erikronstrom/scientific-notation",
+    "notecoord": "doremir/notecoord",
+    "scientific-notation": "doremir/scientific-notation",
     "svg.js": "^2.7.1",
     "underscore": "^1.12.0",
     "xml2js": "^0.4.23"
