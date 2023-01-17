@@ -23,6 +23,7 @@ import Song from './lib/classes/event/song.js';
 import VerticalContainer from './lib/classes/event/vertical-container.js';
 import Voice from './lib/classes/event/voice.js';
 import VoiceContainer from './lib/classes/event/voice-container.js';
+import Part from './lib/classes/event/part.js';
 import Tempo from './lib/classes/meta/tempo.js';
 import Time from './lib/classes/meta/time.js';
 import Key from './lib/classes/meta/key.js';
@@ -54,6 +55,7 @@ export default {
   Voice: Voice,
   VerticalContainer: VerticalContainer,
   VoiceContainer: VoiceContainer,
+  Part: Part,
   AudioFile: AudioFile,
   Audio: Audio,
   Tempo: Tempo,
@@ -84,6 +86,7 @@ export default {
   voice: Voice.coerce,
   verticalContainer: VerticalContainer.coerce,
   voiceContainer: VoiceContainer.coerce,
+  part: Part.coerce,
   audioFile: AudioFile.coerce,
   audio: Audio.coerce,
   tempo: Tempo.coerce,
@@ -117,6 +120,7 @@ export {
   Voice,
   VerticalContainer,
   VoiceContainer,
+  Part,
   AudioFile,
   Audio,
   Tempo,
