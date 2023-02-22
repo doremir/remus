@@ -29,6 +29,8 @@ import Time from './lib/classes/meta/time.js';
 import Key from './lib/classes/meta/key.js';
 import Tuplet from './lib/classes/event/tuplet.js';
 
+import PageText from './lib/classes/page-item/page-text.js';
+
 import Score from './lib/score/score.js';
 
 import NoteSplit from 'note-split';
@@ -66,6 +68,7 @@ export default {
   Tuplet: Tuplet,
   Item: Item,
   MusicPtr: MusicPtr,
+  PageText: PageText,
 
   Score: Score,
 
