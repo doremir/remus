@@ -20,6 +20,7 @@ import Note from './lib/classes/event/note.js';
 import NoteChord from './lib/classes/event/note-chord.js';
 import Rest from './lib/classes/event/rest.js';
 import Song from './lib/classes/event/song.js';
+import StaffAssignment from './lib/classes/meta/staff-assignment.js';
 import VerticalContainer from './lib/classes/event/vertical-container.js';
 import Voice from './lib/classes/event/voice.js';
 import VoiceContainer from './lib/classes/event/voice-container.js';
@@ -69,6 +70,7 @@ export default {
   Item: Item,
   MusicPtr: MusicPtr,
   PageText: PageText,
+  StaffAssignment: StaffAssignment,
 
   Score: Score,
 
@@ -98,6 +100,7 @@ export default {
   song: Song.coerce,
   key: Key.coerce,
   tuplet: Tuplet.coerce,
+  staffAssignment: StaffAssignment.coerce,
 
 };
 
@@ -134,6 +137,7 @@ export {
   Tuplet,
   Item,
   MusicPtr,
+  StaffAssignment,
 
   Score,
 }
