@@ -29,6 +29,7 @@ import Tempo from './lib/classes/meta/tempo.js';
 import Time from './lib/classes/meta/time.js';
 import Key from './lib/classes/meta/key.js';
 import Tuplet from './lib/classes/event/tuplet.js';
+import Meta from './lib/classes/meta/meta.js';
 
 import PageText from './lib/classes/page-item/page-text.js';
 
@@ -58,6 +59,7 @@ export default {
   Voice: Voice,
   VerticalContainer: VerticalContainer,
   VoiceContainer: VoiceContainer,
+  Meta: Meta,
   Part: Part,
   AudioFile: AudioFile,
   Audio: Audio,
@@ -126,6 +128,7 @@ export {
   Voice,
   VerticalContainer,
   VoiceContainer,
+  Meta,
   Part,
   AudioFile,
   Audio,
