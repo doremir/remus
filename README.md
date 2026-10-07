@@ -3,6 +3,14 @@ Remus
 
 Remus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  
 
+## Notation rendering
+
+Music notation rendering is handled by the separate `remus-score` package.
+The legacy renderer in `lib/score/` and its `svg.js` dependency have been
+removed from Remus. Import `Score` from `remus-score`, not from `remus`;
+the former `remus.Score` and named `Score` exports are no longer available.
+Musical data and notation settings remain in Remus.
+
 ## Internal helpers
 
 The former `helmholtz`, `interval-coords`, `note-split`, `notecoord`, and

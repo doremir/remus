@@ -33,8 +33,6 @@ import Meta from './lib/classes/meta/meta.js';
 
 import PageText from './lib/classes/page-item/page-text.js';
 
-import Score from './lib/score/score.js';
-
 import NoteSplit from './lib/helpers/note-split.js';
 
 // Default export
@@ -73,8 +71,6 @@ export default {
   MusicPtr: MusicPtr,
   PageText: PageText,
   StaffAssignment: StaffAssignment,
-
-  Score: Score,
 
   debug: {
     NoteSplit: NoteSplit
@@ -141,6 +137,4 @@ export {
   Item,
   MusicPtr,
   StaffAssignment,
-
-  Score,
 }

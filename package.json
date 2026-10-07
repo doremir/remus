@@ -6,8 +6,6 @@
   "main": "remus.js",
   "dependencies": {
     "fraction.js": "^4.0.13",
-    "jquery": "^3.5.1",
-    "svg.js": "^2.7.1",
     "underscore": "^1.12.0",
     "xml2js": "^0.4.23"
   }
