@@ -13,16 +13,13 @@ Musical data and notation settings remain in Remus.
 
 ## Internal helpers
 
-The former `helmholtz`, `interval-coords`, `note-split`, `notecoord`, and
+The former `helmholtz`, `interval-coords`, `notecoord`, and
 `scientific-notation` dependencies are maintained directly in `lib/helpers/`,
 along with their small `accidental-value` helper. These modules are internal
-implementation details, not separate packages. This removes the unused,
-outdated `mathjs` dependency previously declared by `note-split`; note splitting
-uses Remus's existing `fraction.js` dependency. The existing
-`remus.debug.NoteSplit` export is preserved. Upstream attribution and license
+implementation details, not separate packages. Upstream attribution and license
 information are in `lib/helpers/LICENSE`.
 
-Run the helper regression tests with `npm test` (Node.js 18 or later).
+Note splitting for notation is handled internally by `remus-score`.
 
 ## Basic structure
 

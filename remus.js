@@ -33,8 +33,6 @@ import Meta from './lib/classes/meta/meta.js';
 
 import PageText from './lib/classes/page-item/page-text.js';
 
-import NoteSplit from './lib/helpers/note-split.js';
-
 // Default export
 // Example use:
 // 
@@ -71,10 +69,6 @@ export default {
   MusicPtr: MusicPtr,
   PageText: PageText,
   StaffAssignment: StaffAssignment,
-
-  debug: {
-    NoteSplit: NoteSplit
-  },
 
   interval: Interval.coerce,
   pitch: Pitch.coerce,
