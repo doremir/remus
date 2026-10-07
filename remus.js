@@ -35,7 +35,7 @@ import PageText from './lib/classes/page-item/page-text.js';
 
 import Score from './lib/score/score.js';
 
-import NoteSplit from 'note-split';
+import NoteSplit from './lib/helpers/note-split.js';
 
 // Default export
 // Example use:

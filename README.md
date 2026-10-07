@@ -3,6 +3,19 @@ Remus
 
 Remus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  
 
+## Internal helpers
+
+The former `helmholtz`, `interval-coords`, `note-split`, `notecoord`, and
+`scientific-notation` dependencies are maintained directly in `lib/helpers/`,
+along with their small `accidental-value` helper. These modules are internal
+implementation details, not separate packages. This removes the unused,
+outdated `mathjs` dependency previously declared by `note-split`; note splitting
+uses Remus's existing `fraction.js` dependency. The existing
+`remus.debug.NoteSplit` export is preserved. Upstream attribution and license
+information are in `lib/helpers/LICENSE`.
+
+Run the helper regression tests with `npm test` (Node.js 18 or later).
+
 ## Basic structure
 
 Remus is a hierarchical structure of musical objects where the root object is the [`Song`](class/lib/classes/event/song.js~Song.html). Conceptually, a song consists of
