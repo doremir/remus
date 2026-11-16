@@ -6,7 +6,6 @@
   "main": "remus.js",
   "dependencies": {
     "fraction.js": "^4.0.13",
-    "underscore": "^1.13.8",
-    "xml2js": "^0.6.2"
+    "underscore": "^1.13.8"
   }
 }

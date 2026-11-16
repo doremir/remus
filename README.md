@@ -3,6 +3,13 @@ Remus
 
 Remus is a JSON-based format for representing musical data. To work with remus data, the `remus` JavaScript library is provided.  
 
+## XML import/export
+
+XML import/export is unsupported. The legacy `fromXML`, `toXML`, `parseXML`,
+and `buildXML` entry points throw an `Error`. JSON APIs and XML-object conversion
+helpers are unchanged. If XML support is needed in the future, use a different
+XML parser rather than restoring the removed `xml2js` dependency.
+
 ## Notation rendering
 
 Music notation rendering is handled by the separate `remus-score` package.
