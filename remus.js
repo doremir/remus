@@ -2,6 +2,7 @@
 import Fraction from 'fraction.js';
 
 import Store from './lib/store.js';
+import { createTimingMap } from './lib/timing-map.js';
 
 import AudioFile from './lib/classes/audio-file.js';
 import Duration from './lib/classes/duration.js';
@@ -39,6 +40,7 @@ import PageText from './lib/classes/page-item/page-text.js';
 //   import remus from 'remus';
 // 
 export default {
+  createTimingMap,
   Store: Store,
 
   Fraction: Fraction,
@@ -102,6 +104,7 @@ export default {
 //   import { Item } from 'remus';
 // 
 export {
+  createTimingMap,
   Store,
 
   Fraction,

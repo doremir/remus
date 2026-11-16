@@ -6,20 +6,39 @@ Remus is a JSON-based format for representing musical data. To work with remus d
 ## Notation rendering
 
 Music notation rendering is handled by the separate `remus-score` package.
-The legacy renderer in `lib/score/` and its `svg.js` dependency have been
-removed from Remus. Import `Score` from `remus-score`, not from `remus`;
-the former `remus.Score` and named `Score` exports are no longer available.
-Musical data and notation settings remain in Remus.
+Import `Score` from `remus-score`. Remus owns musical data and notation settings;
+the rendering package owns score construction and engraving geometry.
 
 ## Internal helpers
 
-The former `helmholtz`, `interval-coords`, `notecoord`, and
-`scientific-notation` dependencies are maintained directly in `lib/helpers/`,
-along with their small `accidental-value` helper. These modules are internal
+Pitch parsing and coordinate helpers are maintained in `lib/helpers/`, including
+`helmholtz`, `interval-coords`, `notecoord`, `scientific-notation`, and
+`accidental-value`. These modules are internal
 implementation details, not separate packages. Upstream attribution and license
 information are in `lib/helpers/LICENSE`.
 
 Note splitting for notation is handled internally by `remus-score`.
+
+## Timing maps
+
+`createTimingMap(points)` accepts `{ scoreTime, audioTime }` anchors in seconds
+and returns `anchors`, `toAudioTime(seconds)`, and `toScoreTime(seconds)`, or
+`null` when fewer than two increasing anchors are available. Simultaneous score
+positions use the median audio position; non-finite, negative-audio, and
+backwards-audio anchors are excluded. Mapping uses linear interpolation and
+endpoint-segment extrapolation. Callers own recording-resource selection,
+metadata extraction, clamping, and playback scheduling.
+
+## Chord playback generation
+
+Resolve the song and pattern before calling
+`chordSequence.generateChordPlayback(patternSong, options)`. Omitting options
+uses the regular pattern generator. `{ sparse: true, repeatEveryWn: 1 }`
+generates chord-change attacks and repeats within held chords, with notes held
+to the next trigger. `repeatEveryWn` is a positive whole-note interval, not an
+implicit time-signature-aware bar length; callers select it for their musical
+policy. The generator uses pattern note/chord-tone relationships. Callers own
+style/pattern selection, final instrument/mixer policy, and scheduling.
 
 ## Basic structure
 
